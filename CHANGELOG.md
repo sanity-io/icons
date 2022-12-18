@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.0-beta.1](https://github.com/sanity-io/icons/compare/v2.1.0...v2.2.0-beta.1) (2022-12-18)
+
+### Features
+
+- convert to ES module package ([ba2b41b](https://github.com/sanity-io/icons/commit/ba2b41b7dd961b007ad969fd3e70baf899533d9d))
+
 ## [2.1.0](https://github.com/sanity-io/icons/compare/v2.0.0...v2.1.0) (2022-11-30)
 
 ### Features
