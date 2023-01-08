@@ -54,7 +54,7 @@
     "@commitlint/cli": "^17.4.0",
     "@commitlint/config-conventional": "^17.4.0",
     "@sanity/pkg-utils": "^2.1.1",
-    "@sanity/semantic-release-preset": "^2.0.5",
+    "@sanity/semantic-release-preset": "^3.0.2",
     "@sanity/ui": "^1.0.11",
     "@sanity/ui-workshop": "^1.1.8",
     "@svgr/core": "^6.5.1",
