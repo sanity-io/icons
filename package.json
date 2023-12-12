@@ -92,7 +92,7 @@
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
     "rimraf": "^5.0.5",
-    "semantic-release": "^21.1.2",
+    "semantic-release": "^22.0.12",
     "styled-components": "^6.0.8",
     "typescript": "^5.2.2"
   },
