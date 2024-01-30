@@ -144,6 +144,8 @@ async function generate() {
     .map((f) => `'${f.name}': ${f.componentName}`)
     .join(',')}}`
 
+  const versionExport = `/**\n * @public\n */\nexport const packageVersion = '${process.env.npm_package_version}'`
+
   const indexPath = path.resolve(SRC_ICONS_PATH, `index.ts`)
 
   const indexTsCode = await format(
@@ -156,6 +158,7 @@ async function generate() {
       iconExports,
       iconMapInterface,
       iconsExport,
+      versionExport,
     ].join('\n\n'),
     {
       ...prettierConfig,
