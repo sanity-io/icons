@@ -24,8 +24,8 @@ devDependencies:
     specifier: ^18.6.0
     version: 18.6.0
   '@sanity/pkg-utils':
-    specifier: ^3.3.8
-    version: 3.3.8(@types/node@20.10.6)(typescript@5.3.3)
+    specifier: ^4.2.0
+    version: 4.2.0(@types/node@20.10.6)(typescript@5.3.3)
   '@sanity/semantic-release-preset':
     specifier: ^4.1.6
     version: 4.1.6(semantic-release@22.0.12)
@@ -238,7 +238,7 @@ packages:
     dependencies:
       '@babel/compat-data': 7.23.5
       '@babel/helper-validator-option': 7.23.5
-      browserslist: 4.22.2
+      browserslist: 4.22.3
       lru-cache: 5.1.1
       semver: 6.3.1
     dev: true
@@ -2911,6 +2911,10 @@ packages:
       string-argv: 0.3.2
     dev: true
 
+  /@sanity/browserslist-config@1.0.1:
+    resolution: {integrity: sha512-pRGV/IC6n/0GNI7kTTojKNZwU2OovF4ZrOiSoCTFvdSetSSjyu8eNuSLrRcr9GcuknNboGVD5YPGNHelQxkkgg==}
+    dev: true
+
   /@sanity/color@2.2.5:
     resolution: {integrity: sha512-tTi22KoKuER3sldXYl4c1Dq2zU7tMLDkljFiaUKVkBbu4PBvRGCFw75kXZnD2b4Bsp6vin+7sI+AKdCKRhfRuw==}
     dev: true
@@ -2924,15 +2928,14 @@ packages:
       react: 18.2.0
     dev: true
 
-  /@sanity/pkg-utils@3.3.8(@types/node@20.10.6)(typescript@5.3.3):
-    resolution: {integrity: sha512-PKQVdY6yvmLFzJzM3ukSHGpa044zIcBWxD2P4Rs/MPfKrxwxQfwewuCDXrLd6X9udqduiiUTYAr/gCZ3XEMjYQ==}
+  /@sanity/pkg-utils@4.2.0(@types/node@20.10.6)(typescript@5.3.3):
+    resolution: {integrity: sha512-lKMf36gqcpC4AUPiTpRZMuCV/sSGYvxV+SW6fmw3xQlQ26zhwQB88Y+d1wRn/xWarnu8EAYzpMPKJtPO+XRHag==}
     engines: {node: '>=16.0.0'}
     hasBin: true
     peerDependencies:
       typescript: ^4.7 || ^5
     dependencies:
       '@babel/core': 7.23.9
-      '@babel/preset-env': 7.23.9(@babel/core@7.23.9)
       '@babel/types': 7.23.9
       '@microsoft/api-extractor': 7.40.1(@types/node@20.10.6)
       '@microsoft/tsdoc-config': 0.16.2
@@ -2943,17 +2946,18 @@ packages:
       '@rollup/plugin-node-resolve': 15.2.3(rollup@4.9.6)
       '@rollup/plugin-replace': 5.0.5(rollup@4.9.6)
       '@rollup/plugin-terser': 0.4.4(rollup@4.9.6)
-      browserslist: 4.22.2
+      '@sanity/browserslist-config': 1.0.1
+      browserslist: 4.22.3
       cac: 6.7.14
       chalk: 4.1.2
-      chokidar: 3.5.3
-      esbuild: 0.19.11
-      esbuild-register: 3.5.0(esbuild@0.19.11)
+      chokidar: 3.6.0
+      esbuild: 0.20.0
+      esbuild-register: 3.5.0(esbuild@0.20.0)
       find-config: 1.0.0
       get-latest-version: 5.1.0
       git-url-parse: 14.0.0
       globby: 11.1.0
-      jsonc-parser: 3.2.0
+      jsonc-parser: 3.2.1
       mkdirp: 3.0.1
       outdent: 0.8.0
       parse-git-config: 3.0.0
@@ -2964,7 +2968,7 @@ packages:
       prompts: 2.4.2
       rimraf: 4.4.1
       rollup: 4.9.6
-      rollup-plugin-esbuild: 6.1.0(esbuild@0.19.11)(rollup@4.9.6)
+      rollup-plugin-esbuild: 6.1.1(esbuild@0.20.0)(rollup@4.9.6)
       rxjs: 7.8.1
       treeify: 1.1.0
       typescript: 5.3.3
@@ -3007,7 +3011,7 @@ packages:
       '@vitejs/plugin-react': 4.2.1(vite@5.0.10)
       axe-core: 4.8.3
       cac: 6.7.14
-      chokidar: 3.5.3
+      chokidar: 3.6.0
       cpx: 1.5.0
       dotenv-flow: 4.1.0
       esbuild: 0.19.11
@@ -4337,15 +4341,15 @@ packages:
       fill-range: 7.0.1
     dev: true
 
-  /browserslist@4.22.2:
-    resolution: {integrity: sha512-0UgcrvQmBDvZHFGdYUehrCNIazki7/lUP3kkoi/r3YB2amZbFM9J43ZRkJTXBUZK4gmx56+Sqk9+Vs9mwZx9+A==}
+  /browserslist@4.22.3:
+    resolution: {integrity: sha512-UAp55yfwNv0klWNapjs/ktHoguxuQNGnOzxYmfnXIS+8AsRDZkSDxg7R1AX3GKzn078SBI5dzwzj/Yx0Or0e3A==}
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001572
-      electron-to-chromium: 1.4.616
+      caniuse-lite: 1.0.30001585
+      electron-to-chromium: 1.4.664
       node-releases: 2.0.14
-      update-browserslist-db: 1.0.13(browserslist@4.22.2)
+      update-browserslist-db: 1.0.13(browserslist@4.22.3)
     dev: true
 
   /bser@2.1.1:
@@ -4441,8 +4445,8 @@ packages:
     resolution: {integrity: sha512-dU+Tx2fsypxTgtLoE36npi3UqcjSSMNYfkqgmoEhtZrraP5VWq0K7FkWVTYa8eMPtnU/G2txVsfdCJTn9uzpuQ==}
     dev: true
 
-  /caniuse-lite@1.0.30001572:
-    resolution: {integrity: sha512-1Pbh5FLmn5y4+QhNyJE9j3/7dK44dGB83/ZMjv/qJk86TvDbjk0LosiZo0i0WB0Vx607qMX9jYrn1VLHCkN4rw==}
+  /caniuse-lite@1.0.30001585:
+    resolution: {integrity: sha512-yr2BWR1yLXQ8fMpdS/4ZZXpseBgE7o4g41x3a6AJOqZuOi+iE/WdJYAuZ6Y95i4Ohd2Y+9MzIWRR+uGABH4s3Q==}
     dev: true
 
   /cardinal@2.1.1:
@@ -4522,8 +4526,8 @@ packages:
       - supports-color
     dev: true
 
-  /chokidar@3.5.3:
-    resolution: {integrity: sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==}
+  /chokidar@3.6.0:
+    resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
     engines: {node: '>= 8.10.0'}
     dependencies:
       anymatch: 3.1.3
@@ -4827,7 +4831,7 @@ packages:
   /core-js-compat@3.35.0:
     resolution: {integrity: sha512-5blwFAddknKeNgsjBzilkdQ0+YK8L1PfqPYq40NOYMYFSS38qj+hpTcLLWwpIwA2A5bje/x5jmVn2tzUMg9IVw==}
     dependencies:
-      browserslist: 4.22.2
+      browserslist: 4.22.3
     dev: true
 
   /core-js@2.6.12:
@@ -5294,8 +5298,8 @@ packages:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: true
 
-  /electron-to-chromium@1.4.616:
-    resolution: {integrity: sha512-1n7zWYh8eS0L9Uy+GskE0lkBUNK83cXTVJI0pU3mGprFsbfSdAc15VTFbo+A+Bq4pwstmL30AVcEU3Fo463lNg==}
+  /electron-to-chromium@1.4.664:
+    resolution: {integrity: sha512-k9VKKSkOSNPvSckZgDDl/IQx45E1quMjX8QfLzUsAs/zve8AyFDK+ByRynSP/OfEfryiKHpQeMf00z0leLCc3A==}
     dev: true
 
   /emittery@0.13.1:
@@ -8185,8 +8189,8 @@ packages:
     hasBin: true
     dev: true
 
-  /jsonc-parser@3.2.0:
-    resolution: {integrity: sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==}
+  /jsonc-parser@3.2.1:
+    resolution: {integrity: sha512-AilxAyFOAcK5wA1+LeaySVBrHsGQvUFCDWXKpZjzaL0PqW+xfBOttn8GNtWKFWqneyMZj41MWF9Kl6iPWLwgOA==}
     dev: true
 
   /jsonfile@4.0.0:
@@ -10114,8 +10118,8 @@ packages:
       glob: 10.3.10
     dev: true
 
-  /rollup-plugin-esbuild@6.1.0(esbuild@0.19.11)(rollup@4.9.6):
-    resolution: {integrity: sha512-HPpXU65V8bSpW8eSYPahtUJaJHmbxJGybuf/M8B3bz/6i11YaYHlNNJIQ38gSEV0FyohQOgVxJ2YMEEZtEmwvA==}
+  /rollup-plugin-esbuild@6.1.1(esbuild@0.20.0)(rollup@4.9.6):
+    resolution: {integrity: sha512-CehMY9FAqJD5OUaE/Mi1r5z0kNeYxItmRO2zG4Qnv2qWKF09J2lTy5GUzjJR354ZPrLkCj4fiBN41lo8PzBUhw==}
     engines: {node: '>=14.18.0'}
     peerDependencies:
       esbuild: '>=0.18.0'
@@ -10124,7 +10128,7 @@ packages:
       '@rollup/pluginutils': 5.1.0(rollup@4.9.6)
       debug: 4.3.4
       es-module-lexer: 1.4.1
-      esbuild: 0.19.11
+      esbuild: 0.20.0
       get-tsconfig: 4.7.2
       rollup: 4.9.6
     transitivePeerDependencies:
@@ -11292,13 +11296,13 @@ packages:
       isobject: 3.0.1
     dev: true
 
-  /update-browserslist-db@1.0.13(browserslist@4.22.2):
+  /update-browserslist-db@1.0.13(browserslist@4.22.3):
     resolution: {integrity: sha512-xebP81SNcPuNpPP3uzeW1NYXxI3rxyJzF3pD6sH4jE7o/IX+WtSpwnVU+qIsDPyk0d3hmFQ7mjqc6AtV604hbg==}
     hasBin: true
     peerDependencies:
       browserslist: '>= 4.21.0'
     dependencies:
-      browserslist: 4.22.2
+      browserslist: 4.22.3
       escalade: 3.1.1
       picocolors: 1.0.0
     dev: true
