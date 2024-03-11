@@ -5,6 +5,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.3](https://github.com/sanity-io/icons/compare/v2.10.2...v2.10.3) (2024-02-21)
+
+### Bug Fixes
+
+- **deps:** update non-major ([#51](https://github.com/sanity-io/icons/issues/51)) ([908972b](https://github.com/sanity-io/icons/commit/908972bc982e3e9ba083ffd83b697537cd1863b4))
+
+## [2.10.2](https://github.com/sanity-io/icons/compare/v2.10.1...v2.10.2) (2024-02-09)
+
+### Bug Fixes
+
+- minify export ([27503ad](https://github.com/sanity-io/icons/commit/27503ad2f4b90f38f0dd7041caf7f4b967710437))
+- update hash icon ([baeb811](https://github.com/sanity-io/icons/commit/baeb811dd7da67c9d5468d7f962c858603c8a45a))
+
+## [2.10.1](https://github.com/sanity-io/icons/compare/v2.10.0...v2.10.1) (2024-02-02)
+
+### Bug Fixes
+
+- missing icons and wrong colors ([aec0930](https://github.com/sanity-io/icons/commit/aec0930451d37b41b589d84170c9052493947b6e))
+
 ## [2.10.0](https://github.com/sanity-io/icons/compare/v2.9.0...v2.10.0) (2024-01-26)
 
 ### Features
