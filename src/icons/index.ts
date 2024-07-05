@@ -87,6 +87,7 @@ import {EarthGlobeIcon} from './earthGlobeIcon'
 import {EditIcon} from './editIcon'
 import {EllipsisHorizontalIcon} from './ellipsisHorizontalIcon'
 import {EllipsisVerticalIcon} from './ellipsisVerticalIcon'
+import {EmptyIcon} from './emptyIcon'
 import {EnterIcon} from './enterIcon'
 import {EnterRightIcon} from './enterRightIcon'
 import {EnvelopeIcon} from './envelopeIcon'
@@ -144,6 +145,7 @@ import {PinRemovedIcon} from './pinRemovedIcon'
 import {PlayIcon} from './playIcon'
 import {PlugIcon} from './plugIcon'
 import {PresentationIcon} from './presentationIcon'
+import {Progress50Icon} from './progress50Icon'
 import {ProjectsIcon} from './projectsIcon'
 import {PublishIcon} from './publishIcon'
 import {ReadOnlyIcon} from './readOnlyIcon'
@@ -297,6 +299,7 @@ export type IconSymbol =
   | 'edit'
   | 'ellipsis-horizontal'
   | 'ellipsis-vertical'
+  | 'empty'
   | 'enter'
   | 'enter-right'
   | 'envelope'
@@ -354,6 +357,7 @@ export type IconSymbol =
   | 'play'
   | 'plug'
   | 'presentation'
+  | 'progress-50'
   | 'projects'
   | 'publish'
   | 'read-only'
@@ -504,6 +508,7 @@ export {
   EditIcon,
   EllipsisHorizontalIcon,
   EllipsisVerticalIcon,
+  EmptyIcon,
   EnterIcon,
   EnterRightIcon,
   EnvelopeIcon,
@@ -561,6 +566,7 @@ export {
   PlayIcon,
   PlugIcon,
   PresentationIcon,
+  Progress50Icon,
   ProjectsIcon,
   PublishIcon,
   ReadOnlyIcon,
@@ -715,6 +721,7 @@ export interface IconMap {
   edit: IconComponent
   'ellipsis-horizontal': IconComponent
   'ellipsis-vertical': IconComponent
+  empty: IconComponent
   enter: IconComponent
   'enter-right': IconComponent
   envelope: IconComponent
@@ -772,6 +779,7 @@ export interface IconMap {
   play: IconComponent
   plug: IconComponent
   presentation: IconComponent
+  'progress-50': IconComponent
   projects: IconComponent
   publish: IconComponent
   'read-only': IconComponent
@@ -926,6 +934,7 @@ export const icons: IconMap = {
   edit: EditIcon,
   'ellipsis-horizontal': EllipsisHorizontalIcon,
   'ellipsis-vertical': EllipsisVerticalIcon,
+  empty: EmptyIcon,
   enter: EnterIcon,
   'enter-right': EnterRightIcon,
   envelope: EnvelopeIcon,
@@ -983,6 +992,7 @@ export const icons: IconMap = {
   play: PlayIcon,
   plug: PlugIcon,
   presentation: PresentationIcon,
+  'progress-50': Progress50Icon,
   projects: ProjectsIcon,
   publish: PublishIcon,
   'read-only': ReadOnlyIcon,
