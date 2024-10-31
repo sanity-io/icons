@@ -113,6 +113,7 @@ import {IceCreamIcon} from './iceCreamIcon'
 import {ImageIcon} from './imageIcon'
 import {ImageRemoveIcon} from './imageRemoveIcon'
 import {ImagesIcon} from './imagesIcon'
+import {InboxIcon} from './inboxIcon'
 import {InfoFilledIcon} from './infoFilledIcon'
 import {InfoOutlineIcon} from './infoOutlineIcon'
 import {InlineElementIcon} from './inlineElementIcon'
@@ -335,6 +336,7 @@ export type IconSymbol =
   | 'image'
   | 'image-remove'
   | 'images'
+  | 'inbox'
   | 'info-filled'
   | 'info-outline'
   | 'inline-element'
@@ -554,6 +556,7 @@ export {
   ImageIcon,
   ImageRemoveIcon,
   ImagesIcon,
+  InboxIcon,
   InfoFilledIcon,
   InfoOutlineIcon,
   InlineElementIcon,
@@ -777,6 +780,7 @@ export interface IconMap {
   image: IconComponent
   'image-remove': IconComponent
   images: IconComponent
+  inbox: IconComponent
   'info-filled': IconComponent
   'info-outline': IconComponent
   'inline-element': IconComponent
@@ -1000,6 +1004,7 @@ export const icons: IconMap = {
   image: ImageIcon,
   'image-remove': ImageRemoveIcon,
   images: ImagesIcon,
+  inbox: InboxIcon,
   'info-filled': InfoFilledIcon,
   'info-outline': InfoOutlineIcon,
   'inline-element': InlineElementIcon,
