@@ -1,18 +1,4 @@
 {
   "extends": "./tsconfig.settings",
-  "include": [
-    "./jest.config.mjs",
-    "./package.config.ts",
-    "./scripts",
-    "./src",
-    "./test",
-    "./workshop.config.ts"
-  ],
-  "compilerOptions": {
-    "noEmit": true,
-    "jsx": "react-jsx",
-    "paths": {
-      "@sanity/icons": ["./src"]
-    }
-  }
+  "include": ["./jest.config.mjs", "./scripts", "./src", "./test", "./workshop.config.ts"]
 }

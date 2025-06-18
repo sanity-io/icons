@@ -1,6 +1,6 @@
 import {Icon, icons, SearchIcon, SpinnerIcon, type IconSymbol} from '@sanity/icons'
 import {Box, Card, Code, Container, Flex, Heading, Stack, Text, TextInput} from '@sanity/ui'
-import {useState, useTransition} from 'react'
+import {useState, useTransition, Activity} from 'react'
 import {spin} from './animation.css'
 
 function ucfirst(str: string) {
@@ -14,16 +14,16 @@ function toPascalCase(str: string) {
 }
 
 export default function OverviewStory() {
-  const [query, setQuery] = useState('')
+  const [_query, setQuery] = useState('')
   const [pending, startTransition] = useTransition()
 
-  const _query = query.toLowerCase()
-  const iconKeys = Object.keys(icons).filter((iconKey) => {
+  const query = _query.toLowerCase()
+  const filteredKeys = Object.keys(icons).filter((iconKey) => {
     return _query === ''
       ? true
-      : iconKey.includes(query.toLowerCase()) ||
+      : iconKey.includes(query) ||
           // @ts-expect-error `displayName` is not typed
-          icons[iconKey]?.displayName?.toLowerCase().includes(_query)
+          icons[iconKey]?.displayName?.toLowerCase().includes(query)
   })
 
   return (
@@ -40,27 +40,29 @@ export default function OverviewStory() {
           />
         </Box>
 
-        {iconKeys.length === 0 && <Text>No matches</Text>}
+        <Activity mode={filteredKeys.length ? 'hidden' : 'visible'}>
+          <Text>No matches</Text>
+        </Activity>
 
-        {iconKeys.length > 0 && (
-          <Stack space={3}>
-            {iconKeys.map((iconKey) => (
-              <Card border key={iconKey} overflow="hidden" radius={2}>
+        <Stack space={3}>
+          {Object.keys(icons).map((key) => (
+            <Activity key={key} mode={filteredKeys.includes(key) ? 'visible' : 'hidden'}>
+              <Card border overflow="hidden" radius={2}>
                 <Flex align="center" gap={4} padding={4}>
                   <Heading>
-                    <Icon symbol={iconKey as IconSymbol} />
+                    <Icon symbol={key as IconSymbol} />
                   </Heading>
-                  <Text>{iconKey}</Text>
+                  <Text>{key}</Text>
                 </Flex>
                 <Card overflow="auto" padding={4} tone="transparent">
                   <Code language="typescript">{`import {${toPascalCase(
-                    iconKey,
+                    key,
                   )}Icon} from '@sanity/icons'`}</Code>
                 </Card>
               </Card>
-            ))}
-          </Stack>
-        )}
+            </Activity>
+          ))}
+        </Stack>
       </Container>
     </Card>
   )
