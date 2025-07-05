@@ -49,6 +49,7 @@
     "prepublishOnly": "pnpm build",
     "release": "semantic-release",
     "test": "jest",
+    "typecheck": "tsc --noEmit",
     "ts:check": "tsc",
     "workshop:build": "workshop build",
     "workshop:dev": "workshop dev"
@@ -142,8 +143,5 @@
     "overrides": {
       "conventional-changelog-conventionalcommits": ">= 8.0.0"
     }
-  },
-  "esm.sh": {
-    "bundle": false
   }
 }

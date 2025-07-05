@@ -138,12 +138,6 @@ async function generate() {
     .map((f) => `'${f.name}': ${f.componentName}`)
     .join(',')}}`
 
-  // const getIconsMap = `const getIcons: () => IconMap = () => ({${files
-  //   .map((f) => `'${f.name}': ${f.componentName}`)
-  //   .join(',')}})`
-
-  // const iconsExport = `/**\n * @public\n */\nexport const icons: IconMap = /* @__PURE__ */ getIcons();`
-
   const indexPath = path.resolve(SRC_ICONS_PATH, `index.ts`)
 
   const indexTsCode = await format(
@@ -154,7 +148,6 @@ async function generate() {
       typesExports,
       iconExports,
       iconMapInterface,
-      // getIconsMap,
       iconsExport,
     ].join('\n\n'),
     {

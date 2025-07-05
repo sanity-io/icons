@@ -31,7 +31,7 @@ jobs:
           node-version: lts/*
       - run: pnpm install
       - run: pnpm lint --deny-warnings --format github
-      - run: tsc --noEmit
+      - run: pnpm typecheck
       - run: pnpm build
 
   test:
