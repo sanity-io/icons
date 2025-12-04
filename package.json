@@ -20,31 +20,25 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    ".": {
-      "source": "./src/index.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "default": "./dist/index.js"
-    },
+    ".": "./src/index.ts",
     "./package.json": "./package.json"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.cts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "run-s clean generate pkg:build pkg:check",
+    "build": "run-s clean generate pkg:build",
     "clean": "rimraf .workshop dist",
     "commit": "cz",
     "dev": "pnpm workshop:dev",
     "format": "prettier --write --cache --ignore-unknown .",
     "generate": "rimraf src/icons && node -r esbuild-register scripts/generate.ts && pnpm format",
     "lint": "oxlint",
-    "pkg:build": "pkg build --strict",
-    "pkg:check": "pkg --strict",
-    "pkg:watch": "pkg watch --strict",
+    "pkg:build": "tsdown",
+    "pkg:watch": "tsdown --watch",
     "prepare": "husky install",
     "prepublishOnly": "pnpm build",
     "release": "semantic-release",
@@ -92,10 +86,10 @@
     "@commitlint/config-conventional": "^19.8.1",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
     "@sanity/browserslist-config": "^1.0.5",
-    "@sanity/pkg-utils": "^8.1.21",
     "@sanity/prettier-config": "^2.0.1",
     "@sanity/semantic-release-preset": "^5.0.0",
     "@sanity/tsconfig": "^2.0.0",
+    "@sanity/tsdown-config": "^0.3.0",
     "@sanity/ui": "^3.1.10",
     "@sanity/ui-workshop": "^3.4.0",
     "@svgr/core": "^8.1.0",
@@ -128,6 +122,7 @@
     "react-is": "^19.2.1",
     "rimraf": "^6.0.1",
     "semantic-release": "^24.2.9",
+    "tsdown": "0.17.0-beta.6",
     "typescript": "5.9.3"
   },
   "peerDependencies": {
@@ -138,7 +133,14 @@
     "node": ">=14.0.0"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "exports": {
+      ".": {
+        "require": "./dist/index.cjs",
+        "import": "./dist/index.js"
+      },
+      "./package.json": "./package.json"
+    }
   },
   "pnpm": {
     "overrides": {
