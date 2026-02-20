@@ -8,6 +8,7 @@ import camelCase from 'camelcase'
 import {globby} from 'globby'
 import {mkdirp} from 'mkdirp'
 import {format} from 'prettier'
+import {optimize} from 'svgo'
 
 const ROOT_PATH = path.resolve(__dirname, '..')
 const IMPORT_PATH = path.resolve(ROOT_PATH, 'export')
@@ -55,6 +56,8 @@ async function readIcon(filePath: string) {
     {componentName},
   )
 
+  code = optimize(code).data
+
   code = __TEMPLATE__.replace(/__JSX__/g, code)
 
   code = code.replace(/__NAME__/g, componentName)
@@ -80,8 +83,6 @@ async function readIcon(filePath: string) {
   code = code
     .replace(/"#([0-9a-fA-F]{6})"/g, '"currentColor"')
     .replace('<svg ', `<svg data-sanity-icon="${name}" `)
-
-  code = await format(code, {...prettierConfig, filepath: targetPath})
 
   return {
     basename,

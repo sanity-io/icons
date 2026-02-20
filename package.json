@@ -40,7 +40,7 @@
     "commit": "cz",
     "dev": "pnpm workshop:dev",
     "format": "prettier --write --cache --ignore-unknown .",
-    "generate": "rimraf src/icons && node -r esbuild-register scripts/generate.ts && pnpm format",
+    "generate": "rimraf src/icons && node -r esbuild-register scripts/generate.ts",
     "lint": "oxlint",
     "pkg:build": "pkg build --strict",
     "pkg:check": "pkg --strict",
@@ -128,6 +128,7 @@
     "react-is": "^19.2.1",
     "rimraf": "^6.0.1",
     "semantic-release": "^24.2.9",
+    "svgo": "^4.0.0",
     "typescript": "5.9.3"
   },
   "peerDependencies": {
