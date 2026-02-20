@@ -56,7 +56,9 @@ async function readIcon(filePath: string) {
     {componentName},
   )
 
-  code = optimize(code).data
+  code = optimize(code, {
+    plugins: ['mergePaths']
+  }).data
 
   code = __TEMPLATE__.replace(/__JSX__/g, code)
 
