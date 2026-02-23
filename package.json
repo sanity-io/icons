@@ -40,7 +40,7 @@
     "commit": "cz",
     "dev": "pnpm workshop:dev",
     "format": "prettier --write --cache --ignore-unknown .",
-    "generate": "rimraf src/icons && node -r esbuild-register scripts/generate.ts && pnpm format",
+    "generate": "rimraf src/icons && node -r esbuild-register scripts/generate.ts",
     "lint": "oxlint",
     "pkg:build": "pkg build --strict",
     "pkg:check": "pkg --strict",
