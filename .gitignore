@@ -4,3 +4,5 @@
 .workshop
 dist
 node_modules
+
+test/snapshots
