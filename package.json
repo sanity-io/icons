@@ -110,7 +110,7 @@
     "camelcase": "^8.0.0",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
-    "esbuild": "^0.25.11",
+    "esbuild": "^0.28.0",
     "esbuild-register": "^3.6.0",
     "globby": "^14.1.0",
     "husky": "^8.0.3",
