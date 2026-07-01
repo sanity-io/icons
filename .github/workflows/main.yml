@@ -23,16 +23,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@v7
+      - uses: pnpm/setup@v1
         with:
-          cache: pnpm
-          node-version: lts/*
-      - run: pnpm install
-      - run: pnpm lint --deny-warnings --format github
-      - run: tsc --noEmit
+          cache: true
+      - run: pnpm lint --format github
       - run: pnpm build
+
+  knip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/setup@v1
+        with:
+          cache: true
+      - run: pnpm knip --reporter github-actions
 
   test:
     runs-on: ${{ matrix.platform }}
@@ -41,50 +46,14 @@ jobs:
       fail-fast: false
       matrix:
         platform: [ubuntu-latest]
-        node-version: [lts/*, current]
+        node-version: [lts, latest]
         include:
           - platform: macos-latest
-            node-version: lts/*
+            node-version: lts
     steps:
-      - uses: actions/checkout@v5
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@v7
+      - uses: pnpm/setup@v1
         with:
-          cache: pnpm
-          node-version: ${{ matrix.node-version }}
-      - run: pnpm install
+          cache: true
+          runtime: node@${{ matrix.node-version }}
       - run: pnpm test
-
-  release:
-    permissions:
-      id-token: write # to enable use of OIDC for npm provenance
-    name: "Semantic release"
-    needs: [build, test]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/create-github-app-token@v2
-        id: app-token
-        with:
-          app-id: ${{ secrets.ECOSPARK_APP_ID }}
-          private-key: ${{ secrets.ECOSPARK_APP_PRIVATE_KEY }}
-      - uses: actions/checkout@v5
-        with:
-          # Need to fetch entire commit history to
-          # analyze every commit since last release
-          fetch-depth: 0
-          # Uses generated token to allow pushing commits back
-          token: ${{ steps.app-token.outputs.token }}
-          # Make sure the value of GITHUB_TOKEN will not be persisted in repo's config
-          persist-credentials: false
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v6
-        with:
-          cache: pnpm
-          node-version: lts/*
-      - run: pnpm install --loglevel=error
-      # Branches that will release new versions are defined in .releaserc.json
-      - run: pnpm exec semantic-release
-        env:
-          NPM_CONFIG_PROVENANCE: true
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
-          NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}

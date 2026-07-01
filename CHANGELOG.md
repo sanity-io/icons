@@ -1,9 +1,22 @@
-<!-- markdownlint-disable --><!-- textlint-disable -->
+# @sanity/icons
 
-# 📓 Changelog
+## 3.7.7
 
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+### Patch Changes
+
+- [#181](https://github.com/sanity-io/icons/pull/181) [`5b9d2cb`](https://github.com/sanity-io/icons/commit/5b9d2cb568239231ce28c72b39560230c90f3d12) Thanks [@stipsan](https://github.com/stipsan)! - Bumped `@testing-library/react`, `@types/node`, and `@types/react` devDependencies to their latest versions.
+
+## [3.7.6](https://github.com/sanity-io/icons/compare/v3.7.5...v3.7.6) (2026-07-01)
+
+### Bug Fixes
+
+- enable trusted publishing ([925545b](https://github.com/sanity-io/icons/commit/925545b569e87bc5e3e061334c1fc10c6e532f6a))
+
+## [3.7.5](https://github.com/sanity-io/icons/compare/v3.7.4...v3.7.5) (2026-07-01)
+
+### Bug Fixes
+
+- setup trusted publishing ([#183](https://github.com/sanity-io/icons/issues/183)) ([fe8c88a](https://github.com/sanity-io/icons/commit/fe8c88a40347ab7ab4ce853182e817ce42fde8e6))
 
 ## [3.7.4](https://github.com/sanity-io/icons/compare/v3.7.3...v3.7.4) (2025-06-20)
 
