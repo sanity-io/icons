@@ -15,10 +15,10 @@ import {
   Container,
   Flex,
   Heading,
+  Popover,
   Stack,
   Text,
   TextInput,
-  Tooltip,
 } from '@sanity/ui'
 import {startTransition, useEffect, useState} from 'react'
 import {registerLanguage} from 'react-refractor'
@@ -81,6 +81,7 @@ function copyWithExecCommand(text: string): boolean {
 
 function CopyCodeButton({code}: {code: string}) {
   const [state, setState] = useState<CopyState>('idle')
+  const [hovered, setHovered] = useState(false)
 
   useEffect(() => {
     if (state === 'idle') return undefined
@@ -104,26 +105,39 @@ function CopyCodeButton({code}: {code: string}) {
   }
 
   const icon = state === 'copied' ? CheckmarkIcon : state === 'error' ? ErrorOutlineIcon : CopyIcon
-  const label =
-    state === 'copied'
-      ? 'Copied to clipboard'
-      : state === 'error'
-        ? 'Copy failed'
-        : 'Copy code to clipboard'
-  const tooltip = state === 'copied' ? 'Copied!' : state === 'error' ? 'Copy failed' : 'Copy code'
+  const label = state === 'copied' ? 'Copied!' : state === 'error' ? 'Copy failed' : 'Copy code'
   const tone = state === 'copied' ? 'positive' : state === 'error' ? 'critical' : 'default'
 
+  // A controlled Popover is used instead of <Tooltip> because Tooltip force
+  // closes itself on click, so the "Copied!" confirmation would never show.
+  // Here the label is always in sync: it appears on hover/focus and stays
+  // open while the copied/error feedback is active.
   return (
-    <Tooltip content={tooltip} placement="top">
+    <Popover
+      content={
+        <Box padding={2}>
+          <Text size={1}>{label}</Text>
+        </Box>
+      }
+      open={hovered || state !== 'idle'}
+      placement="top"
+      portal
+      radius={2}
+      tone={tone}
+    >
       <Button
         aria-label={label}
         icon={icon}
         mode="bleed"
+        onBlur={() => setHovered(false)}
         onClick={handleCopy}
+        onFocus={() => setHovered(true)}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
         padding={2}
         tone={tone}
       />
-    </Tooltip>
+    </Popover>
   )
 }
 
@@ -174,9 +188,11 @@ export default function OverviewStory() {
                     </Heading>
                     <Text>{key}</Text>
                   </Flex>
-                  <Card padding={4} tone="transparent">
-                    <Flex align="center" gap={3}>
-                      <Box flex={1} overflow="auto">
+                  <Card tone="transparent">
+                    <Flex align="center" gap={2} paddingRight={3}>
+                      {/* paddingY keeps room for a horizontal scrollbar so it
+                          never vertically clips the single line of code. */}
+                      <Box flex={1} overflow="auto" paddingLeft={4} paddingY={4}>
                         <Code language="typescript">{code}</Code>
                       </Box>
                       <CopyCodeButton code={code} />
