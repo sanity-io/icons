@@ -14,9 +14,12 @@ import formatConfig from '../.oxfmtrc.json' with {type: 'json'}
 
 const ROOT_PATH = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const IMPORT_PATH = path.resolve(ROOT_PATH, 'export')
-const SRC_ICONS_PATH = path.resolve(ROOT_PATH, 'src/icons')
 const SRC_EXPORTS_PATH = path.resolve(ROOT_PATH, 'src/exports')
 const SRC_INDEX_PATH = path.resolve(ROOT_PATH, 'src/index.ts')
+// The `icons` map lives in a flat `src/icons.ts` (not `src/icons/index.ts`). The basename
+// matters: tsdown/rolldown derives declaration chunk names from the source basename, and a
+// second `index` module would collide with the root barrel's `index.d.ts` and swap them.
+const SRC_ICONS_PATH = path.resolve(ROOT_PATH, 'src/icons.ts')
 
 const GENERATED_BANNER = `/* THIS FILE IS AUTO-GENERATED – DO NOT EDIT */`
 
@@ -144,10 +147,10 @@ async function writeRootIndex(files: IconMeta[]) {
 // named icons are re-exported from `src/index.ts`, not here, so this module stays focused on
 // the map alone.
 async function writeIconsMap(files: IconMeta[]) {
-  const importTypes = `import type {IconComponent} from '../types'`
+  const importTypes = `import type {IconComponent} from './types'`
 
   const iconImports = files
-    .map((f) => `import {${f.componentName}} from '../exports/${f.exportName}';`)
+    .map((f) => `import {${f.componentName}} from './exports/${f.exportName}';`)
     .join('\n')
 
   const typesExports = `/**\n * @public\n */\nexport type IconSymbol = \n${files
@@ -162,21 +165,18 @@ async function writeIconsMap(files: IconMeta[]) {
     .map((f) => `'${f.name}': ${f.componentName}`)
     .join(',')}}`
 
-  const indexPath = path.resolve(SRC_ICONS_PATH, `index.ts`)
-
   const {code} = await format(
-    indexPath,
+    SRC_ICONS_PATH,
     [GENERATED_BANNER, importTypes, iconImports, typesExports, iconMapInterface, iconsExport].join(
       '\n\n',
     ),
     formatConfig as unknown as FormatConfig,
   )
 
-  await writeFile(indexPath, code)
+  await writeFile(SRC_ICONS_PATH, code)
 }
 
 async function generate() {
-  await mkdirp(SRC_ICONS_PATH)
   await mkdirp(SRC_EXPORTS_PATH)
 
   const filePaths = await globby(path.join(IMPORT_PATH, '**/*.svg'))
