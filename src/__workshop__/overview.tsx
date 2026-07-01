@@ -1,5 +1,25 @@
-import {Icon, SearchIcon, SpinnerIcon, type IconSymbol} from '@sanity/icons'
-import {Box, Card, Code, Container, Flex, Heading, Stack, Text, TextInput} from '@sanity/ui'
+import {
+  CheckmarkIcon,
+  CopyIcon,
+  ErrorOutlineIcon,
+  Icon,
+  SearchIcon,
+  SpinnerIcon,
+  type IconSymbol,
+} from '@sanity/icons'
+import {
+  Box,
+  Button,
+  Card,
+  Code,
+  Container,
+  Flex,
+  Heading,
+  Stack,
+  Text,
+  TextInput,
+  Tooltip,
+} from '@sanity/ui'
 import {startTransition, useEffect, useState} from 'react'
 import {registerLanguage} from 'react-refractor'
 import tsx from 'refractor/typescript'
@@ -22,6 +42,10 @@ const SpinningIcon = styled(SpinnerIcon)`
   animation: ${rotate} 500ms linear infinite;
 `
 
+const COPY_FEEDBACK_DURATION = 1500
+
+type CopyState = 'idle' | 'copied' | 'error'
+
 function ucfirst(str: string) {
   return str.slice(0, 1).toUpperCase() + str.slice(1)
 }
@@ -30,6 +54,77 @@ function toPascalCase(str: string) {
   const p = str.split('-')
 
   return p.map(ucfirst).join('')
+}
+
+// Legacy fallback for browsers/contexts where the async Clipboard API is
+// unavailable or blocked (e.g. insecure origins, restrictive permissions
+// policies). Must run synchronously within the click handler to count as
+// part of the user gesture.
+function copyWithExecCommand(text: string): boolean {
+  const textarea = document.createElement('textarea')
+  textarea.value = text
+  textarea.setAttribute('readonly', '')
+  textarea.style.position = 'fixed'
+  textarea.style.opacity = '0'
+  document.body.append(textarea)
+  textarea.select()
+
+  try {
+    // oxlint-disable-next-line typescript/no-deprecated -- intentional fallback, no replacement exists
+    return document.execCommand('copy')
+  } catch {
+    return false
+  } finally {
+    textarea.remove()
+  }
+}
+
+function CopyCodeButton({code}: {code: string}) {
+  const [state, setState] = useState<CopyState>('idle')
+
+  useEffect(() => {
+    if (state === 'idle') return undefined
+
+    const timeout = setTimeout(() => setState('idle'), COPY_FEEDBACK_DURATION)
+    return () => clearTimeout(timeout)
+  }, [state])
+
+  function handleCopy() {
+    try {
+      navigator.clipboard.writeText(code).then(
+        () => setState('copied'),
+        () => setState(copyWithExecCommand(code) ? 'copied' : 'error'),
+      )
+    } catch {
+      // Some browsers/embedders throw synchronously rather than rejecting
+      // when the async Clipboard API is unavailable or blocked (e.g. an
+      // insecure origin or a restrictive permissions policy).
+      setState(copyWithExecCommand(code) ? 'copied' : 'error')
+    }
+  }
+
+  const icon = state === 'copied' ? CheckmarkIcon : state === 'error' ? ErrorOutlineIcon : CopyIcon
+  const label =
+    state === 'copied'
+      ? 'Copied to clipboard'
+      : state === 'error'
+        ? 'Copy failed'
+        : 'Copy code to clipboard'
+  const tooltip = state === 'copied' ? 'Copied!' : state === 'error' ? 'Copy failed' : 'Copy code'
+  const tone = state === 'copied' ? 'positive' : state === 'error' ? 'critical' : 'default'
+
+  return (
+    <Tooltip content={tooltip} placement="top">
+      <Button
+        aria-label={label}
+        icon={icon}
+        mode="bleed"
+        onClick={handleCopy}
+        padding={2}
+        tone={tone}
+      />
+    </Tooltip>
+  )
 }
 
 export default function OverviewStory() {
@@ -68,21 +163,28 @@ export default function OverviewStory() {
 
         {iconKeys.length > 0 && (
           <Stack gap={3}>
-            {iconKeys.map((key) => (
-              <Card border key={key} overflow="hidden" radius={2}>
-                <Flex align="center" gap={4} padding={4}>
-                  <Heading>
-                    <Icon symbol={key as IconSymbol} />
-                  </Heading>
-                  <Text>{key}</Text>
-                </Flex>
-                <Card overflow="auto" padding={4} tone="transparent">
-                  <Code language="typescript">{`import {${toPascalCase(
-                    key,
-                  )}Icon} from '@sanity/icons'`}</Code>
+            {iconKeys.map((key) => {
+              const code = `import {${toPascalCase(key)}Icon} from '@sanity/icons'`
+
+              return (
+                <Card border key={key} overflow="hidden" radius={2}>
+                  <Flex align="center" gap={4} padding={4}>
+                    <Heading>
+                      <Icon symbol={key as IconSymbol} />
+                    </Heading>
+                    <Text>{key}</Text>
+                  </Flex>
+                  <Card padding={4} tone="transparent">
+                    <Flex align="center" gap={3}>
+                      <Box flex={1} overflow="auto">
+                        <Code language="typescript">{code}</Code>
+                      </Box>
+                      <CopyCodeButton code={code} />
+                    </Flex>
+                  </Card>
                 </Card>
-              </Card>
-            ))}
+              )
+            })}
           </Stack>
         )}
       </Container>
