@@ -5,11 +5,10 @@ import {documentEventHandler} from '@sanity/functions'
 
 interface IconEvent {
   _id: string
-  name?: string
 }
 
 export const handler = documentEventHandler<IconEvent>(async ({context, event}) => {
-  const {_id, name} = event.data
+  const {_id} = event.data
 
   const client = createClient({
     ...context.clientOptions,
@@ -17,13 +16,15 @@ export const handler = documentEventHandler<IconEvent>(async ({context, event}) 
     useCdn: false,
   })
 
-  const label = name ?? _id.replace(/^icon\./, '')
+  const label = _id.replace(/^icon\./, '')
 
-  // Uses Sanity's native vision model (Agent Actions) to look at the rasterized
-  // icon and write a search-friendly description that dataset embeddings index.
+  // 1. Use Sanity's native vision model (Agent Actions) to look at the
+  //    rasterized icon and write a search-friendly description.
   await client.agent.action.transform({
     schemaId: '_.schemas.default',
     documentId: _id,
+    // Write to the published document (not a draft) so dataset embeddings index it.
+    forcePublishedWrite: true,
     instruction: [
       `This is a minimal, monochrome line UI icon named "${label}".`,
       'Write a short, search-friendly description of what it depicts,',
@@ -37,6 +38,22 @@ export const handler = documentEventHandler<IconEvent>(async ({context, event}) 
         operation: {type: 'image-description', sourcePath: ['image']},
       },
     ],
+  })
+
+  // 2. Derive concise search tags from the description just written.
+  await client.agent.action.generate({
+    schemaId: '_.schemas.default',
+    documentId: _id,
+    forcePublishedWrite: true,
+    instruction: [
+      'Using the icon description in $description, generate a concise set of',
+      'lowercase search tags: the objects, actions, concepts and common synonyms',
+      'someone might search to find this UI icon. Prefer single words or short phrases.',
+    ].join(' '),
+    instructionParams: {
+      description: {type: 'field', path: ['description']},
+    },
+    target: [{path: ['tags']}],
   })
 
   console.log(`Enriched ${_id}`)
