@@ -25,4 +25,4 @@ jobs:
           cache: true
       - run: pnpm seed:icons
         env:
-          SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
+          SANITY_API_WRITE_TOKEN: ${{ secrets.SANITY_API_WRITE_TOKEN }}

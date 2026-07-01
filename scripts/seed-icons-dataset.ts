@@ -14,10 +14,15 @@ const IMPORT_PATH = path.resolve(ROOT_PATH, 'export')
 
 const projectId = process.env['SANITY_PROJECT_ID'] || 'ppsg7ml5'
 const dataset = process.env['SANITY_DATASET'] || 'icons'
-const token = process.env['SANITY_WRITE_TOKEN'] || process.env['SANITY_AUTH_TOKEN']
+const token =
+  process.env['SANITY_API_WRITE_TOKEN'] ||
+  process.env['SANITY_WRITE_TOKEN'] ||
+  process.env['SANITY_AUTH_TOKEN']
 
 if (!token) {
-  console.error('Missing SANITY_WRITE_TOKEN (or SANITY_AUTH_TOKEN) environment variable')
+  console.error(
+    'Missing SANITY_API_WRITE_TOKEN (or SANITY_WRITE_TOKEN / SANITY_AUTH_TOKEN) environment variable',
+  )
   process.exit(1)
 }
 
