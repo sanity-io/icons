@@ -24,8 +24,6 @@ jobs:
       - uses: pnpm/setup@v1
         with:
           cache: true
-      # `sanity deploy` also deploys the schema (required by Agent Actions);
-      # `--schema-required` makes the job fail if that part fails.
       - run: pnpm studio:deploy
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_TOKEN }}
