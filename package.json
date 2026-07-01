@@ -48,7 +48,7 @@
     "build:showcase": "vite build",
     "clean": "rimraf dist",
     "dev": "vite",
-    "embeddings:enable": "sanity datasets embeddings enable icons --projection '{ title, name, tags, description }' --wait",
+    "embeddings:enable": "sanity datasets embeddings enable icons --projection '{ filename, namedExport, tags, description }' --wait",
     "format": "oxfmt .",
     "generate": "rimraf src/icons && node scripts/generate.ts",
     "knip": "knip",

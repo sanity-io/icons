@@ -10,7 +10,7 @@ export default defineBlueprint({
       event: {
         on: ['create', 'update'],
         filter: "_type == 'icon' && !defined(description)",
-        projection: '{_id, name}',
+        projection: '{_id}',
         resource: {
           type: 'dataset',
           id: 'ppsg7ml5.icons',

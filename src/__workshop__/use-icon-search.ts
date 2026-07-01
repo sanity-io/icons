@@ -3,16 +3,17 @@ import {useEffect, useState} from 'react'
 
 import {searchClient} from './sanity-client'
 
-// Hybrid ranking: exact name, then prefix, then keyword matches across
-// name/title/tags/description, and finally semantic similarity. Keyword boosts
-// are weighted high so exact/partial matches always rank above fuzzy ones.
+// Hybrid ranking: exact filename, then prefix, then keyword matches across
+// filename/namedExport/tags/description, and finally semantic similarity.
+// Keyword boosts are weighted high so exact/partial matches always rank above
+// fuzzy ones. The icon key is recovered from `_id` ("icon.<key>").
 const SEARCH_QUERY = `*[_type == "icon"] | score(
-  boost(name == $q, 12),
-  boost(name match $qPrefix, 8),
-  boost([name, title, tags] match $qWords, 4),
+  boost(filename == $qExact, 12),
+  boost(filename match $qPrefix, 8),
+  boost([filename, namedExport, tags] match $qWords, 4),
   boost(description match $qWords, 2),
   text::semanticSimilarity($q)
-) | order(_score desc) [0...80] { "name": name }`
+) | order(_score desc) [0...80] { "id": _id }`
 
 const allIconKeys = Object.keys(icons)
 
@@ -47,16 +48,19 @@ export function useIconSearch(query: string): IconSearchState {
 
     const timeout = setTimeout(async () => {
       try {
-        const rows = await searchClient.fetch<{name: string}[]>(SEARCH_QUERY, {
+        const rows = await searchClient.fetch<{id: string}[]>(SEARCH_QUERY, {
           q: trimmed,
+          qExact: `${trimmed.toLowerCase()}.svg`,
           qPrefix: `${trimmed}*`,
           qWords: `${trimmed}*`,
         })
 
         if (cancelled) return
 
-        // Only render icons that exist in the shipped set.
-        const names = rows.map((row) => row.name).filter((name) => name in icons)
+        // Recover the icon key from `_id` and keep only icons in the shipped set.
+        const names = rows
+          .map((row) => row.id.replace(/^icon\./, ''))
+          .filter((name) => name in icons)
 
         setRemote({query: trimmed, names, semantic: true})
       } catch {

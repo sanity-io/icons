@@ -6,22 +6,26 @@ export const iconType = defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'name',
-      title: 'Name',
-      description: 'The kebab-case icon key, matching the exported SVG filename.',
+      name: 'filename',
+      title: 'Filename',
+      description: 'The SVG filename as it exists in the `export/` directory, e.g. "add-user.svg".',
       type: 'string',
+      readOnly: true,
     }),
     defineField({
-      name: 'title',
-      title: 'Title',
-      description: 'Humanized name, e.g. "Add User".',
+      name: 'namedExport',
+      title: 'Named export',
+      description:
+        'The ESM named export, e.g. "AddUserIcon" for `import {AddUserIcon} from \'@sanity/icons\'`.',
       type: 'string',
+      readOnly: true,
     }),
     defineField({
       name: 'image',
       title: 'Raster preview',
       description: 'PNG rasterization of the SVG, used as the vision source for enrichment.',
       type: 'image',
+      readOnly: true,
     }),
     defineField({
       name: 'svgHash',
@@ -33,6 +37,7 @@ export const iconType = defineType({
     defineField({
       name: 'tags',
       title: 'Tags',
+      description: 'AI-generated search keywords/synonyms. Embedded for semantic search.',
       type: 'array',
       of: [{type: 'string'}],
       options: {layout: 'tags'},
@@ -46,6 +51,6 @@ export const iconType = defineType({
     }),
   ],
   preview: {
-    select: {title: 'title', subtitle: 'name', media: 'image'},
+    select: {title: 'filename', subtitle: 'namedExport', media: 'image'},
   },
 })

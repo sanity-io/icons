@@ -7,6 +7,7 @@ import {fileURLToPath} from 'node:url'
 
 import {Resvg} from '@resvg/resvg-js'
 import {createClient} from '@sanity/client'
+import camelCase from 'camelcase'
 import {globby} from 'globby'
 
 const ROOT_PATH = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
@@ -34,17 +35,9 @@ const client = createClient({
   useCdn: false,
 })
 
-function ucfirst(str: string) {
-  return str.slice(0, 1).toUpperCase() + str.slice(1)
-}
-
-function toTitle(name: string) {
-  return name.split('-').map(ucfirst).join(' ')
-}
-
-// Mirrors the name derivation in scripts/generate.ts so the doc `name`
-// matches the exported `IconSymbol` key rendered by the workshop.
-function iconNameFromPath(filePath: string) {
+// Mirrors the name derivation in scripts/generate.ts so the kebab key used in
+// the `_id` matches the exported `IconSymbol` key rendered by the showcase.
+function iconKeyFromPath(filePath: string) {
   const relativePath = path.relative(IMPORT_PATH, filePath)
   const nameSegments = relativePath.split(path.sep)
   const filename = nameSegments.pop()
@@ -78,13 +71,17 @@ async function main() {
   let skipped = 0
 
   for (const filePath of filePaths) {
-    const name = iconNameFromPath(filePath)
-    const _id = `icon.${name}`
+    const key = iconKeyFromPath(filePath)
+    const _id = `icon.${key}`
+    // The literal filename as it exists in `export/` (e.g. "add-user.svg").
+    const filename = path.relative(IMPORT_PATH, filePath).split(path.sep).join('/')
+    // The ESM named export, matching scripts/generate.ts (e.g. "AddUserIcon").
+    const namedExport = camelCase(`${key}-icon`, {pascalCase: true})
     const svg = await readFile(filePath, 'utf8')
     const svgHash = createHash('sha1').update(svg).digest('hex')
 
     // Nothing changed since the last sync – leave the doc (and its embeddings /
-    // AI description) untouched so no update event fires.
+    // AI description + tags) untouched so no update event fires.
     if (existingHash.get(_id) === svgHash) {
       skipped++
       continue
@@ -92,18 +89,18 @@ async function main() {
 
     const png = rasterize(svg)
     const asset = await client.assets.upload('image', png, {
-      filename: `${name}.png`,
+      filename: `${key}.png`,
       contentType: 'image/png',
     })
 
-    // `description` is intentionally omitted. Replacing the document drops any
-    // previous description, which makes the `enrich-icon` function re-run for
-    // this (new or changed) icon only.
+    // `description`/`tags` are intentionally omitted. Replacing the document
+    // drops any previous values, which makes the `enrich-icon` function re-run
+    // for this (new or changed) icon only.
     await client.createOrReplace({
       _id,
       _type: 'icon',
-      name,
-      title: toTitle(name),
+      filename,
+      namedExport,
       svgHash,
       image: {
         _type: 'image',
@@ -112,7 +109,7 @@ async function main() {
     })
 
     upserted++
-    console.log(`Upserted ${name}`)
+    console.log(`Upserted ${filename}`)
   }
 
   console.log(`Done: ${upserted} upserted, ${skipped} unchanged`)
