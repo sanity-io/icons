@@ -1,24 +1,30 @@
 {
   "name": "@sanity/icons",
-  "version": "3.7.4",
+  "version": "3.7.6",
   "description": "The Sanity icons.",
   "keywords": [
+    "icons",
     "sanity",
-    "ui",
-    "icons"
+    "ui"
   ],
   "homepage": "https://www.sanity.io/",
   "bugs": {
     "url": "https://github.com/sanity-io/icons/issues"
   },
+  "license": "MIT",
+  "author": "Sanity.io <hello@sanity.io>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sanity-io/icons.git"
   },
-  "license": "MIT",
-  "author": "Sanity.io <hello@sanity.io>",
-  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
   "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "source": "./src/index.ts",
@@ -28,75 +34,41 @@
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "require": "./dist/index.cjs",
+        "default": "./dist/index.js"
+      },
+      "./package.json": "./package.json"
+    }
+  },
   "scripts": {
     "build": "run-s clean generate pkg:build pkg:check",
     "clean": "rimraf .workshop dist",
-    "commit": "cz",
     "dev": "pnpm workshop:dev",
-    "format": "prettier --write --cache --ignore-unknown .",
-    "generate": "rimraf src/icons && node -r esbuild-register scripts/generate.ts && pnpm format",
+    "format": "oxfmt .",
+    "generate": "rimraf src/icons && node scripts/generate.ts",
     "lint": "oxlint",
     "pkg:build": "pkg build --strict",
     "pkg:check": "pkg --strict",
     "pkg:watch": "pkg watch --strict",
-    "prepare": "husky",
     "prepublishOnly": "pnpm build",
-    "release": "semantic-release",
+    "release": "changeset publish",
     "test": "jest",
-    "ts:check": "tsc",
     "workshop:build": "workshop build",
     "workshop:dev": "workshop dev"
   },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,mjs,cjs}": [
-      "prettier --cache --write",
-      "oxlint --fix --quiet"
-    ],
-    "*": [
-      "prettier --write --cache --ignore-unknown"
-    ]
-  },
-  "browserslist": "extends @sanity/browserslist-config",
-  "release": {
-    "branches": [
-      "+([0-9])?(.{+([0-9]),x}).x",
-      "main",
-      {
-        "name": "beta",
-        "prerelease": true
-      },
-      {
-        "name": "alpha",
-        "prerelease": true
-      }
-    ],
-    "extends": "@sanity/semantic-release-preset"
-  },
   "devDependencies": {
-    "@babel/core": "^8.0.1",
-    "@babel/preset-env": "^8.0.2",
-    "@babel/preset-react": "^8.0.1",
-    "@babel/preset-typescript": "^8.0.1",
-    "@commitlint/cli": "^21.2.0",
-    "@commitlint/config-conventional": "^21.2.0",
-    "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
-    "@sanity/browserslist-config": "^1.0.5",
+    "@babel/core": "^7.28.4",
+    "@babel/preset-env": "^7.28.3",
+    "@babel/preset-react": "^7.27.1",
+    "@babel/preset-typescript": "^7.27.1",
+    "@changesets/changelog-github": "^0.7.0",
+    "@changesets/cli": "^2.31.0",
     "@sanity/pkg-utils": "^10.8.1",
-    "@sanity/prettier-config": "^3.0.0",
-    "@sanity/semantic-release-preset": "^6.0.0",
     "@sanity/tsconfig": "^2.1.0",
-    "@sanity/ui": "^3.2.0",
+    "@sanity/ui": "^3.1.10",
     "@sanity/ui-workshop": "^3.4.0",
     "@svgr/core": "^8.1.0",
     "@testing-library/jest-dom": "^6.9.1",
@@ -107,52 +79,38 @@
     "@types/react-dom": "^19.2.3",
     "@vanilla-extract/css": "^1.21.1",
     "babel-plugin-react-compiler": "19.1.0-rc.3",
-    "camelcase": "^9.0.0",
-    "commitizen": "^4.3.2",
-    "cz-conventional-changelog": "^3.3.0",
-    "esbuild": "^0.28.1",
-    "esbuild-register": "^3.6.0",
-    "globby": "^16.2.0",
-    "husky": "^9.1.7",
-    "jest": "^30.4.2",
+    "camelcase": "^8.0.0",
+    "globby": "^14.1.0",
+    "jest": "^30.2.0",
     "jest-axe": "^10.0.0",
-    "jest-environment-jsdom": "^30.4.1",
-    "lint-staged": "^17.0.8",
+    "jest-environment-jsdom": "^30.2.0",
+    "lefthook": "^2.1.9",
     "mkdirp": "^3.0.1",
-    "module-alias": "^2.3.4",
-    "npm-run-all2": "^9.0.2",
+    "module-alias": "^2.2.3",
+    "npm-run-all2": "^8.0.4",
+    "oxfmt": "^0.57.0",
     "oxlint": "^1.72.0",
-    "prettier": "^3.9.4",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7",
-    "react-is": "^19.2.7",
-    "rimraf": "^6.1.3",
-    "semantic-release": "^25.0.5",
-    "typescript": "6.0.3"
+    "oxlint-tsgolint": "^0.23.0",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "react-is": "^19.2.1",
+    "rimraf": "^6.0.1",
+    "typescript": "5.9.3"
   },
   "peerDependencies": {
     "react": "^18.3 || ^19.0.0-0"
   },
-  "packageManager": "pnpm@10.24.0",
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^24.0.0",
+      "onFail": "download"
+    }
+  },
   "engines": {
     "node": ">=14.0.0"
   },
-  "publishConfig": {
-    "access": "public",
-    "exports": {
-      ".": {
-        "import": "./dist/index.js",
-        "require": "./dist/index.cjs",
-        "default": "./dist/index.js"
-      },
-      "./package.json": "./package.json"
-    }
-  },
-  "pnpm": {
-    "overrides": {
-      "conventional-changelog-conventionalcommits": ">= 8.0.0"
-    }
-  },
+  "packageManager": "pnpm@11.9.0",
   "esm.sh": {
     "bundle": false
   }
