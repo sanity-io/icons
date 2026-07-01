@@ -20,6 +20,7 @@ import {
   Text,
   TextInput,
 } from '@sanity/ui'
+import copy from 'copy-to-clipboard'
 import {startTransition, useEffect, useState} from 'react'
 import {registerLanguage} from 'react-refractor'
 import tsx from 'refractor/typescript'
@@ -56,29 +57,6 @@ function toPascalCase(str: string) {
   return p.map(ucfirst).join('')
 }
 
-// Legacy fallback for browsers/contexts where the async Clipboard API is
-// unavailable or blocked (e.g. insecure origins, restrictive permissions
-// policies). Must run synchronously within the click handler to count as
-// part of the user gesture.
-function copyWithExecCommand(text: string): boolean {
-  const textarea = document.createElement('textarea')
-  textarea.value = text
-  textarea.setAttribute('readonly', '')
-  textarea.style.position = 'fixed'
-  textarea.style.opacity = '0'
-  document.body.append(textarea)
-  textarea.select()
-
-  try {
-    // oxlint-disable-next-line typescript/no-deprecated -- intentional fallback, no replacement exists
-    return document.execCommand('copy')
-  } catch {
-    return false
-  } finally {
-    textarea.remove()
-  }
-}
-
 function CopyCodeButton({code}: {code: string}) {
   const [state, setState] = useState<CopyState>('idle')
   const [hovered, setHovered] = useState(false)
@@ -91,17 +69,12 @@ function CopyCodeButton({code}: {code: string}) {
   }, [state])
 
   function handleCopy() {
-    try {
-      navigator.clipboard.writeText(code).then(
-        () => setState('copied'),
-        () => setState(copyWithExecCommand(code) ? 'copied' : 'error'),
-      )
-    } catch {
-      // Some browsers/embedders throw synchronously rather than rejecting
-      // when the async Clipboard API is unavailable or blocked (e.g. an
-      // insecure origin or a restrictive permissions policy).
-      setState(copyWithExecCommand(code) ? 'copied' : 'error')
-    }
+    // `copy-to-clipboard` uses the async Clipboard API when available and
+    // transparently falls back to `execCommand`, so we don't have to.
+    copy(code).then(
+      (ok) => setState(ok ? 'copied' : 'error'),
+      () => setState('error'),
+    )
   }
 
   const icon = state === 'copied' ? CheckmarkIcon : state === 'error' ? ErrorOutlineIcon : CopyIcon
@@ -120,7 +93,7 @@ function CopyCodeButton({code}: {code: string}) {
         </Box>
       }
       open={hovered || state !== 'idle'}
-      placement="top"
+      placement="bottom"
       portal
       radius={2}
       tone={tone}
@@ -187,16 +160,11 @@ export default function OverviewStory() {
                       <Icon symbol={key as IconSymbol} />
                     </Heading>
                     <Text>{key}</Text>
+                    <Box flex={1} />
+                    <CopyCodeButton code={code} />
                   </Flex>
-                  <Card tone="transparent">
-                    <Flex align="center" gap={2} paddingRight={3}>
-                      {/* paddingY keeps room for a horizontal scrollbar so it
-                          never vertically clips the single line of code. */}
-                      <Box flex={1} overflow="auto" paddingLeft={4} paddingY={4}>
-                        <Code language="typescript">{code}</Code>
-                      </Box>
-                      <CopyCodeButton code={code} />
-                    </Flex>
+                  <Card overflow="auto" padding={4} tone="transparent">
+                    <Code language="typescript">{code}</Code>
                   </Card>
                 </Card>
               )
