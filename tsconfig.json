@@ -3,9 +3,6 @@
   "include": ["./scripts", "./src", "./test", "./tsdown.config.ts", "./vite.config.ts"],
   "compilerOptions": {
     "noEmit": true,
-    "jsx": "react-jsx",
-    "paths": {
-      "@sanity/icons": ["./src"]
-    }
+    "jsx": "react-jsx"
   }
 }
