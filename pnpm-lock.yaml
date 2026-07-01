@@ -42,8 +42,8 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1(prettier@3.6.2)
       '@sanity/semantic-release-preset':
-        specifier: ^5.0.0
-        version: 5.0.0(semantic-release@24.2.9(typescript@5.9.3))
+        specifier: ^6.0.0
+        version: 6.0.0(semantic-release@24.2.9(typescript@5.9.3))
       '@sanity/tsconfig':
         specifier: ^2.0.0
         version: 2.0.0
@@ -1851,11 +1851,11 @@ packages:
     peerDependencies:
       prettier: ^3.6.2
 
-  '@sanity/semantic-release-preset@5.0.0':
-    resolution: {integrity: sha512-2lCuU57OZW6WY7O8d4vjbpghQIc9lnxS9+dLnzrBYh8e6pA467DxlCNum4NgDeDyHxNh9HGXNalXEWJz8tec+A==}
-    engines: {node: '>= 20.8'}
+  '@sanity/semantic-release-preset@6.0.0':
+    resolution: {integrity: sha512-iw2aS0w2iVgVVw0IKRry3kUpuE9f5YlFFkKqribNkCzCOvzZcCFuXVIDUaijn3netjJIbQWR6XdqNAI1ifKkYg==}
+    engines: {node: ^22.14.0 || >=24.10.0}
     peerDependencies:
-      semantic-release: ^24
+      semantic-release: ^25
 
   '@sanity/tsconfig@2.0.0':
     resolution: {integrity: sha512-t3VkUo8Sz4g6TjffUTDXzDCghs+MelX+lTJHNPK+Htjrcv/+VJSfHZhp4Zi4GuKjmdd3VzCtFb37S7R42qpppw==}
@@ -8192,7 +8192,7 @@ snapshots:
       prettier: 3.6.2
       prettier-plugin-packagejson: 2.5.19(prettier@3.6.2)
 
-  '@sanity/semantic-release-preset@5.0.0(semantic-release@24.2.9(typescript@5.9.3))':
+  '@sanity/semantic-release-preset@6.0.0(semantic-release@24.2.9(typescript@5.9.3))':
     dependencies:
       '@semantic-release/changelog': 6.0.3(semantic-release@24.2.9(typescript@5.9.3))
       '@semantic-release/exec': 6.0.3(semantic-release@24.2.9(typescript@5.9.3))
