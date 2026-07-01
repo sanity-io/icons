@@ -26,6 +26,1416 @@
       "require": "./dist/index.cjs",
       "default": "./dist/index.js"
     },
+    "./AccessDeniedIcon": {
+      "source": "./src/exports/AccessDeniedIcon.ts",
+      "import": "./dist/exports/AccessDeniedIcon.js",
+      "require": "./dist/exports/AccessDeniedIcon.cjs",
+      "default": "./dist/exports/AccessDeniedIcon.js"
+    },
+    "./ActivityIcon": {
+      "source": "./src/exports/ActivityIcon.ts",
+      "import": "./dist/exports/ActivityIcon.js",
+      "require": "./dist/exports/ActivityIcon.cjs",
+      "default": "./dist/exports/ActivityIcon.js"
+    },
+    "./AddCircleIcon": {
+      "source": "./src/exports/AddCircleIcon.ts",
+      "import": "./dist/exports/AddCircleIcon.js",
+      "require": "./dist/exports/AddCircleIcon.cjs",
+      "default": "./dist/exports/AddCircleIcon.js"
+    },
+    "./AddCommentIcon": {
+      "source": "./src/exports/AddCommentIcon.ts",
+      "import": "./dist/exports/AddCommentIcon.js",
+      "require": "./dist/exports/AddCommentIcon.cjs",
+      "default": "./dist/exports/AddCommentIcon.js"
+    },
+    "./AddDocumentIcon": {
+      "source": "./src/exports/AddDocumentIcon.ts",
+      "import": "./dist/exports/AddDocumentIcon.js",
+      "require": "./dist/exports/AddDocumentIcon.cjs",
+      "default": "./dist/exports/AddDocumentIcon.js"
+    },
+    "./AddIcon": {
+      "source": "./src/exports/AddIcon.ts",
+      "import": "./dist/exports/AddIcon.js",
+      "require": "./dist/exports/AddIcon.cjs",
+      "default": "./dist/exports/AddIcon.js"
+    },
+    "./AddUserIcon": {
+      "source": "./src/exports/AddUserIcon.ts",
+      "import": "./dist/exports/AddUserIcon.js",
+      "require": "./dist/exports/AddUserIcon.cjs",
+      "default": "./dist/exports/AddUserIcon.js"
+    },
+    "./ApiIcon": {
+      "source": "./src/exports/ApiIcon.ts",
+      "import": "./dist/exports/ApiIcon.js",
+      "require": "./dist/exports/ApiIcon.cjs",
+      "default": "./dist/exports/ApiIcon.js"
+    },
+    "./ArchiveIcon": {
+      "source": "./src/exports/ArchiveIcon.ts",
+      "import": "./dist/exports/ArchiveIcon.js",
+      "require": "./dist/exports/ArchiveIcon.cjs",
+      "default": "./dist/exports/ArchiveIcon.js"
+    },
+    "./ArrowDownIcon": {
+      "source": "./src/exports/ArrowDownIcon.ts",
+      "import": "./dist/exports/ArrowDownIcon.js",
+      "require": "./dist/exports/ArrowDownIcon.cjs",
+      "default": "./dist/exports/ArrowDownIcon.js"
+    },
+    "./ArrowLeftIcon": {
+      "source": "./src/exports/ArrowLeftIcon.ts",
+      "import": "./dist/exports/ArrowLeftIcon.js",
+      "require": "./dist/exports/ArrowLeftIcon.cjs",
+      "default": "./dist/exports/ArrowLeftIcon.js"
+    },
+    "./ArrowRightIcon": {
+      "source": "./src/exports/ArrowRightIcon.ts",
+      "import": "./dist/exports/ArrowRightIcon.js",
+      "require": "./dist/exports/ArrowRightIcon.cjs",
+      "default": "./dist/exports/ArrowRightIcon.js"
+    },
+    "./ArrowTopRightIcon": {
+      "source": "./src/exports/ArrowTopRightIcon.ts",
+      "import": "./dist/exports/ArrowTopRightIcon.js",
+      "require": "./dist/exports/ArrowTopRightIcon.cjs",
+      "default": "./dist/exports/ArrowTopRightIcon.js"
+    },
+    "./ArrowUpIcon": {
+      "source": "./src/exports/ArrowUpIcon.ts",
+      "import": "./dist/exports/ArrowUpIcon.js",
+      "require": "./dist/exports/ArrowUpIcon.cjs",
+      "default": "./dist/exports/ArrowUpIcon.js"
+    },
+    "./AsteriskIcon": {
+      "source": "./src/exports/AsteriskIcon.ts",
+      "import": "./dist/exports/AsteriskIcon.js",
+      "require": "./dist/exports/AsteriskIcon.cjs",
+      "default": "./dist/exports/AsteriskIcon.js"
+    },
+    "./BarChartIcon": {
+      "source": "./src/exports/BarChartIcon.ts",
+      "import": "./dist/exports/BarChartIcon.js",
+      "require": "./dist/exports/BarChartIcon.cjs",
+      "default": "./dist/exports/BarChartIcon.js"
+    },
+    "./BasketIcon": {
+      "source": "./src/exports/BasketIcon.ts",
+      "import": "./dist/exports/BasketIcon.js",
+      "require": "./dist/exports/BasketIcon.cjs",
+      "default": "./dist/exports/BasketIcon.js"
+    },
+    "./BellIcon": {
+      "source": "./src/exports/BellIcon.ts",
+      "import": "./dist/exports/BellIcon.js",
+      "require": "./dist/exports/BellIcon.cjs",
+      "default": "./dist/exports/BellIcon.js"
+    },
+    "./BillIcon": {
+      "source": "./src/exports/BillIcon.ts",
+      "import": "./dist/exports/BillIcon.js",
+      "require": "./dist/exports/BillIcon.cjs",
+      "default": "./dist/exports/BillIcon.js"
+    },
+    "./BinaryDocumentIcon": {
+      "source": "./src/exports/BinaryDocumentIcon.ts",
+      "import": "./dist/exports/BinaryDocumentIcon.js",
+      "require": "./dist/exports/BinaryDocumentIcon.cjs",
+      "default": "./dist/exports/BinaryDocumentIcon.js"
+    },
+    "./BlockContentIcon": {
+      "source": "./src/exports/BlockContentIcon.ts",
+      "import": "./dist/exports/BlockContentIcon.js",
+      "require": "./dist/exports/BlockContentIcon.cjs",
+      "default": "./dist/exports/BlockContentIcon.js"
+    },
+    "./BlockElementIcon": {
+      "source": "./src/exports/BlockElementIcon.ts",
+      "import": "./dist/exports/BlockElementIcon.js",
+      "require": "./dist/exports/BlockElementIcon.cjs",
+      "default": "./dist/exports/BlockElementIcon.js"
+    },
+    "./BlockquoteIcon": {
+      "source": "./src/exports/BlockquoteIcon.ts",
+      "import": "./dist/exports/BlockquoteIcon.js",
+      "require": "./dist/exports/BlockquoteIcon.cjs",
+      "default": "./dist/exports/BlockquoteIcon.js"
+    },
+    "./BoldIcon": {
+      "source": "./src/exports/BoldIcon.ts",
+      "import": "./dist/exports/BoldIcon.js",
+      "require": "./dist/exports/BoldIcon.cjs",
+      "default": "./dist/exports/BoldIcon.js"
+    },
+    "./BoltIcon": {
+      "source": "./src/exports/BoltIcon.ts",
+      "import": "./dist/exports/BoltIcon.js",
+      "require": "./dist/exports/BoltIcon.cjs",
+      "default": "./dist/exports/BoltIcon.js"
+    },
+    "./BookIcon": {
+      "source": "./src/exports/BookIcon.ts",
+      "import": "./dist/exports/BookIcon.js",
+      "require": "./dist/exports/BookIcon.cjs",
+      "default": "./dist/exports/BookIcon.js"
+    },
+    "./BookmarkFilledIcon": {
+      "source": "./src/exports/BookmarkFilledIcon.ts",
+      "import": "./dist/exports/BookmarkFilledIcon.js",
+      "require": "./dist/exports/BookmarkFilledIcon.cjs",
+      "default": "./dist/exports/BookmarkFilledIcon.js"
+    },
+    "./BookmarkIcon": {
+      "source": "./src/exports/BookmarkIcon.ts",
+      "import": "./dist/exports/BookmarkIcon.js",
+      "require": "./dist/exports/BookmarkIcon.cjs",
+      "default": "./dist/exports/BookmarkIcon.js"
+    },
+    "./BottleIcon": {
+      "source": "./src/exports/BottleIcon.ts",
+      "import": "./dist/exports/BottleIcon.js",
+      "require": "./dist/exports/BottleIcon.cjs",
+      "default": "./dist/exports/BottleIcon.js"
+    },
+    "./BugIcon": {
+      "source": "./src/exports/BugIcon.ts",
+      "import": "./dist/exports/BugIcon.js",
+      "require": "./dist/exports/BugIcon.cjs",
+      "default": "./dist/exports/BugIcon.js"
+    },
+    "./BulbFilledIcon": {
+      "source": "./src/exports/BulbFilledIcon.ts",
+      "import": "./dist/exports/BulbFilledIcon.js",
+      "require": "./dist/exports/BulbFilledIcon.cjs",
+      "default": "./dist/exports/BulbFilledIcon.js"
+    },
+    "./BulbOutlineIcon": {
+      "source": "./src/exports/BulbOutlineIcon.ts",
+      "import": "./dist/exports/BulbOutlineIcon.js",
+      "require": "./dist/exports/BulbOutlineIcon.cjs",
+      "default": "./dist/exports/BulbOutlineIcon.js"
+    },
+    "./CalendarIcon": {
+      "source": "./src/exports/CalendarIcon.ts",
+      "import": "./dist/exports/CalendarIcon.js",
+      "require": "./dist/exports/CalendarIcon.cjs",
+      "default": "./dist/exports/CalendarIcon.js"
+    },
+    "./CaseIcon": {
+      "source": "./src/exports/CaseIcon.ts",
+      "import": "./dist/exports/CaseIcon.js",
+      "require": "./dist/exports/CaseIcon.cjs",
+      "default": "./dist/exports/CaseIcon.js"
+    },
+    "./ChartUpwardIcon": {
+      "source": "./src/exports/ChartUpwardIcon.ts",
+      "import": "./dist/exports/ChartUpwardIcon.js",
+      "require": "./dist/exports/ChartUpwardIcon.cjs",
+      "default": "./dist/exports/ChartUpwardIcon.js"
+    },
+    "./CheckmarkCircleIcon": {
+      "source": "./src/exports/CheckmarkCircleIcon.ts",
+      "import": "./dist/exports/CheckmarkCircleIcon.js",
+      "require": "./dist/exports/CheckmarkCircleIcon.cjs",
+      "default": "./dist/exports/CheckmarkCircleIcon.js"
+    },
+    "./CheckmarkIcon": {
+      "source": "./src/exports/CheckmarkIcon.ts",
+      "import": "./dist/exports/CheckmarkIcon.js",
+      "require": "./dist/exports/CheckmarkIcon.cjs",
+      "default": "./dist/exports/CheckmarkIcon.js"
+    },
+    "./ChevronDownIcon": {
+      "source": "./src/exports/ChevronDownIcon.ts",
+      "import": "./dist/exports/ChevronDownIcon.js",
+      "require": "./dist/exports/ChevronDownIcon.cjs",
+      "default": "./dist/exports/ChevronDownIcon.js"
+    },
+    "./ChevronLeftIcon": {
+      "source": "./src/exports/ChevronLeftIcon.ts",
+      "import": "./dist/exports/ChevronLeftIcon.js",
+      "require": "./dist/exports/ChevronLeftIcon.cjs",
+      "default": "./dist/exports/ChevronLeftIcon.js"
+    },
+    "./ChevronRightIcon": {
+      "source": "./src/exports/ChevronRightIcon.ts",
+      "import": "./dist/exports/ChevronRightIcon.js",
+      "require": "./dist/exports/ChevronRightIcon.cjs",
+      "default": "./dist/exports/ChevronRightIcon.js"
+    },
+    "./ChevronUpIcon": {
+      "source": "./src/exports/ChevronUpIcon.ts",
+      "import": "./dist/exports/ChevronUpIcon.js",
+      "require": "./dist/exports/ChevronUpIcon.cjs",
+      "default": "./dist/exports/ChevronUpIcon.js"
+    },
+    "./CircleIcon": {
+      "source": "./src/exports/CircleIcon.ts",
+      "import": "./dist/exports/CircleIcon.js",
+      "require": "./dist/exports/CircleIcon.cjs",
+      "default": "./dist/exports/CircleIcon.js"
+    },
+    "./ClipboardIcon": {
+      "source": "./src/exports/ClipboardIcon.ts",
+      "import": "./dist/exports/ClipboardIcon.js",
+      "require": "./dist/exports/ClipboardIcon.cjs",
+      "default": "./dist/exports/ClipboardIcon.js"
+    },
+    "./ClipboardImageIcon": {
+      "source": "./src/exports/ClipboardImageIcon.ts",
+      "import": "./dist/exports/ClipboardImageIcon.js",
+      "require": "./dist/exports/ClipboardImageIcon.cjs",
+      "default": "./dist/exports/ClipboardImageIcon.js"
+    },
+    "./ClockIcon": {
+      "source": "./src/exports/ClockIcon.ts",
+      "import": "./dist/exports/ClockIcon.js",
+      "require": "./dist/exports/ClockIcon.cjs",
+      "default": "./dist/exports/ClockIcon.js"
+    },
+    "./CloseCircleIcon": {
+      "source": "./src/exports/CloseCircleIcon.ts",
+      "import": "./dist/exports/CloseCircleIcon.js",
+      "require": "./dist/exports/CloseCircleIcon.cjs",
+      "default": "./dist/exports/CloseCircleIcon.js"
+    },
+    "./CloseIcon": {
+      "source": "./src/exports/CloseIcon.ts",
+      "import": "./dist/exports/CloseIcon.js",
+      "require": "./dist/exports/CloseIcon.cjs",
+      "default": "./dist/exports/CloseIcon.js"
+    },
+    "./CodeBlockIcon": {
+      "source": "./src/exports/CodeBlockIcon.ts",
+      "import": "./dist/exports/CodeBlockIcon.js",
+      "require": "./dist/exports/CodeBlockIcon.cjs",
+      "default": "./dist/exports/CodeBlockIcon.js"
+    },
+    "./CodeIcon": {
+      "source": "./src/exports/CodeIcon.ts",
+      "import": "./dist/exports/CodeIcon.js",
+      "require": "./dist/exports/CodeIcon.cjs",
+      "default": "./dist/exports/CodeIcon.js"
+    },
+    "./CogIcon": {
+      "source": "./src/exports/CogIcon.ts",
+      "import": "./dist/exports/CogIcon.js",
+      "require": "./dist/exports/CogIcon.cjs",
+      "default": "./dist/exports/CogIcon.js"
+    },
+    "./CollapseIcon": {
+      "source": "./src/exports/CollapseIcon.ts",
+      "import": "./dist/exports/CollapseIcon.js",
+      "require": "./dist/exports/CollapseIcon.cjs",
+      "default": "./dist/exports/CollapseIcon.js"
+    },
+    "./ColorWheelIcon": {
+      "source": "./src/exports/ColorWheelIcon.ts",
+      "import": "./dist/exports/ColorWheelIcon.js",
+      "require": "./dist/exports/ColorWheelIcon.cjs",
+      "default": "./dist/exports/ColorWheelIcon.js"
+    },
+    "./CommentIcon": {
+      "source": "./src/exports/CommentIcon.ts",
+      "import": "./dist/exports/CommentIcon.js",
+      "require": "./dist/exports/CommentIcon.cjs",
+      "default": "./dist/exports/CommentIcon.js"
+    },
+    "./ComponentIcon": {
+      "source": "./src/exports/ComponentIcon.ts",
+      "import": "./dist/exports/ComponentIcon.js",
+      "require": "./dist/exports/ComponentIcon.cjs",
+      "default": "./dist/exports/ComponentIcon.js"
+    },
+    "./ComposeIcon": {
+      "source": "./src/exports/ComposeIcon.ts",
+      "import": "./dist/exports/ComposeIcon.js",
+      "require": "./dist/exports/ComposeIcon.cjs",
+      "default": "./dist/exports/ComposeIcon.js"
+    },
+    "./ComposeSparklesIcon": {
+      "source": "./src/exports/ComposeSparklesIcon.ts",
+      "import": "./dist/exports/ComposeSparklesIcon.js",
+      "require": "./dist/exports/ComposeSparklesIcon.cjs",
+      "default": "./dist/exports/ComposeSparklesIcon.js"
+    },
+    "./ConfettiIcon": {
+      "source": "./src/exports/ConfettiIcon.ts",
+      "import": "./dist/exports/ConfettiIcon.js",
+      "require": "./dist/exports/ConfettiIcon.cjs",
+      "default": "./dist/exports/ConfettiIcon.js"
+    },
+    "./ControlsIcon": {
+      "source": "./src/exports/ControlsIcon.ts",
+      "import": "./dist/exports/ControlsIcon.js",
+      "require": "./dist/exports/ControlsIcon.cjs",
+      "default": "./dist/exports/ControlsIcon.js"
+    },
+    "./CopyIcon": {
+      "source": "./src/exports/CopyIcon.ts",
+      "import": "./dist/exports/CopyIcon.js",
+      "require": "./dist/exports/CopyIcon.cjs",
+      "default": "./dist/exports/CopyIcon.js"
+    },
+    "./CreditCardIcon": {
+      "source": "./src/exports/CreditCardIcon.ts",
+      "import": "./dist/exports/CreditCardIcon.js",
+      "require": "./dist/exports/CreditCardIcon.cjs",
+      "default": "./dist/exports/CreditCardIcon.js"
+    },
+    "./CropIcon": {
+      "source": "./src/exports/CropIcon.ts",
+      "import": "./dist/exports/CropIcon.js",
+      "require": "./dist/exports/CropIcon.cjs",
+      "default": "./dist/exports/CropIcon.js"
+    },
+    "./CubeIcon": {
+      "source": "./src/exports/CubeIcon.ts",
+      "import": "./dist/exports/CubeIcon.js",
+      "require": "./dist/exports/CubeIcon.cjs",
+      "default": "./dist/exports/CubeIcon.js"
+    },
+    "./DashboardIcon": {
+      "source": "./src/exports/DashboardIcon.ts",
+      "import": "./dist/exports/DashboardIcon.js",
+      "require": "./dist/exports/DashboardIcon.cjs",
+      "default": "./dist/exports/DashboardIcon.js"
+    },
+    "./DatabaseIcon": {
+      "source": "./src/exports/DatabaseIcon.ts",
+      "import": "./dist/exports/DatabaseIcon.js",
+      "require": "./dist/exports/DatabaseIcon.cjs",
+      "default": "./dist/exports/DatabaseIcon.js"
+    },
+    "./DesktopIcon": {
+      "source": "./src/exports/DesktopIcon.ts",
+      "import": "./dist/exports/DesktopIcon.js",
+      "require": "./dist/exports/DesktopIcon.cjs",
+      "default": "./dist/exports/DesktopIcon.js"
+    },
+    "./DiamondIcon": {
+      "source": "./src/exports/DiamondIcon.ts",
+      "import": "./dist/exports/DiamondIcon.js",
+      "require": "./dist/exports/DiamondIcon.cjs",
+      "default": "./dist/exports/DiamondIcon.js"
+    },
+    "./DocumentIcon": {
+      "source": "./src/exports/DocumentIcon.ts",
+      "import": "./dist/exports/DocumentIcon.js",
+      "require": "./dist/exports/DocumentIcon.cjs",
+      "default": "./dist/exports/DocumentIcon.js"
+    },
+    "./DocumentPdfIcon": {
+      "source": "./src/exports/DocumentPdfIcon.ts",
+      "import": "./dist/exports/DocumentPdfIcon.js",
+      "require": "./dist/exports/DocumentPdfIcon.cjs",
+      "default": "./dist/exports/DocumentPdfIcon.js"
+    },
+    "./DocumentRemoveIcon": {
+      "source": "./src/exports/DocumentRemoveIcon.ts",
+      "import": "./dist/exports/DocumentRemoveIcon.js",
+      "require": "./dist/exports/DocumentRemoveIcon.cjs",
+      "default": "./dist/exports/DocumentRemoveIcon.js"
+    },
+    "./DocumentSheetIcon": {
+      "source": "./src/exports/DocumentSheetIcon.ts",
+      "import": "./dist/exports/DocumentSheetIcon.js",
+      "require": "./dist/exports/DocumentSheetIcon.cjs",
+      "default": "./dist/exports/DocumentSheetIcon.js"
+    },
+    "./DocumentTextIcon": {
+      "source": "./src/exports/DocumentTextIcon.ts",
+      "import": "./dist/exports/DocumentTextIcon.js",
+      "require": "./dist/exports/DocumentTextIcon.cjs",
+      "default": "./dist/exports/DocumentTextIcon.js"
+    },
+    "./DocumentVideoIcon": {
+      "source": "./src/exports/DocumentVideoIcon.ts",
+      "import": "./dist/exports/DocumentVideoIcon.js",
+      "require": "./dist/exports/DocumentVideoIcon.cjs",
+      "default": "./dist/exports/DocumentVideoIcon.js"
+    },
+    "./DocumentWordIcon": {
+      "source": "./src/exports/DocumentWordIcon.ts",
+      "import": "./dist/exports/DocumentWordIcon.js",
+      "require": "./dist/exports/DocumentWordIcon.cjs",
+      "default": "./dist/exports/DocumentWordIcon.js"
+    },
+    "./DocumentZipIcon": {
+      "source": "./src/exports/DocumentZipIcon.ts",
+      "import": "./dist/exports/DocumentZipIcon.js",
+      "require": "./dist/exports/DocumentZipIcon.cjs",
+      "default": "./dist/exports/DocumentZipIcon.js"
+    },
+    "./DocumentsIcon": {
+      "source": "./src/exports/DocumentsIcon.ts",
+      "import": "./dist/exports/DocumentsIcon.js",
+      "require": "./dist/exports/DocumentsIcon.cjs",
+      "default": "./dist/exports/DocumentsIcon.js"
+    },
+    "./DotIcon": {
+      "source": "./src/exports/DotIcon.ts",
+      "import": "./dist/exports/DotIcon.js",
+      "require": "./dist/exports/DotIcon.cjs",
+      "default": "./dist/exports/DotIcon.js"
+    },
+    "./DoubleChevronDownIcon": {
+      "source": "./src/exports/DoubleChevronDownIcon.ts",
+      "import": "./dist/exports/DoubleChevronDownIcon.js",
+      "require": "./dist/exports/DoubleChevronDownIcon.cjs",
+      "default": "./dist/exports/DoubleChevronDownIcon.js"
+    },
+    "./DoubleChevronLeftIcon": {
+      "source": "./src/exports/DoubleChevronLeftIcon.ts",
+      "import": "./dist/exports/DoubleChevronLeftIcon.js",
+      "require": "./dist/exports/DoubleChevronLeftIcon.cjs",
+      "default": "./dist/exports/DoubleChevronLeftIcon.js"
+    },
+    "./DoubleChevronRightIcon": {
+      "source": "./src/exports/DoubleChevronRightIcon.ts",
+      "import": "./dist/exports/DoubleChevronRightIcon.js",
+      "require": "./dist/exports/DoubleChevronRightIcon.cjs",
+      "default": "./dist/exports/DoubleChevronRightIcon.js"
+    },
+    "./DoubleChevronUpIcon": {
+      "source": "./src/exports/DoubleChevronUpIcon.ts",
+      "import": "./dist/exports/DoubleChevronUpIcon.js",
+      "require": "./dist/exports/DoubleChevronUpIcon.cjs",
+      "default": "./dist/exports/DoubleChevronUpIcon.js"
+    },
+    "./DownloadIcon": {
+      "source": "./src/exports/DownloadIcon.ts",
+      "import": "./dist/exports/DownloadIcon.js",
+      "require": "./dist/exports/DownloadIcon.cjs",
+      "default": "./dist/exports/DownloadIcon.js"
+    },
+    "./DragHandleIcon": {
+      "source": "./src/exports/DragHandleIcon.ts",
+      "import": "./dist/exports/DragHandleIcon.js",
+      "require": "./dist/exports/DragHandleIcon.cjs",
+      "default": "./dist/exports/DragHandleIcon.js"
+    },
+    "./DropIcon": {
+      "source": "./src/exports/DropIcon.ts",
+      "import": "./dist/exports/DropIcon.js",
+      "require": "./dist/exports/DropIcon.cjs",
+      "default": "./dist/exports/DropIcon.js"
+    },
+    "./EarthAmericasIcon": {
+      "source": "./src/exports/EarthAmericasIcon.ts",
+      "import": "./dist/exports/EarthAmericasIcon.js",
+      "require": "./dist/exports/EarthAmericasIcon.cjs",
+      "default": "./dist/exports/EarthAmericasIcon.js"
+    },
+    "./EarthGlobeIcon": {
+      "source": "./src/exports/EarthGlobeIcon.ts",
+      "import": "./dist/exports/EarthGlobeIcon.js",
+      "require": "./dist/exports/EarthGlobeIcon.cjs",
+      "default": "./dist/exports/EarthGlobeIcon.js"
+    },
+    "./EditIcon": {
+      "source": "./src/exports/EditIcon.ts",
+      "import": "./dist/exports/EditIcon.js",
+      "require": "./dist/exports/EditIcon.cjs",
+      "default": "./dist/exports/EditIcon.js"
+    },
+    "./EllipsisHorizontalIcon": {
+      "source": "./src/exports/EllipsisHorizontalIcon.ts",
+      "import": "./dist/exports/EllipsisHorizontalIcon.js",
+      "require": "./dist/exports/EllipsisHorizontalIcon.cjs",
+      "default": "./dist/exports/EllipsisHorizontalIcon.js"
+    },
+    "./EllipsisVerticalIcon": {
+      "source": "./src/exports/EllipsisVerticalIcon.ts",
+      "import": "./dist/exports/EllipsisVerticalIcon.js",
+      "require": "./dist/exports/EllipsisVerticalIcon.cjs",
+      "default": "./dist/exports/EllipsisVerticalIcon.js"
+    },
+    "./EmptyIcon": {
+      "source": "./src/exports/EmptyIcon.ts",
+      "import": "./dist/exports/EmptyIcon.js",
+      "require": "./dist/exports/EmptyIcon.cjs",
+      "default": "./dist/exports/EmptyIcon.js"
+    },
+    "./EnterIcon": {
+      "source": "./src/exports/EnterIcon.ts",
+      "import": "./dist/exports/EnterIcon.js",
+      "require": "./dist/exports/EnterIcon.cjs",
+      "default": "./dist/exports/EnterIcon.js"
+    },
+    "./EnterRightIcon": {
+      "source": "./src/exports/EnterRightIcon.ts",
+      "import": "./dist/exports/EnterRightIcon.js",
+      "require": "./dist/exports/EnterRightIcon.cjs",
+      "default": "./dist/exports/EnterRightIcon.js"
+    },
+    "./EnvelopeIcon": {
+      "source": "./src/exports/EnvelopeIcon.ts",
+      "import": "./dist/exports/EnvelopeIcon.js",
+      "require": "./dist/exports/EnvelopeIcon.cjs",
+      "default": "./dist/exports/EnvelopeIcon.js"
+    },
+    "./EqualIcon": {
+      "source": "./src/exports/EqualIcon.ts",
+      "import": "./dist/exports/EqualIcon.js",
+      "require": "./dist/exports/EqualIcon.cjs",
+      "default": "./dist/exports/EqualIcon.js"
+    },
+    "./ErrorFilledIcon": {
+      "source": "./src/exports/ErrorFilledIcon.ts",
+      "import": "./dist/exports/ErrorFilledIcon.js",
+      "require": "./dist/exports/ErrorFilledIcon.cjs",
+      "default": "./dist/exports/ErrorFilledIcon.js"
+    },
+    "./ErrorOutlineIcon": {
+      "source": "./src/exports/ErrorOutlineIcon.ts",
+      "import": "./dist/exports/ErrorOutlineIcon.js",
+      "require": "./dist/exports/ErrorOutlineIcon.cjs",
+      "default": "./dist/exports/ErrorOutlineIcon.js"
+    },
+    "./ErrorScreenIcon": {
+      "source": "./src/exports/ErrorScreenIcon.ts",
+      "import": "./dist/exports/ErrorScreenIcon.js",
+      "require": "./dist/exports/ErrorScreenIcon.cjs",
+      "default": "./dist/exports/ErrorScreenIcon.js"
+    },
+    "./ExpandIcon": {
+      "source": "./src/exports/ExpandIcon.ts",
+      "import": "./dist/exports/ExpandIcon.js",
+      "require": "./dist/exports/ExpandIcon.cjs",
+      "default": "./dist/exports/ExpandIcon.js"
+    },
+    "./EyeClosedIcon": {
+      "source": "./src/exports/EyeClosedIcon.ts",
+      "import": "./dist/exports/EyeClosedIcon.js",
+      "require": "./dist/exports/EyeClosedIcon.cjs",
+      "default": "./dist/exports/EyeClosedIcon.js"
+    },
+    "./EyeOpenIcon": {
+      "source": "./src/exports/EyeOpenIcon.ts",
+      "import": "./dist/exports/EyeOpenIcon.js",
+      "require": "./dist/exports/EyeOpenIcon.cjs",
+      "default": "./dist/exports/EyeOpenIcon.js"
+    },
+    "./FaceHappyIcon": {
+      "source": "./src/exports/FaceHappyIcon.ts",
+      "import": "./dist/exports/FaceHappyIcon.js",
+      "require": "./dist/exports/FaceHappyIcon.cjs",
+      "default": "./dist/exports/FaceHappyIcon.js"
+    },
+    "./FaceIndifferentIcon": {
+      "source": "./src/exports/FaceIndifferentIcon.ts",
+      "import": "./dist/exports/FaceIndifferentIcon.js",
+      "require": "./dist/exports/FaceIndifferentIcon.cjs",
+      "default": "./dist/exports/FaceIndifferentIcon.js"
+    },
+    "./FaceSadIcon": {
+      "source": "./src/exports/FaceSadIcon.ts",
+      "import": "./dist/exports/FaceSadIcon.js",
+      "require": "./dist/exports/FaceSadIcon.cjs",
+      "default": "./dist/exports/FaceSadIcon.js"
+    },
+    "./FeedbackIcon": {
+      "source": "./src/exports/FeedbackIcon.ts",
+      "import": "./dist/exports/FeedbackIcon.js",
+      "require": "./dist/exports/FeedbackIcon.cjs",
+      "default": "./dist/exports/FeedbackIcon.js"
+    },
+    "./FilterIcon": {
+      "source": "./src/exports/FilterIcon.ts",
+      "import": "./dist/exports/FilterIcon.js",
+      "require": "./dist/exports/FilterIcon.cjs",
+      "default": "./dist/exports/FilterIcon.js"
+    },
+    "./FolderIcon": {
+      "source": "./src/exports/FolderIcon.ts",
+      "import": "./dist/exports/FolderIcon.js",
+      "require": "./dist/exports/FolderIcon.cjs",
+      "default": "./dist/exports/FolderIcon.js"
+    },
+    "./GenerateIcon": {
+      "source": "./src/exports/GenerateIcon.ts",
+      "import": "./dist/exports/GenerateIcon.js",
+      "require": "./dist/exports/GenerateIcon.cjs",
+      "default": "./dist/exports/GenerateIcon.js"
+    },
+    "./GithubIcon": {
+      "source": "./src/exports/GithubIcon.ts",
+      "import": "./dist/exports/GithubIcon.js",
+      "require": "./dist/exports/GithubIcon.cjs",
+      "default": "./dist/exports/GithubIcon.js"
+    },
+    "./GroqIcon": {
+      "source": "./src/exports/GroqIcon.ts",
+      "import": "./dist/exports/GroqIcon.js",
+      "require": "./dist/exports/GroqIcon.cjs",
+      "default": "./dist/exports/GroqIcon.js"
+    },
+    "./HashIcon": {
+      "source": "./src/exports/HashIcon.ts",
+      "import": "./dist/exports/HashIcon.js",
+      "require": "./dist/exports/HashIcon.cjs",
+      "default": "./dist/exports/HashIcon.js"
+    },
+    "./HeartFilledIcon": {
+      "source": "./src/exports/HeartFilledIcon.ts",
+      "import": "./dist/exports/HeartFilledIcon.js",
+      "require": "./dist/exports/HeartFilledIcon.cjs",
+      "default": "./dist/exports/HeartFilledIcon.js"
+    },
+    "./HeartIcon": {
+      "source": "./src/exports/HeartIcon.ts",
+      "import": "./dist/exports/HeartIcon.js",
+      "require": "./dist/exports/HeartIcon.cjs",
+      "default": "./dist/exports/HeartIcon.js"
+    },
+    "./HelpCircleIcon": {
+      "source": "./src/exports/HelpCircleIcon.ts",
+      "import": "./dist/exports/HelpCircleIcon.js",
+      "require": "./dist/exports/HelpCircleIcon.cjs",
+      "default": "./dist/exports/HelpCircleIcon.js"
+    },
+    "./HighlightIcon": {
+      "source": "./src/exports/HighlightIcon.ts",
+      "import": "./dist/exports/HighlightIcon.js",
+      "require": "./dist/exports/HighlightIcon.cjs",
+      "default": "./dist/exports/HighlightIcon.js"
+    },
+    "./HomeIcon": {
+      "source": "./src/exports/HomeIcon.ts",
+      "import": "./dist/exports/HomeIcon.js",
+      "require": "./dist/exports/HomeIcon.cjs",
+      "default": "./dist/exports/HomeIcon.js"
+    },
+    "./IceCreamIcon": {
+      "source": "./src/exports/IceCreamIcon.ts",
+      "import": "./dist/exports/IceCreamIcon.js",
+      "require": "./dist/exports/IceCreamIcon.cjs",
+      "default": "./dist/exports/IceCreamIcon.js"
+    },
+    "./ImageIcon": {
+      "source": "./src/exports/ImageIcon.ts",
+      "import": "./dist/exports/ImageIcon.js",
+      "require": "./dist/exports/ImageIcon.cjs",
+      "default": "./dist/exports/ImageIcon.js"
+    },
+    "./ImageRemoveIcon": {
+      "source": "./src/exports/ImageRemoveIcon.ts",
+      "import": "./dist/exports/ImageRemoveIcon.js",
+      "require": "./dist/exports/ImageRemoveIcon.cjs",
+      "default": "./dist/exports/ImageRemoveIcon.js"
+    },
+    "./ImagesIcon": {
+      "source": "./src/exports/ImagesIcon.ts",
+      "import": "./dist/exports/ImagesIcon.js",
+      "require": "./dist/exports/ImagesIcon.cjs",
+      "default": "./dist/exports/ImagesIcon.js"
+    },
+    "./InboxIcon": {
+      "source": "./src/exports/InboxIcon.ts",
+      "import": "./dist/exports/InboxIcon.js",
+      "require": "./dist/exports/InboxIcon.cjs",
+      "default": "./dist/exports/InboxIcon.js"
+    },
+    "./InfoFilledIcon": {
+      "source": "./src/exports/InfoFilledIcon.ts",
+      "import": "./dist/exports/InfoFilledIcon.js",
+      "require": "./dist/exports/InfoFilledIcon.cjs",
+      "default": "./dist/exports/InfoFilledIcon.js"
+    },
+    "./InfoOutlineIcon": {
+      "source": "./src/exports/InfoOutlineIcon.ts",
+      "import": "./dist/exports/InfoOutlineIcon.js",
+      "require": "./dist/exports/InfoOutlineIcon.cjs",
+      "default": "./dist/exports/InfoOutlineIcon.js"
+    },
+    "./InlineElementIcon": {
+      "source": "./src/exports/InlineElementIcon.ts",
+      "import": "./dist/exports/InlineElementIcon.js",
+      "require": "./dist/exports/InlineElementIcon.cjs",
+      "default": "./dist/exports/InlineElementIcon.js"
+    },
+    "./InlineIcon": {
+      "source": "./src/exports/InlineIcon.ts",
+      "import": "./dist/exports/InlineIcon.js",
+      "require": "./dist/exports/InlineIcon.cjs",
+      "default": "./dist/exports/InlineIcon.js"
+    },
+    "./InsertAboveIcon": {
+      "source": "./src/exports/InsertAboveIcon.ts",
+      "import": "./dist/exports/InsertAboveIcon.js",
+      "require": "./dist/exports/InsertAboveIcon.cjs",
+      "default": "./dist/exports/InsertAboveIcon.js"
+    },
+    "./InsertBelowIcon": {
+      "source": "./src/exports/InsertBelowIcon.ts",
+      "import": "./dist/exports/InsertBelowIcon.js",
+      "require": "./dist/exports/InsertBelowIcon.cjs",
+      "default": "./dist/exports/InsertBelowIcon.js"
+    },
+    "./ItalicIcon": {
+      "source": "./src/exports/ItalicIcon.ts",
+      "import": "./dist/exports/ItalicIcon.js",
+      "require": "./dist/exports/ItalicIcon.cjs",
+      "default": "./dist/exports/ItalicIcon.js"
+    },
+    "./JoystickIcon": {
+      "source": "./src/exports/JoystickIcon.ts",
+      "import": "./dist/exports/JoystickIcon.js",
+      "require": "./dist/exports/JoystickIcon.cjs",
+      "default": "./dist/exports/JoystickIcon.js"
+    },
+    "./JsonIcon": {
+      "source": "./src/exports/JsonIcon.ts",
+      "import": "./dist/exports/JsonIcon.js",
+      "require": "./dist/exports/JsonIcon.cjs",
+      "default": "./dist/exports/JsonIcon.js"
+    },
+    "./LaunchIcon": {
+      "source": "./src/exports/LaunchIcon.ts",
+      "import": "./dist/exports/LaunchIcon.js",
+      "require": "./dist/exports/LaunchIcon.cjs",
+      "default": "./dist/exports/LaunchIcon.js"
+    },
+    "./LeaveIcon": {
+      "source": "./src/exports/LeaveIcon.ts",
+      "import": "./dist/exports/LeaveIcon.js",
+      "require": "./dist/exports/LeaveIcon.cjs",
+      "default": "./dist/exports/LeaveIcon.js"
+    },
+    "./LemonIcon": {
+      "source": "./src/exports/LemonIcon.ts",
+      "import": "./dist/exports/LemonIcon.js",
+      "require": "./dist/exports/LemonIcon.cjs",
+      "default": "./dist/exports/LemonIcon.js"
+    },
+    "./LinkIcon": {
+      "source": "./src/exports/LinkIcon.ts",
+      "import": "./dist/exports/LinkIcon.js",
+      "require": "./dist/exports/LinkIcon.cjs",
+      "default": "./dist/exports/LinkIcon.js"
+    },
+    "./LinkRemovedIcon": {
+      "source": "./src/exports/LinkRemovedIcon.ts",
+      "import": "./dist/exports/LinkRemovedIcon.js",
+      "require": "./dist/exports/LinkRemovedIcon.cjs",
+      "default": "./dist/exports/LinkRemovedIcon.js"
+    },
+    "./LinkedinIcon": {
+      "source": "./src/exports/LinkedinIcon.ts",
+      "import": "./dist/exports/LinkedinIcon.js",
+      "require": "./dist/exports/LinkedinIcon.cjs",
+      "default": "./dist/exports/LinkedinIcon.js"
+    },
+    "./ListIcon": {
+      "source": "./src/exports/ListIcon.ts",
+      "import": "./dist/exports/ListIcon.js",
+      "require": "./dist/exports/ListIcon.cjs",
+      "default": "./dist/exports/ListIcon.js"
+    },
+    "./LockIcon": {
+      "source": "./src/exports/LockIcon.ts",
+      "import": "./dist/exports/LockIcon.js",
+      "require": "./dist/exports/LockIcon.cjs",
+      "default": "./dist/exports/LockIcon.js"
+    },
+    "./LogoJsIcon": {
+      "source": "./src/exports/LogoJsIcon.ts",
+      "import": "./dist/exports/LogoJsIcon.js",
+      "require": "./dist/exports/LogoJsIcon.cjs",
+      "default": "./dist/exports/LogoJsIcon.js"
+    },
+    "./LogoTsIcon": {
+      "source": "./src/exports/LogoTsIcon.ts",
+      "import": "./dist/exports/LogoTsIcon.js",
+      "require": "./dist/exports/LogoTsIcon.cjs",
+      "default": "./dist/exports/LogoTsIcon.js"
+    },
+    "./MarkerIcon": {
+      "source": "./src/exports/MarkerIcon.ts",
+      "import": "./dist/exports/MarkerIcon.js",
+      "require": "./dist/exports/MarkerIcon.cjs",
+      "default": "./dist/exports/MarkerIcon.js"
+    },
+    "./MarkerRemovedIcon": {
+      "source": "./src/exports/MarkerRemovedIcon.ts",
+      "import": "./dist/exports/MarkerRemovedIcon.js",
+      "require": "./dist/exports/MarkerRemovedIcon.cjs",
+      "default": "./dist/exports/MarkerRemovedIcon.js"
+    },
+    "./MasterDetailIcon": {
+      "source": "./src/exports/MasterDetailIcon.ts",
+      "import": "./dist/exports/MasterDetailIcon.js",
+      "require": "./dist/exports/MasterDetailIcon.cjs",
+      "default": "./dist/exports/MasterDetailIcon.js"
+    },
+    "./MenuIcon": {
+      "source": "./src/exports/MenuIcon.ts",
+      "import": "./dist/exports/MenuIcon.js",
+      "require": "./dist/exports/MenuIcon.cjs",
+      "default": "./dist/exports/MenuIcon.js"
+    },
+    "./MicrophoneIcon": {
+      "source": "./src/exports/MicrophoneIcon.ts",
+      "import": "./dist/exports/MicrophoneIcon.js",
+      "require": "./dist/exports/MicrophoneIcon.cjs",
+      "default": "./dist/exports/MicrophoneIcon.js"
+    },
+    "./MicrophoneSlashIcon": {
+      "source": "./src/exports/MicrophoneSlashIcon.ts",
+      "import": "./dist/exports/MicrophoneSlashIcon.js",
+      "require": "./dist/exports/MicrophoneSlashIcon.cjs",
+      "default": "./dist/exports/MicrophoneSlashIcon.js"
+    },
+    "./MobileDeviceIcon": {
+      "source": "./src/exports/MobileDeviceIcon.ts",
+      "import": "./dist/exports/MobileDeviceIcon.js",
+      "require": "./dist/exports/MobileDeviceIcon.cjs",
+      "default": "./dist/exports/MobileDeviceIcon.js"
+    },
+    "./MoonIcon": {
+      "source": "./src/exports/MoonIcon.ts",
+      "import": "./dist/exports/MoonIcon.js",
+      "require": "./dist/exports/MoonIcon.cjs",
+      "default": "./dist/exports/MoonIcon.js"
+    },
+    "./NumberIcon": {
+      "source": "./src/exports/NumberIcon.ts",
+      "import": "./dist/exports/NumberIcon.js",
+      "require": "./dist/exports/NumberIcon.cjs",
+      "default": "./dist/exports/NumberIcon.js"
+    },
+    "./OkHandIcon": {
+      "source": "./src/exports/OkHandIcon.ts",
+      "import": "./dist/exports/OkHandIcon.js",
+      "require": "./dist/exports/OkHandIcon.cjs",
+      "default": "./dist/exports/OkHandIcon.js"
+    },
+    "./OlistIcon": {
+      "source": "./src/exports/OlistIcon.ts",
+      "import": "./dist/exports/OlistIcon.js",
+      "require": "./dist/exports/OlistIcon.cjs",
+      "default": "./dist/exports/OlistIcon.js"
+    },
+    "./OverageIcon": {
+      "source": "./src/exports/OverageIcon.ts",
+      "import": "./dist/exports/OverageIcon.js",
+      "require": "./dist/exports/OverageIcon.cjs",
+      "default": "./dist/exports/OverageIcon.js"
+    },
+    "./PackageIcon": {
+      "source": "./src/exports/PackageIcon.ts",
+      "import": "./dist/exports/PackageIcon.js",
+      "require": "./dist/exports/PackageIcon.cjs",
+      "default": "./dist/exports/PackageIcon.js"
+    },
+    "./PanelLeftIcon": {
+      "source": "./src/exports/PanelLeftIcon.ts",
+      "import": "./dist/exports/PanelLeftIcon.js",
+      "require": "./dist/exports/PanelLeftIcon.cjs",
+      "default": "./dist/exports/PanelLeftIcon.js"
+    },
+    "./PanelRightIcon": {
+      "source": "./src/exports/PanelRightIcon.ts",
+      "import": "./dist/exports/PanelRightIcon.js",
+      "require": "./dist/exports/PanelRightIcon.cjs",
+      "default": "./dist/exports/PanelRightIcon.js"
+    },
+    "./PauseIcon": {
+      "source": "./src/exports/PauseIcon.ts",
+      "import": "./dist/exports/PauseIcon.js",
+      "require": "./dist/exports/PauseIcon.cjs",
+      "default": "./dist/exports/PauseIcon.js"
+    },
+    "./PinFilledIcon": {
+      "source": "./src/exports/PinFilledIcon.ts",
+      "import": "./dist/exports/PinFilledIcon.js",
+      "require": "./dist/exports/PinFilledIcon.cjs",
+      "default": "./dist/exports/PinFilledIcon.js"
+    },
+    "./PinIcon": {
+      "source": "./src/exports/PinIcon.ts",
+      "import": "./dist/exports/PinIcon.js",
+      "require": "./dist/exports/PinIcon.cjs",
+      "default": "./dist/exports/PinIcon.js"
+    },
+    "./PinRemovedIcon": {
+      "source": "./src/exports/PinRemovedIcon.ts",
+      "import": "./dist/exports/PinRemovedIcon.js",
+      "require": "./dist/exports/PinRemovedIcon.cjs",
+      "default": "./dist/exports/PinRemovedIcon.js"
+    },
+    "./PlayIcon": {
+      "source": "./src/exports/PlayIcon.ts",
+      "import": "./dist/exports/PlayIcon.js",
+      "require": "./dist/exports/PlayIcon.cjs",
+      "default": "./dist/exports/PlayIcon.js"
+    },
+    "./PlugIcon": {
+      "source": "./src/exports/PlugIcon.ts",
+      "import": "./dist/exports/PlugIcon.js",
+      "require": "./dist/exports/PlugIcon.cjs",
+      "default": "./dist/exports/PlugIcon.js"
+    },
+    "./PresentationIcon": {
+      "source": "./src/exports/PresentationIcon.ts",
+      "import": "./dist/exports/PresentationIcon.js",
+      "require": "./dist/exports/PresentationIcon.cjs",
+      "default": "./dist/exports/PresentationIcon.js"
+    },
+    "./Progress50Icon": {
+      "source": "./src/exports/Progress50Icon.ts",
+      "import": "./dist/exports/Progress50Icon.js",
+      "require": "./dist/exports/Progress50Icon.cjs",
+      "default": "./dist/exports/Progress50Icon.js"
+    },
+    "./Progress75Icon": {
+      "source": "./src/exports/Progress75Icon.ts",
+      "import": "./dist/exports/Progress75Icon.js",
+      "require": "./dist/exports/Progress75Icon.cjs",
+      "default": "./dist/exports/Progress75Icon.js"
+    },
+    "./ProjectsIcon": {
+      "source": "./src/exports/ProjectsIcon.ts",
+      "import": "./dist/exports/ProjectsIcon.js",
+      "require": "./dist/exports/ProjectsIcon.cjs",
+      "default": "./dist/exports/ProjectsIcon.js"
+    },
+    "./PublishIcon": {
+      "source": "./src/exports/PublishIcon.ts",
+      "import": "./dist/exports/PublishIcon.js",
+      "require": "./dist/exports/PublishIcon.cjs",
+      "default": "./dist/exports/PublishIcon.js"
+    },
+    "./ReadOnlyIcon": {
+      "source": "./src/exports/ReadOnlyIcon.ts",
+      "import": "./dist/exports/ReadOnlyIcon.js",
+      "require": "./dist/exports/ReadOnlyIcon.cjs",
+      "default": "./dist/exports/ReadOnlyIcon.js"
+    },
+    "./RedoIcon": {
+      "source": "./src/exports/RedoIcon.ts",
+      "import": "./dist/exports/RedoIcon.js",
+      "require": "./dist/exports/RedoIcon.cjs",
+      "default": "./dist/exports/RedoIcon.js"
+    },
+    "./RefreshIcon": {
+      "source": "./src/exports/RefreshIcon.ts",
+      "import": "./dist/exports/RefreshIcon.js",
+      "require": "./dist/exports/RefreshIcon.cjs",
+      "default": "./dist/exports/RefreshIcon.js"
+    },
+    "./RemoveCircleIcon": {
+      "source": "./src/exports/RemoveCircleIcon.ts",
+      "import": "./dist/exports/RemoveCircleIcon.js",
+      "require": "./dist/exports/RemoveCircleIcon.cjs",
+      "default": "./dist/exports/RemoveCircleIcon.js"
+    },
+    "./RemoveIcon": {
+      "source": "./src/exports/RemoveIcon.ts",
+      "import": "./dist/exports/RemoveIcon.js",
+      "require": "./dist/exports/RemoveIcon.cjs",
+      "default": "./dist/exports/RemoveIcon.js"
+    },
+    "./ResetIcon": {
+      "source": "./src/exports/ResetIcon.ts",
+      "import": "./dist/exports/ResetIcon.js",
+      "require": "./dist/exports/ResetIcon.cjs",
+      "default": "./dist/exports/ResetIcon.js"
+    },
+    "./RestoreIcon": {
+      "source": "./src/exports/RestoreIcon.ts",
+      "import": "./dist/exports/RestoreIcon.js",
+      "require": "./dist/exports/RestoreIcon.cjs",
+      "default": "./dist/exports/RestoreIcon.js"
+    },
+    "./RetrieveIcon": {
+      "source": "./src/exports/RetrieveIcon.ts",
+      "import": "./dist/exports/RetrieveIcon.js",
+      "require": "./dist/exports/RetrieveIcon.cjs",
+      "default": "./dist/exports/RetrieveIcon.js"
+    },
+    "./RetryIcon": {
+      "source": "./src/exports/RetryIcon.ts",
+      "import": "./dist/exports/RetryIcon.js",
+      "require": "./dist/exports/RetryIcon.cjs",
+      "default": "./dist/exports/RetryIcon.js"
+    },
+    "./RevertIcon": {
+      "source": "./src/exports/RevertIcon.ts",
+      "import": "./dist/exports/RevertIcon.js",
+      "require": "./dist/exports/RevertIcon.cjs",
+      "default": "./dist/exports/RevertIcon.js"
+    },
+    "./RobotIcon": {
+      "source": "./src/exports/RobotIcon.ts",
+      "import": "./dist/exports/RobotIcon.js",
+      "require": "./dist/exports/RobotIcon.cjs",
+      "default": "./dist/exports/RobotIcon.js"
+    },
+    "./RocketIcon": {
+      "source": "./src/exports/RocketIcon.ts",
+      "import": "./dist/exports/RocketIcon.js",
+      "require": "./dist/exports/RocketIcon.cjs",
+      "default": "./dist/exports/RocketIcon.js"
+    },
+    "./SchemaIcon": {
+      "source": "./src/exports/SchemaIcon.ts",
+      "import": "./dist/exports/SchemaIcon.js",
+      "require": "./dist/exports/SchemaIcon.cjs",
+      "default": "./dist/exports/SchemaIcon.js"
+    },
+    "./SearchIcon": {
+      "source": "./src/exports/SearchIcon.ts",
+      "import": "./dist/exports/SearchIcon.js",
+      "require": "./dist/exports/SearchIcon.cjs",
+      "default": "./dist/exports/SearchIcon.js"
+    },
+    "./SelectIcon": {
+      "source": "./src/exports/SelectIcon.ts",
+      "import": "./dist/exports/SelectIcon.js",
+      "require": "./dist/exports/SelectIcon.cjs",
+      "default": "./dist/exports/SelectIcon.js"
+    },
+    "./ShareIcon": {
+      "source": "./src/exports/ShareIcon.ts",
+      "import": "./dist/exports/ShareIcon.js",
+      "require": "./dist/exports/ShareIcon.cjs",
+      "default": "./dist/exports/ShareIcon.js"
+    },
+    "./SortIcon": {
+      "source": "./src/exports/SortIcon.ts",
+      "import": "./dist/exports/SortIcon.js",
+      "require": "./dist/exports/SortIcon.cjs",
+      "default": "./dist/exports/SortIcon.js"
+    },
+    "./SparkleIcon": {
+      "source": "./src/exports/SparkleIcon.ts",
+      "import": "./dist/exports/SparkleIcon.js",
+      "require": "./dist/exports/SparkleIcon.cjs",
+      "default": "./dist/exports/SparkleIcon.js"
+    },
+    "./SparklesIcon": {
+      "source": "./src/exports/SparklesIcon.ts",
+      "import": "./dist/exports/SparklesIcon.js",
+      "require": "./dist/exports/SparklesIcon.cjs",
+      "default": "./dist/exports/SparklesIcon.js"
+    },
+    "./SpinnerIcon": {
+      "source": "./src/exports/SpinnerIcon.ts",
+      "import": "./dist/exports/SpinnerIcon.js",
+      "require": "./dist/exports/SpinnerIcon.cjs",
+      "default": "./dist/exports/SpinnerIcon.js"
+    },
+    "./SplitHorizontalIcon": {
+      "source": "./src/exports/SplitHorizontalIcon.ts",
+      "import": "./dist/exports/SplitHorizontalIcon.js",
+      "require": "./dist/exports/SplitHorizontalIcon.cjs",
+      "default": "./dist/exports/SplitHorizontalIcon.js"
+    },
+    "./SplitVerticalIcon": {
+      "source": "./src/exports/SplitVerticalIcon.ts",
+      "import": "./dist/exports/SplitVerticalIcon.js",
+      "require": "./dist/exports/SplitVerticalIcon.cjs",
+      "default": "./dist/exports/SplitVerticalIcon.js"
+    },
+    "./SquareIcon": {
+      "source": "./src/exports/SquareIcon.ts",
+      "import": "./dist/exports/SquareIcon.js",
+      "require": "./dist/exports/SquareIcon.cjs",
+      "default": "./dist/exports/SquareIcon.js"
+    },
+    "./StackCompactIcon": {
+      "source": "./src/exports/StackCompactIcon.ts",
+      "import": "./dist/exports/StackCompactIcon.js",
+      "require": "./dist/exports/StackCompactIcon.cjs",
+      "default": "./dist/exports/StackCompactIcon.js"
+    },
+    "./StackIcon": {
+      "source": "./src/exports/StackIcon.ts",
+      "import": "./dist/exports/StackIcon.js",
+      "require": "./dist/exports/StackIcon.cjs",
+      "default": "./dist/exports/StackIcon.js"
+    },
+    "./StarFilledIcon": {
+      "source": "./src/exports/StarFilledIcon.ts",
+      "import": "./dist/exports/StarFilledIcon.js",
+      "require": "./dist/exports/StarFilledIcon.cjs",
+      "default": "./dist/exports/StarFilledIcon.js"
+    },
+    "./StarIcon": {
+      "source": "./src/exports/StarIcon.ts",
+      "import": "./dist/exports/StarIcon.js",
+      "require": "./dist/exports/StarIcon.cjs",
+      "default": "./dist/exports/StarIcon.js"
+    },
+    "./StopIcon": {
+      "source": "./src/exports/StopIcon.ts",
+      "import": "./dist/exports/StopIcon.js",
+      "require": "./dist/exports/StopIcon.cjs",
+      "default": "./dist/exports/StopIcon.js"
+    },
+    "./StrikethroughIcon": {
+      "source": "./src/exports/StrikethroughIcon.ts",
+      "import": "./dist/exports/StrikethroughIcon.js",
+      "require": "./dist/exports/StrikethroughIcon.cjs",
+      "default": "./dist/exports/StrikethroughIcon.js"
+    },
+    "./StringIcon": {
+      "source": "./src/exports/StringIcon.ts",
+      "import": "./dist/exports/StringIcon.js",
+      "require": "./dist/exports/StringIcon.cjs",
+      "default": "./dist/exports/StringIcon.js"
+    },
+    "./SunIcon": {
+      "source": "./src/exports/SunIcon.ts",
+      "import": "./dist/exports/SunIcon.js",
+      "require": "./dist/exports/SunIcon.cjs",
+      "default": "./dist/exports/SunIcon.js"
+    },
+    "./SyncIcon": {
+      "source": "./src/exports/SyncIcon.ts",
+      "import": "./dist/exports/SyncIcon.js",
+      "require": "./dist/exports/SyncIcon.cjs",
+      "default": "./dist/exports/SyncIcon.js"
+    },
+    "./TabletDeviceIcon": {
+      "source": "./src/exports/TabletDeviceIcon.ts",
+      "import": "./dist/exports/TabletDeviceIcon.js",
+      "require": "./dist/exports/TabletDeviceIcon.cjs",
+      "default": "./dist/exports/TabletDeviceIcon.js"
+    },
+    "./TagIcon": {
+      "source": "./src/exports/TagIcon.ts",
+      "import": "./dist/exports/TagIcon.js",
+      "require": "./dist/exports/TagIcon.cjs",
+      "default": "./dist/exports/TagIcon.js"
+    },
+    "./TagsIcon": {
+      "source": "./src/exports/TagsIcon.ts",
+      "import": "./dist/exports/TagsIcon.js",
+      "require": "./dist/exports/TagsIcon.cjs",
+      "default": "./dist/exports/TagsIcon.js"
+    },
+    "./TargetIcon": {
+      "source": "./src/exports/TargetIcon.ts",
+      "import": "./dist/exports/TargetIcon.js",
+      "require": "./dist/exports/TargetIcon.cjs",
+      "default": "./dist/exports/TargetIcon.js"
+    },
+    "./TaskIcon": {
+      "source": "./src/exports/TaskIcon.ts",
+      "import": "./dist/exports/TaskIcon.js",
+      "require": "./dist/exports/TaskIcon.cjs",
+      "default": "./dist/exports/TaskIcon.js"
+    },
+    "./TerminalIcon": {
+      "source": "./src/exports/TerminalIcon.ts",
+      "import": "./dist/exports/TerminalIcon.js",
+      "require": "./dist/exports/TerminalIcon.cjs",
+      "default": "./dist/exports/TerminalIcon.js"
+    },
+    "./TextIcon": {
+      "source": "./src/exports/TextIcon.ts",
+      "import": "./dist/exports/TextIcon.js",
+      "require": "./dist/exports/TextIcon.cjs",
+      "default": "./dist/exports/TextIcon.js"
+    },
+    "./ThLargeIcon": {
+      "source": "./src/exports/ThLargeIcon.ts",
+      "import": "./dist/exports/ThLargeIcon.js",
+      "require": "./dist/exports/ThLargeIcon.cjs",
+      "default": "./dist/exports/ThLargeIcon.js"
+    },
+    "./ThListIcon": {
+      "source": "./src/exports/ThListIcon.ts",
+      "import": "./dist/exports/ThListIcon.js",
+      "require": "./dist/exports/ThListIcon.cjs",
+      "default": "./dist/exports/ThListIcon.js"
+    },
+    "./ThumbsDownIcon": {
+      "source": "./src/exports/ThumbsDownIcon.ts",
+      "import": "./dist/exports/ThumbsDownIcon.js",
+      "require": "./dist/exports/ThumbsDownIcon.cjs",
+      "default": "./dist/exports/ThumbsDownIcon.js"
+    },
+    "./ThumbsUpIcon": {
+      "source": "./src/exports/ThumbsUpIcon.ts",
+      "import": "./dist/exports/ThumbsUpIcon.js",
+      "require": "./dist/exports/ThumbsUpIcon.cjs",
+      "default": "./dist/exports/ThumbsUpIcon.js"
+    },
+    "./TiersIcon": {
+      "source": "./src/exports/TiersIcon.ts",
+      "import": "./dist/exports/TiersIcon.js",
+      "require": "./dist/exports/TiersIcon.cjs",
+      "default": "./dist/exports/TiersIcon.js"
+    },
+    "./TimelineIcon": {
+      "source": "./src/exports/TimelineIcon.ts",
+      "import": "./dist/exports/TimelineIcon.js",
+      "require": "./dist/exports/TimelineIcon.cjs",
+      "default": "./dist/exports/TimelineIcon.js"
+    },
+    "./ToggleArrowRightIcon": {
+      "source": "./src/exports/ToggleArrowRightIcon.ts",
+      "import": "./dist/exports/ToggleArrowRightIcon.js",
+      "require": "./dist/exports/ToggleArrowRightIcon.cjs",
+      "default": "./dist/exports/ToggleArrowRightIcon.js"
+    },
+    "./TokenIcon": {
+      "source": "./src/exports/TokenIcon.ts",
+      "import": "./dist/exports/TokenIcon.js",
+      "require": "./dist/exports/TokenIcon.cjs",
+      "default": "./dist/exports/TokenIcon.js"
+    },
+    "./TransferIcon": {
+      "source": "./src/exports/TransferIcon.ts",
+      "import": "./dist/exports/TransferIcon.js",
+      "require": "./dist/exports/TransferIcon.cjs",
+      "default": "./dist/exports/TransferIcon.js"
+    },
+    "./TranslateIcon": {
+      "source": "./src/exports/TranslateIcon.ts",
+      "import": "./dist/exports/TranslateIcon.js",
+      "require": "./dist/exports/TranslateIcon.cjs",
+      "default": "./dist/exports/TranslateIcon.js"
+    },
+    "./TrashIcon": {
+      "source": "./src/exports/TrashIcon.ts",
+      "import": "./dist/exports/TrashIcon.js",
+      "require": "./dist/exports/TrashIcon.cjs",
+      "default": "./dist/exports/TrashIcon.js"
+    },
+    "./TrendUpwardIcon": {
+      "source": "./src/exports/TrendUpwardIcon.ts",
+      "import": "./dist/exports/TrendUpwardIcon.js",
+      "require": "./dist/exports/TrendUpwardIcon.cjs",
+      "default": "./dist/exports/TrendUpwardIcon.js"
+    },
+    "./TriangleOutlineIcon": {
+      "source": "./src/exports/TriangleOutlineIcon.ts",
+      "import": "./dist/exports/TriangleOutlineIcon.js",
+      "require": "./dist/exports/TriangleOutlineIcon.cjs",
+      "default": "./dist/exports/TriangleOutlineIcon.js"
+    },
+    "./TrolleyIcon": {
+      "source": "./src/exports/TrolleyIcon.ts",
+      "import": "./dist/exports/TrolleyIcon.js",
+      "require": "./dist/exports/TrolleyIcon.cjs",
+      "default": "./dist/exports/TrolleyIcon.js"
+    },
+    "./TruncateIcon": {
+      "source": "./src/exports/TruncateIcon.ts",
+      "import": "./dist/exports/TruncateIcon.js",
+      "require": "./dist/exports/TruncateIcon.cjs",
+      "default": "./dist/exports/TruncateIcon.js"
+    },
+    "./TwitterIcon": {
+      "source": "./src/exports/TwitterIcon.ts",
+      "import": "./dist/exports/TwitterIcon.js",
+      "require": "./dist/exports/TwitterIcon.cjs",
+      "default": "./dist/exports/TwitterIcon.js"
+    },
+    "./UlistIcon": {
+      "source": "./src/exports/UlistIcon.ts",
+      "import": "./dist/exports/UlistIcon.js",
+      "require": "./dist/exports/UlistIcon.cjs",
+      "default": "./dist/exports/UlistIcon.js"
+    },
+    "./UnarchiveIcon": {
+      "source": "./src/exports/UnarchiveIcon.ts",
+      "import": "./dist/exports/UnarchiveIcon.js",
+      "require": "./dist/exports/UnarchiveIcon.cjs",
+      "default": "./dist/exports/UnarchiveIcon.js"
+    },
+    "./UnderlineIcon": {
+      "source": "./src/exports/UnderlineIcon.ts",
+      "import": "./dist/exports/UnderlineIcon.js",
+      "require": "./dist/exports/UnderlineIcon.cjs",
+      "default": "./dist/exports/UnderlineIcon.js"
+    },
+    "./UndoIcon": {
+      "source": "./src/exports/UndoIcon.ts",
+      "import": "./dist/exports/UndoIcon.js",
+      "require": "./dist/exports/UndoIcon.cjs",
+      "default": "./dist/exports/UndoIcon.js"
+    },
+    "./UnknownIcon": {
+      "source": "./src/exports/UnknownIcon.ts",
+      "import": "./dist/exports/UnknownIcon.js",
+      "require": "./dist/exports/UnknownIcon.cjs",
+      "default": "./dist/exports/UnknownIcon.js"
+    },
+    "./UnlinkIcon": {
+      "source": "./src/exports/UnlinkIcon.ts",
+      "import": "./dist/exports/UnlinkIcon.js",
+      "require": "./dist/exports/UnlinkIcon.cjs",
+      "default": "./dist/exports/UnlinkIcon.js"
+    },
+    "./UnlockIcon": {
+      "source": "./src/exports/UnlockIcon.ts",
+      "import": "./dist/exports/UnlockIcon.js",
+      "require": "./dist/exports/UnlockIcon.cjs",
+      "default": "./dist/exports/UnlockIcon.js"
+    },
+    "./UnpublishIcon": {
+      "source": "./src/exports/UnpublishIcon.ts",
+      "import": "./dist/exports/UnpublishIcon.js",
+      "require": "./dist/exports/UnpublishIcon.cjs",
+      "default": "./dist/exports/UnpublishIcon.js"
+    },
+    "./UploadIcon": {
+      "source": "./src/exports/UploadIcon.ts",
+      "import": "./dist/exports/UploadIcon.js",
+      "require": "./dist/exports/UploadIcon.cjs",
+      "default": "./dist/exports/UploadIcon.js"
+    },
+    "./UserIcon": {
+      "source": "./src/exports/UserIcon.ts",
+      "import": "./dist/exports/UserIcon.js",
+      "require": "./dist/exports/UserIcon.cjs",
+      "default": "./dist/exports/UserIcon.js"
+    },
+    "./UsersIcon": {
+      "source": "./src/exports/UsersIcon.ts",
+      "import": "./dist/exports/UsersIcon.js",
+      "require": "./dist/exports/UsersIcon.cjs",
+      "default": "./dist/exports/UsersIcon.js"
+    },
+    "./VersionsIcon": {
+      "source": "./src/exports/VersionsIcon.ts",
+      "import": "./dist/exports/VersionsIcon.js",
+      "require": "./dist/exports/VersionsIcon.cjs",
+      "default": "./dist/exports/VersionsIcon.js"
+    },
+    "./VideoIcon": {
+      "source": "./src/exports/VideoIcon.ts",
+      "import": "./dist/exports/VideoIcon.js",
+      "require": "./dist/exports/VideoIcon.cjs",
+      "default": "./dist/exports/VideoIcon.js"
+    },
+    "./WarningFilledIcon": {
+      "source": "./src/exports/WarningFilledIcon.ts",
+      "import": "./dist/exports/WarningFilledIcon.js",
+      "require": "./dist/exports/WarningFilledIcon.cjs",
+      "default": "./dist/exports/WarningFilledIcon.js"
+    },
+    "./WarningOutlineIcon": {
+      "source": "./src/exports/WarningOutlineIcon.ts",
+      "import": "./dist/exports/WarningOutlineIcon.js",
+      "require": "./dist/exports/WarningOutlineIcon.cjs",
+      "default": "./dist/exports/WarningOutlineIcon.js"
+    },
+    "./WrenchIcon": {
+      "source": "./src/exports/WrenchIcon.ts",
+      "import": "./dist/exports/WrenchIcon.js",
+      "require": "./dist/exports/WrenchIcon.cjs",
+      "default": "./dist/exports/WrenchIcon.js"
+    },
     "./package.json": "./package.json"
   },
   "main": "./dist/index.cjs",
@@ -40,7 +1450,7 @@
     "commit": "cz",
     "dev": "pnpm workshop:dev",
     "format": "prettier --write --cache --ignore-unknown .",
-    "generate": "rimraf src/icons && node -r esbuild-register scripts/generate.ts && pnpm format",
+    "generate": "rimraf src/icons src/exports && node -r esbuild-register scripts/generate.ts && pnpm format",
     "lint": "oxlint",
     "pkg:build": "pkg build --strict",
     "pkg:check": "pkg --strict",

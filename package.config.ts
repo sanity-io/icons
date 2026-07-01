@@ -8,4 +8,10 @@ export default defineConfig({
   },
   tsconfig: 'tsconfig.dist.json',
   dts: 'rolldown',
+  rollup: {
+    output: {
+      preserveModules: true,
+      preserveModulesRoot: 'src',
+    },
+  },
 })
