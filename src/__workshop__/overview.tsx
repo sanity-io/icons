@@ -1,4 +1,7 @@
-import {Icon, SearchIcon, SpinnerIcon, type IconSymbol} from '@sanity/icons'
+import {Icon, type IconSymbol} from '@sanity/icons'
+// Preferred per-icon imports: pull in just the icons this view uses.
+import {SearchIcon} from '@sanity/icons/Search'
+import {SpinnerIcon} from '@sanity/icons/Spinner'
 import {Box, Card, Code, Container, Flex, Heading, Stack, Text, TextInput} from '@sanity/ui'
 import {startTransition, useEffect, useState} from 'react'
 import {registerLanguage} from 'react-refractor'
@@ -77,9 +80,9 @@ export default function OverviewStory() {
                   <Text>{key}</Text>
                 </Flex>
                 <Card overflow="auto" padding={4} tone="transparent">
-                  <Code language="typescript">{`import {${toPascalCase(
+                  <Code language="typescript">{`import {${toPascalCase(key)}Icon} from '@sanity/icons/${toPascalCase(
                     key,
-                  )}Icon} from '@sanity/icons'`}</Code>
+                  )}'`}</Code>
                 </Card>
               </Card>
             ))}
