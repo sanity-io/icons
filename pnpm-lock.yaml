@@ -68,9 +68,6 @@ importers:
       mkdirp:
         specifier: ^3.0.1
         version: 3.0.1
-      module-alias:
-        specifier: ^2.2.3
-        version: 2.3.4
       node:
         specifier: runtime:^24.0.0
         version: runtime:24.18.0
@@ -2675,9 +2672,6 @@ packages:
 
   modern-ahocorasick@1.1.0:
     resolution: {integrity: sha512-sEKPVl2rM+MNVkGQt3ChdmD8YsigmXdn5NifZn6jiwn9LRJpWm8F3guhaqrJT/JOat6pwpbXEk6kv+b9DMIjsQ==}
-
-  module-alias@2.3.4:
-    resolution: {integrity: sha512-bOclZt8hkpuGgSSoG07PKmvzTizROilUTvLNyrMqvlC9snhs7y7GzjNWAVbISIOlhCP1T14rH1PDAV9iNyBq/w==}
 
   motion-dom@12.23.23:
     resolution: {integrity: sha512-n5yolOs0TQQBRUFImrRfs/+6X4p3Q4n1dUEqt/H58Vx7OW6RF+foWEgmTVDhIWJIMXOuNNL0apKH2S16en9eiA==}
@@ -5984,8 +5978,6 @@ snapshots:
       ufo: 1.6.1
 
   modern-ahocorasick@1.1.0: {}
-
-  module-alias@2.3.4: {}
 
   motion-dom@12.23.23:
     dependencies:

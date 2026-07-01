@@ -81,7 +81,6 @@
     "knip": "^6.23.0",
     "lefthook": "^2.1.9",
     "mkdirp": "^3.0.1",
-    "module-alias": "^2.2.3",
     "npm-run-all2": "^8.0.4",
     "oxfmt": "^0.57.0",
     "oxlint": "^1.72.0",
