@@ -1,10 +1,26 @@
 import {Icon, SearchIcon, SpinnerIcon, type IconSymbol} from '@sanity/icons'
 import {Box, Card, Code, Container, Flex, Heading, Stack, Text, TextInput} from '@sanity/ui'
-import {useState, useTransition} from 'react'
+import {startTransition, useState} from 'react'
+import {registerLanguage} from 'react-refractor'
+import tsx from 'refractor/typescript'
+import {keyframes, styled} from 'styled-components'
 
 import {useIconSearch} from './use-icon-search'
 
-import {spin} from './animation.css'
+registerLanguage(tsx)
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`
+
+const SpinningIcon = styled(SpinnerIcon)`
+  animation: ${rotate} 500ms linear infinite;
+`
 
 function ucfirst(str: string) {
   return str.slice(0, 1).toUpperCase() + str.slice(1)
@@ -18,7 +34,6 @@ function toPascalCase(str: string) {
 
 export default function OverviewStory() {
   const [query, setQuery] = useState('')
-  const [pending, startTransition] = useTransition()
   const {results: iconKeys, loading} = useIconSearch(query)
 
   return (
@@ -26,10 +41,8 @@ export default function OverviewStory() {
       <Container width={1}>
         <Box marginBottom={4}>
           <TextInput
-            icon={pending || loading ? <SpinnerIcon className={spin} /> : SearchIcon}
-            onChange={(event) => {
-              startTransition(() => setQuery(event.currentTarget.value))
-            }}
+            icon={loading ? <SpinningIcon /> : SearchIcon}
+            onChange={(event) => startTransition(() => setQuery(event.currentTarget.value))}
             placeholder="Search icons by name or meaning, e.g. “time” or “create person”…"
             radius={2}
           />
@@ -39,17 +52,17 @@ export default function OverviewStory() {
 
         {iconKeys.length > 0 && (
           <Stack space={3}>
-            {iconKeys.map((iconKey) => (
-              <Card border key={iconKey} overflow="hidden" radius={2}>
+            {iconKeys.map((key) => (
+              <Card border key={key} overflow="hidden" radius={2}>
                 <Flex align="center" gap={4} padding={4}>
                   <Heading>
-                    <Icon symbol={iconKey as IconSymbol} />
+                    <Icon symbol={key as IconSymbol} />
                   </Heading>
-                  <Text>{iconKey}</Text>
+                  <Text>{key}</Text>
                 </Flex>
                 <Card overflow="auto" padding={4} tone="transparent">
                   <Code language="typescript">{`import {${toPascalCase(
-                    iconKey,
+                    key,
                   )}Icon} from '@sanity/icons'`}</Code>
                 </Card>
               </Card>
