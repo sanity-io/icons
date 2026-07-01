@@ -121,9 +121,22 @@ interface IconMeta {
 // The barrel re-exports every icon from its dedicated `./exports/<ExportName>` module – the very
 // same module that backs the individual `@sanity/icons/<ExportName>` subpath export – so the two
 // import styles stay interchangeable and the bundler can de-duplicate them into shared chunks.
+//
+// Each re-export carries an `@deprecated` TSDoc tag on its export specifier. This deprecates the
+// *barrel import* of the icon only – the same component imported from its own subpath (or via the
+// `icons` map and `<Icon>`) is not deprecated – nudging users towards per-icon imports, which
+// avoid barrel file performance issues.
 async function writeRootIndex(files: IconMeta[]) {
   const iconReExports = files
-    .map((f) => `export {${f.componentName}} from './exports/${f.exportName}'`)
+    .map(
+      (f) =>
+        `export {
+  /**
+   * @deprecated Use \`import {${f.componentName}} from '@sanity/icons/${f.exportName}'\` instead, to avoid barrel file performance issues.
+   */
+  ${f.componentName},
+} from './exports/${f.exportName}'`,
+    )
     .join('\n')
 
   const {code} = await format(

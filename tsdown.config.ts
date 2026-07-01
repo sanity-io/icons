@@ -1,5 +1,13 @@
+import {readFile, writeFile} from 'node:fs/promises'
+import path from 'node:path'
+import {fileURLToPath} from 'node:url'
+
 import {defineConfig} from '@sanity/tsdown-config'
 import type {UserConfig} from 'tsdown'
+
+import {annotateBarrelDts, readIconExportMetas} from './scripts/annotate-barrel-dts.ts'
+
+const ROOT_PATH = path.dirname(fileURLToPath(import.meta.url))
 
 const base = defineConfig({
   tsconfig: './tsconfig.dist.json',
@@ -19,8 +27,8 @@ const base = defineConfig({
   entry: [
     './src/index.ts',
     {
-      icon: './src/icon.tsx',
-      icons: './src/icons.ts',
+      'icon': './src/icon.tsx',
+      'icons': './src/icons.ts',
       '*': './src/exports/*.tsx',
     },
   ],
@@ -34,6 +42,18 @@ const config: UserConfig = {
   exports: {
     ...(base.exports as Extract<UserConfig['exports'], object>),
     exclude: ['icon', 'icons'],
+  },
+  hooks: {
+    // Rolldown merges the barrel's re-exports into a single `export { ... }` statement in
+    // `dist/index.d.ts`, dropping the per-specifier `@deprecated` TSDoc tags authored in
+    // `src/index.ts`. Re-attach them so published barrel imports are marked deprecated
+    // (subpath imports are untouched and stay non-deprecated).
+    'build:done': async () => {
+      const barrelDtsPath = path.join(ROOT_PATH, 'dist/index.d.ts')
+      const icons = await readIconExportMetas(path.join(ROOT_PATH, 'src/exports'))
+      const source = await readFile(barrelDtsPath, 'utf8')
+      await writeFile(barrelDtsPath, annotateBarrelDts(source, icons))
+    },
   },
 }
 
