@@ -13,17 +13,14 @@ import {globby} from 'globby'
 const ROOT_PATH = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const IMPORT_PATH = path.resolve(ROOT_PATH, 'export')
 
-const projectId = process.env['SANITY_PROJECT_ID'] || 'ppsg7ml5'
-const dataset = process.env['SANITY_DATASET'] || 'icons'
-const token =
-  process.env['SANITY_API_WRITE_TOKEN'] ||
-  process.env['SANITY_WRITE_TOKEN'] ||
-  process.env['SANITY_AUTH_TOKEN']
+const projectId = process.env['SANITY_API_PROJECT_ID'] || 'ppsg7ml5'
+const dataset = process.env['SANITY_API_DATASET'] || 'icons'
+// SANITY_AUTH_TOKEN is a special-cased fallback so the seed can also run in the
+// cloud-agent env where only the CLI/deploy token is available.
+const token = process.env['SANITY_API_WRITE_TOKEN'] || process.env['SANITY_AUTH_TOKEN']
 
 if (!token) {
-  console.error(
-    'Missing SANITY_API_WRITE_TOKEN (or SANITY_WRITE_TOKEN / SANITY_AUTH_TOKEN) environment variable',
-  )
+  console.error('Missing SANITY_API_WRITE_TOKEN (or SANITY_AUTH_TOKEN) environment variable')
   process.exit(1)
 }
 
