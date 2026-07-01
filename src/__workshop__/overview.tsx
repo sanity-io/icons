@@ -1,6 +1,8 @@
-import {Icon, icons, SearchIcon, SpinnerIcon, type IconSymbol} from '@sanity/icons'
+import {Icon, SearchIcon, SpinnerIcon, type IconSymbol} from '@sanity/icons'
 import {Box, Card, Code, Container, Flex, Heading, Stack, Text, TextInput} from '@sanity/ui'
 import {useState, useTransition} from 'react'
+
+import {useIconSearch} from './use-icon-search'
 
 import {spin} from './animation.css'
 
@@ -17,26 +19,18 @@ function toPascalCase(str: string) {
 export default function OverviewStory() {
   const [query, setQuery] = useState('')
   const [pending, startTransition] = useTransition()
-
-  const _query = query.toLowerCase()
-  const iconKeys = Object.keys(icons).filter((iconKey) => {
-    return _query === ''
-      ? true
-      : iconKey.includes(query.toLowerCase()) ||
-          // @ts-expect-error `displayName` is not typed
-          icons[iconKey]?.displayName?.toLowerCase().includes(_query)
-  })
+  const {results: iconKeys, loading} = useIconSearch(query)
 
   return (
     <Card padding={[4, 5, 6]}>
       <Container width={1}>
         <Box marginBottom={4}>
           <TextInput
-            icon={pending ? <SpinnerIcon className={spin} /> : SearchIcon}
+            icon={pending || loading ? <SpinnerIcon className={spin} /> : SearchIcon}
             onChange={(event) => {
               startTransition(() => setQuery(event.currentTarget.value))
             }}
-            placeholder="Filter by name…"
+            placeholder="Search icons by name or meaning, e.g. “time” or “create person”…"
             radius={2}
           />
         </Box>
