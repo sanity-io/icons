@@ -62,7 +62,7 @@
     "schema:deploy": "sanity schema deploy",
     "seed:icons": "node scripts/seed-icons-dataset.ts",
     "studio:build": "sanity build",
-    "studio:deploy": "sanity deploy",
+    "studio:deploy": "sanity deploy --schema-required",
     "studio:dev": "sanity dev",
     "test": "vitest run",
     "test:watch": "vitest"
