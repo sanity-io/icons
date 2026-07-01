@@ -1,6 +1,6 @@
 {
   "name": "@sanity/icons",
-  "version": "4.0.0-rc.1",
+  "version": "4.0.0",
   "description": "The Sanity icons.",
   "keywords": [
     "icons",
@@ -549,6 +549,7 @@
     "@vitejs/plugin-react": "^6.0.3",
     "babel-plugin-react-compiler": "^1.0.0",
     "camelcase": "^8.0.0",
+    "copy-to-clipboard": "^4.0.2",
     "globby": "^14.1.0",
     "jsdom": "^29.1.1",
     "knip": "^6.23.0",
@@ -584,8 +585,5 @@
   "engines": {
     "node": ">=22.12"
   },
-  "packageManager": "pnpm@11.9.0",
-  "esm.sh": {
-    "bundle": false
-  }
+  "packageManager": "pnpm@11.9.0"
 }
