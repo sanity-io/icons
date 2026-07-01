@@ -13,4 +13,15 @@ export default defineConfig({
   schema: {
     types: schemaTypes,
   },
+
+  // Disabling a bunch of stuff
+  announcements: {enabled: false},
+  apps: {canvas: {enabled: false}},
+  beta: {create: {startInCreateEnabled: false}},
+  document: {comments: {enabled: false}},
+  mediaLibrary: {enabled: false},
+  releases: {enabled: false},
+  scheduledDrafts: {enabled: false},
+  scheduledPublishing: {enabled: false},
+  tasks: {enabled: false},
 })
