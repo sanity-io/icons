@@ -55,7 +55,10 @@ export default function OverviewStory() {
                 <Card overflow="auto" padding={4} tone="transparent">
                   <Code language="typescript">{`import {${toPascalCase(
                     iconKey,
-                  )}Icon} from '@sanity/icons'`}</Code>
+                  )}Icon} from '@sanity/icons'
+
+// Or, to opt in to a smaller bundle:
+import {${toPascalCase(iconKey)}Icon} from '@sanity/icons/${toPascalCase(iconKey)}Icon'`}</Code>
                 </Card>
               </Card>
             ))}
