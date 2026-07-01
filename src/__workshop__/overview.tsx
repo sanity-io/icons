@@ -51,7 +51,7 @@ export default function OverviewStory() {
         {iconKeys.length === 0 && <Text>No matches</Text>}
 
         {iconKeys.length > 0 && (
-          <Stack space={3}>
+          <Stack gap={3}>
             {iconKeys.map((key) => (
               <Card border key={key} overflow="hidden" radius={2}>
                 <Flex align="center" gap={4} padding={4}>

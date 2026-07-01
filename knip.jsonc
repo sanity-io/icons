@@ -8,4 +8,5 @@
     // through an import graph knip can follow.
     "functions/*/index.ts",
   ],
+  "ignoreDependencies": ["react-refractor", "refractor"],
 }
