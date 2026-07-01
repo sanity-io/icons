@@ -15,9 +15,15 @@ import formatConfig from '../.oxfmtrc.json' with {type: 'json'}
 const ROOT_PATH = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const IMPORT_PATH = path.resolve(ROOT_PATH, 'export')
 const SRC_ICONS_PATH = path.resolve(ROOT_PATH, 'src/icons')
+const SRC_EXPORTS_PATH = path.resolve(ROOT_PATH, 'src/exports')
+const SRC_INDEX_PATH = path.resolve(ROOT_PATH, 'src/index.ts')
 
 const GENERATED_BANNER = `/* THIS FILE IS AUTO-GENERATED – DO NOT EDIT */`
 
+// Every icon lives in its own module under `src/exports`, which is also a build entry point
+// (see `tsdown.config.ts`). Each is exposed both as a named export – so it stays interchangeable
+// with the barrel import `import {AccessDeniedIcon} from '@sanity/icons'` – and as the default
+// export, so `React.lazy(() => import('@sanity/icons/AccessDenied'))` works out of the box.
 const __TEMPLATE__ = `/* THIS FILE IS AUTO-GENERATED – DO NOT EDIT */
 
 import type {ComponentPropsWithRef, ReactElement} from 'react'
@@ -30,6 +36,8 @@ export function __NAME__(props: ComponentPropsWithRef<'svg'>): ReactElement {
     __JSX__
   )
 }
+
+export {__NAME__ as default}
 `
 
 async function readIcon(filePath: string) {
@@ -44,8 +52,10 @@ async function readIcon(filePath: string) {
 
   const name = nameSegments.join('-')
   const componentName = camelCase(`${name}-icon`, {pascalCase: true})
-  const basename = camelCase(name) + 'Icon'
-  const targetPath = path.resolve(SRC_ICONS_PATH, `${basename}.tsx`)
+  // The public subpath is the PascalCase name *without* the `Icon` suffix, so the icon defined
+  // in `src/exports/AccessDenied.tsx` is published as `@sanity/icons/AccessDenied`.
+  const exportName = camelCase(name, {pascalCase: true})
+  const targetPath = path.resolve(SRC_EXPORTS_PATH, `${exportName}.tsx`)
 
   // Read SVG markup
   const svgMarkupBuf = await readFile(filePath)
@@ -85,9 +95,9 @@ async function readIcon(filePath: string) {
   code = (await format(targetPath, code, formatConfig as unknown as FormatConfig)).code
 
   return {
-    basename,
     code,
     componentName,
+    exportName,
     name,
     relativePath,
     sourcePath: filePath,
@@ -99,8 +109,75 @@ async function writeIcon(file: {code: string; targetPath: string}) {
   await writeFile(file.targetPath, file.code)
 }
 
+interface IconMeta {
+  componentName: string
+  exportName: string
+  name: string
+}
+
+// The barrel re-exports every icon from its dedicated `./exports/<ExportName>` module – the very
+// same module that backs the individual `@sanity/icons/<ExportName>` subpath export – so the two
+// import styles stay interchangeable and the bundler can de-duplicate them into shared chunks.
+async function writeRootIndex(files: IconMeta[]) {
+  const iconReExports = files
+    .map((f) => `export {${f.componentName}} from './exports/${f.exportName}'`)
+    .join('\n')
+
+  const {code} = await format(
+    SRC_INDEX_PATH,
+    [
+      GENERATED_BANNER,
+      `export * from './icon'`,
+      `export * from './types'`,
+      `export {icons} from './icons'`,
+      `export type {IconMap, IconSymbol} from './icons'`,
+      iconReExports,
+    ].join('\n\n'),
+    formatConfig as unknown as FormatConfig,
+  )
+
+  await writeFile(SRC_INDEX_PATH, code)
+}
+
+// The `icons` map (and its `IconSymbol`/`IconMap` types) power the dynamic `<Icon symbol=… />`
+// component. It imports every icon from its `../exports/<ExportName>` module; the individual
+// named icons are re-exported from `src/index.ts`, not here, so this module stays focused on
+// the map alone.
+async function writeIconsMap(files: IconMeta[]) {
+  const importTypes = `import type {IconComponent} from '../types'`
+
+  const iconImports = files
+    .map((f) => `import {${f.componentName}} from '../exports/${f.exportName}';`)
+    .join('\n')
+
+  const typesExports = `/**\n * @public\n */\nexport type IconSymbol = \n${files
+    .map((f) => `| '${f.name}'`)
+    .join('\n')};`
+
+  const iconMapInterface = `/**\n * @public\n */\nexport interface IconMap {${files
+    .map((f) => `'${f.name}': IconComponent`)
+    .join(',')}}`
+
+  const iconsExport = `/**\n * @public\n */\nexport const icons: IconMap = {${files
+    .map((f) => `'${f.name}': ${f.componentName}`)
+    .join(',')}}`
+
+  const indexPath = path.resolve(SRC_ICONS_PATH, `index.ts`)
+
+  const {code} = await format(
+    indexPath,
+    [GENERATED_BANNER, importTypes, iconImports, typesExports, iconMapInterface, iconsExport].join(
+      '\n\n',
+    ),
+    formatConfig as unknown as FormatConfig,
+  )
+
+  await writeFile(indexPath, code)
+}
+
 async function generate() {
   await mkdirp(SRC_ICONS_PATH)
+  await mkdirp(SRC_EXPORTS_PATH)
 
   const filePaths = await globby(path.join(IMPORT_PATH, '**/*.svg'))
   const files = await Promise.all(filePaths.map(readIcon))
@@ -117,52 +194,22 @@ async function generate() {
     return 0
   })
 
+  // Guard against two icons mapping to the same subpath, which would make the generated
+  // `package.json` `exports` and `src/index.ts` re-exports ambiguous.
+  const seen = new Map<string, string>()
+  for (const file of files) {
+    const previous = seen.get(file.exportName)
+    if (previous) {
+      throw new Error(
+        `Duplicate export name "${file.exportName}" for icons "${previous}" and "${file.name}"`,
+      )
+    }
+    seen.set(file.exportName, file.name)
+  }
+
   await Promise.all(files.map(writeIcon))
-
-  const importTypes = `import type {IconComponent} from '../types'`
-
-  const iconImports = files
-    .map((f) => `import {${f.componentName}} from './${f.basename}';`)
-    .join('\n')
-
-  const typesExports = `/**\n * @public\n */\nexport type IconSymbol = \n${files
-    .map((f) => `| '${f.name}'`)
-    .join('\n')};`
-
-  const iconExports = `export {${files.map((f) => f.componentName).join(',')}}`
-
-  const iconMapInterface = `/**\n * @public\n */\nexport interface IconMap {${files
-    .map((f) => `'${f.name}': IconComponent`)
-    .join(',')}}`
-
-  const iconsExport = `/**\n * @public\n */\nexport const icons: IconMap = {${files
-    .map((f) => `'${f.name}': ${f.componentName}`)
-    .join(',')}}`
-
-  // const getIconsMap = `const getIcons: () => IconMap = () => ({${files
-  //   .map((f) => `'${f.name}': ${f.componentName}`)
-  //   .join(',')}})`
-
-  // const iconsExport = `/**\n * @public\n */\nexport const icons: IconMap = /* @__PURE__ */ getIcons();`
-
-  const indexPath = path.resolve(SRC_ICONS_PATH, `index.ts`)
-
-  const {code: indexTsCode} = await format(
-    indexPath,
-    [
-      GENERATED_BANNER,
-      importTypes,
-      iconImports,
-      typesExports,
-      iconExports,
-      iconMapInterface,
-      // getIconsMap,
-      iconsExport,
-    ].join('\n\n'),
-    formatConfig as unknown as FormatConfig,
-  )
-
-  await writeFile(indexPath, indexTsCode)
+  await writeIconsMap(files)
+  await writeRootIndex(files)
 
   console.log(`generated ${files.length} icons:`, files.map((f) => f.name).join(', '))
 }

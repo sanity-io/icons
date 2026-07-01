@@ -6,7 +6,12 @@ import type {UserConfig} from 'tsdown'
 // with TS2883 because `@sanity/tsdown-config` returns `tsdown`'s `UserConfig`.
 const config: UserConfig = defineConfig({
   tsconfig: './tsconfig.dist.json',
-  entry: './src/index.ts',
+  // The root barrel plus one entry point per icon. The object-with-glob form maps
+  // e.g. `src/exports/AccessDenied.tsx` → `@sanity/icons/AccessDenied`; the matched
+  // filename replaces the `*` in the key, which is what drives the generated
+  // `package.json` `exports` subpaths. Keeping these as separate entries lets
+  // consumers import a single icon (or `React.lazy()` it) without pulling in the set.
+  entry: ['./src/index.ts', {'*': './src/exports/*.tsx'}],
 })
 
 export default config

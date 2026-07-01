@@ -1,242 +1,242 @@
 /* THIS FILE IS AUTO-GENERATED – DO NOT EDIT */
 
+import {AccessDeniedIcon} from '../exports/AccessDenied'
+import {ActivityIcon} from '../exports/Activity'
+import {AddIcon} from '../exports/Add'
+import {AddCircleIcon} from '../exports/AddCircle'
+import {AddCommentIcon} from '../exports/AddComment'
+import {AddDocumentIcon} from '../exports/AddDocument'
+import {AddUserIcon} from '../exports/AddUser'
+import {ApiIcon} from '../exports/Api'
+import {ArchiveIcon} from '../exports/Archive'
+import {ArrowDownIcon} from '../exports/ArrowDown'
+import {ArrowLeftIcon} from '../exports/ArrowLeft'
+import {ArrowRightIcon} from '../exports/ArrowRight'
+import {ArrowTopRightIcon} from '../exports/ArrowTopRight'
+import {ArrowUpIcon} from '../exports/ArrowUp'
+import {AsteriskIcon} from '../exports/Asterisk'
+import {BarChartIcon} from '../exports/BarChart'
+import {BasketIcon} from '../exports/Basket'
+import {BellIcon} from '../exports/Bell'
+import {BillIcon} from '../exports/Bill'
+import {BinaryDocumentIcon} from '../exports/BinaryDocument'
+import {BlockContentIcon} from '../exports/BlockContent'
+import {BlockElementIcon} from '../exports/BlockElement'
+import {BlockquoteIcon} from '../exports/Blockquote'
+import {BoldIcon} from '../exports/Bold'
+import {BoltIcon} from '../exports/Bolt'
+import {BookIcon} from '../exports/Book'
+import {BookmarkIcon} from '../exports/Bookmark'
+import {BookmarkFilledIcon} from '../exports/BookmarkFilled'
+import {BottleIcon} from '../exports/Bottle'
+import {BugIcon} from '../exports/Bug'
+import {BulbFilledIcon} from '../exports/BulbFilled'
+import {BulbOutlineIcon} from '../exports/BulbOutline'
+import {CalendarIcon} from '../exports/Calendar'
+import {CaseIcon} from '../exports/Case'
+import {ChartUpwardIcon} from '../exports/ChartUpward'
+import {CheckmarkIcon} from '../exports/Checkmark'
+import {CheckmarkCircleIcon} from '../exports/CheckmarkCircle'
+import {ChevronDownIcon} from '../exports/ChevronDown'
+import {ChevronLeftIcon} from '../exports/ChevronLeft'
+import {ChevronRightIcon} from '../exports/ChevronRight'
+import {ChevronUpIcon} from '../exports/ChevronUp'
+import {CircleIcon} from '../exports/Circle'
+import {ClipboardIcon} from '../exports/Clipboard'
+import {ClipboardImageIcon} from '../exports/ClipboardImage'
+import {ClockIcon} from '../exports/Clock'
+import {CloseIcon} from '../exports/Close'
+import {CloseCircleIcon} from '../exports/CloseCircle'
+import {CodeIcon} from '../exports/Code'
+import {CodeBlockIcon} from '../exports/CodeBlock'
+import {CogIcon} from '../exports/Cog'
+import {CollapseIcon} from '../exports/Collapse'
+import {ColorWheelIcon} from '../exports/ColorWheel'
+import {CommentIcon} from '../exports/Comment'
+import {ComponentIcon} from '../exports/Component'
+import {ComposeIcon} from '../exports/Compose'
+import {ComposeSparklesIcon} from '../exports/ComposeSparkles'
+import {ConfettiIcon} from '../exports/Confetti'
+import {ControlsIcon} from '../exports/Controls'
+import {CopyIcon} from '../exports/Copy'
+import {CreditCardIcon} from '../exports/CreditCard'
+import {CropIcon} from '../exports/Crop'
+import {CubeIcon} from '../exports/Cube'
+import {DashboardIcon} from '../exports/Dashboard'
+import {DatabaseIcon} from '../exports/Database'
+import {DesktopIcon} from '../exports/Desktop'
+import {DiamondIcon} from '../exports/Diamond'
+import {DocumentIcon} from '../exports/Document'
+import {DocumentPdfIcon} from '../exports/DocumentPdf'
+import {DocumentRemoveIcon} from '../exports/DocumentRemove'
+import {DocumentsIcon} from '../exports/Documents'
+import {DocumentSheetIcon} from '../exports/DocumentSheet'
+import {DocumentTextIcon} from '../exports/DocumentText'
+import {DocumentVideoIcon} from '../exports/DocumentVideo'
+import {DocumentWordIcon} from '../exports/DocumentWord'
+import {DocumentZipIcon} from '../exports/DocumentZip'
+import {DotIcon} from '../exports/Dot'
+import {DoubleChevronDownIcon} from '../exports/DoubleChevronDown'
+import {DoubleChevronLeftIcon} from '../exports/DoubleChevronLeft'
+import {DoubleChevronRightIcon} from '../exports/DoubleChevronRight'
+import {DoubleChevronUpIcon} from '../exports/DoubleChevronUp'
+import {DoubleQuoteIcon} from '../exports/DoubleQuote'
+import {DownloadIcon} from '../exports/Download'
+import {DragHandleIcon} from '../exports/DragHandle'
+import {DropIcon} from '../exports/Drop'
+import {EarthAmericasIcon} from '../exports/EarthAmericas'
+import {EarthGlobeIcon} from '../exports/EarthGlobe'
+import {EditIcon} from '../exports/Edit'
+import {EllipsisHorizontalIcon} from '../exports/EllipsisHorizontal'
+import {EllipsisVerticalIcon} from '../exports/EllipsisVertical'
+import {EmptyIcon} from '../exports/Empty'
+import {EnterIcon} from '../exports/Enter'
+import {EnterRightIcon} from '../exports/EnterRight'
+import {EnvelopeIcon} from '../exports/Envelope'
+import {EqualIcon} from '../exports/Equal'
+import {ErrorFilledIcon} from '../exports/ErrorFilled'
+import {ErrorOutlineIcon} from '../exports/ErrorOutline'
+import {ErrorScreenIcon} from '../exports/ErrorScreen'
+import {ExpandIcon} from '../exports/Expand'
+import {EyeClosedIcon} from '../exports/EyeClosed'
+import {EyeOpenIcon} from '../exports/EyeOpen'
+import {FaceHappyIcon} from '../exports/FaceHappy'
+import {FaceIndifferentIcon} from '../exports/FaceIndifferent'
+import {FaceSadIcon} from '../exports/FaceSad'
+import {FeedbackIcon} from '../exports/Feedback'
+import {FilterIcon} from '../exports/Filter'
+import {FolderIcon} from '../exports/Folder'
+import {GenerateIcon} from '../exports/Generate'
+import {GithubIcon} from '../exports/Github'
+import {GroqIcon} from '../exports/Groq'
+import {HashIcon} from '../exports/Hash'
+import {HeartIcon} from '../exports/Heart'
+import {HeartFilledIcon} from '../exports/HeartFilled'
+import {HelpCircleIcon} from '../exports/HelpCircle'
+import {HighlightIcon} from '../exports/Highlight'
+import {HomeIcon} from '../exports/Home'
+import {IceCreamIcon} from '../exports/IceCream'
+import {ImageIcon} from '../exports/Image'
+import {ImageRemoveIcon} from '../exports/ImageRemove'
+import {ImagesIcon} from '../exports/Images'
+import {InboxIcon} from '../exports/Inbox'
+import {InfoFilledIcon} from '../exports/InfoFilled'
+import {InfoOutlineIcon} from '../exports/InfoOutline'
+import {InlineIcon} from '../exports/Inline'
+import {InlineElementIcon} from '../exports/InlineElement'
+import {InsertAboveIcon} from '../exports/InsertAbove'
+import {InsertBelowIcon} from '../exports/InsertBelow'
+import {ItalicIcon} from '../exports/Italic'
+import {JoystickIcon} from '../exports/Joystick'
+import {JsonIcon} from '../exports/Json'
+import {LaunchIcon} from '../exports/Launch'
+import {LeaveIcon} from '../exports/Leave'
+import {LemonIcon} from '../exports/Lemon'
+import {LinkIcon} from '../exports/Link'
+import {LinkedinIcon} from '../exports/Linkedin'
+import {LinkRemovedIcon} from '../exports/LinkRemoved'
+import {ListIcon} from '../exports/List'
+import {LockIcon} from '../exports/Lock'
+import {LogoJsIcon} from '../exports/LogoJs'
+import {LogoTsIcon} from '../exports/LogoTs'
+import {MarkerIcon} from '../exports/Marker'
+import {MarkerRemovedIcon} from '../exports/MarkerRemoved'
+import {MasterDetailIcon} from '../exports/MasterDetail'
+import {MenuIcon} from '../exports/Menu'
+import {MicrophoneIcon} from '../exports/Microphone'
+import {MicrophoneSlashIcon} from '../exports/MicrophoneSlash'
+import {MobileDeviceIcon} from '../exports/MobileDevice'
+import {MoonIcon} from '../exports/Moon'
+import {NumberIcon} from '../exports/Number'
+import {OkHandIcon} from '../exports/OkHand'
+import {OlistIcon} from '../exports/Olist'
+import {OverageIcon} from '../exports/Overage'
+import {PackageIcon} from '../exports/Package'
+import {PanelLeftIcon} from '../exports/PanelLeft'
+import {PanelRightIcon} from '../exports/PanelRight'
+import {PauseIcon} from '../exports/Pause'
+import {PinIcon} from '../exports/Pin'
+import {PinFilledIcon} from '../exports/PinFilled'
+import {PinRemovedIcon} from '../exports/PinRemoved'
+import {PlayIcon} from '../exports/Play'
+import {PlugIcon} from '../exports/Plug'
+import {PresentationIcon} from '../exports/Presentation'
+import {Progress50Icon} from '../exports/Progress50'
+import {Progress75Icon} from '../exports/Progress75'
+import {ProjectsIcon} from '../exports/Projects'
+import {PublishIcon} from '../exports/Publish'
+import {ReadOnlyIcon} from '../exports/ReadOnly'
+import {RedoIcon} from '../exports/Redo'
+import {RefreshIcon} from '../exports/Refresh'
+import {RemoveIcon} from '../exports/Remove'
+import {RemoveCircleIcon} from '../exports/RemoveCircle'
+import {ResetIcon} from '../exports/Reset'
+import {RestoreIcon} from '../exports/Restore'
+import {RetrieveIcon} from '../exports/Retrieve'
+import {RetryIcon} from '../exports/Retry'
+import {RevertIcon} from '../exports/Revert'
+import {RobotIcon} from '../exports/Robot'
+import {RocketIcon} from '../exports/Rocket'
+import {SchemaIcon} from '../exports/Schema'
+import {SearchIcon} from '../exports/Search'
+import {SelectIcon} from '../exports/Select'
+import {ShareIcon} from '../exports/Share'
+import {SortIcon} from '../exports/Sort'
+import {SparkleIcon} from '../exports/Sparkle'
+import {SparklesIcon} from '../exports/Sparkles'
+import {SpinnerIcon} from '../exports/Spinner'
+import {SplitHorizontalIcon} from '../exports/SplitHorizontal'
+import {SplitVerticalIcon} from '../exports/SplitVertical'
+import {SquareIcon} from '../exports/Square'
+import {StackIcon} from '../exports/Stack'
+import {StackCompactIcon} from '../exports/StackCompact'
+import {StarIcon} from '../exports/Star'
+import {StarFilledIcon} from '../exports/StarFilled'
+import {StopIcon} from '../exports/Stop'
+import {StrikethroughIcon} from '../exports/Strikethrough'
+import {StringIcon} from '../exports/String'
+import {SunIcon} from '../exports/Sun'
+import {SyncIcon} from '../exports/Sync'
+import {TabletDeviceIcon} from '../exports/TabletDevice'
+import {TagIcon} from '../exports/Tag'
+import {TagsIcon} from '../exports/Tags'
+import {TargetIcon} from '../exports/Target'
+import {TaskIcon} from '../exports/Task'
+import {TerminalIcon} from '../exports/Terminal'
+import {TextIcon} from '../exports/Text'
+import {ThLargeIcon} from '../exports/ThLarge'
+import {ThListIcon} from '../exports/ThList'
+import {ThumbsDownIcon} from '../exports/ThumbsDown'
+import {ThumbsUpIcon} from '../exports/ThumbsUp'
+import {TiersIcon} from '../exports/Tiers'
+import {TimelineIcon} from '../exports/Timeline'
+import {ToggleArrowRightIcon} from '../exports/ToggleArrowRight'
+import {TokenIcon} from '../exports/Token'
+import {TransferIcon} from '../exports/Transfer'
+import {TranslateIcon} from '../exports/Translate'
+import {TrashIcon} from '../exports/Trash'
+import {TrendUpwardIcon} from '../exports/TrendUpward'
+import {TriangleOutlineIcon} from '../exports/TriangleOutline'
+import {TrolleyIcon} from '../exports/Trolley'
+import {TruncateIcon} from '../exports/Truncate'
+import {TwitterIcon} from '../exports/Twitter'
+import {UlistIcon} from '../exports/Ulist'
+import {UnarchiveIcon} from '../exports/Unarchive'
+import {UnderlineIcon} from '../exports/Underline'
+import {UndoIcon} from '../exports/Undo'
+import {UnknownIcon} from '../exports/Unknown'
+import {UnlinkIcon} from '../exports/Unlink'
+import {UnlockIcon} from '../exports/Unlock'
+import {UnpublishIcon} from '../exports/Unpublish'
+import {UploadIcon} from '../exports/Upload'
+import {UserIcon} from '../exports/User'
+import {UsersIcon} from '../exports/Users'
+import {VersionsIcon} from '../exports/Versions'
+import {VideoIcon} from '../exports/Video'
+import {WarningFilledIcon} from '../exports/WarningFilled'
+import {WarningOutlineIcon} from '../exports/WarningOutline'
+import {WrenchIcon} from '../exports/Wrench'
 import type {IconComponent} from '../types'
-import {AccessDeniedIcon} from './accessDeniedIcon'
-import {ActivityIcon} from './activityIcon'
-import {AddCircleIcon} from './addCircleIcon'
-import {AddCommentIcon} from './addCommentIcon'
-import {AddDocumentIcon} from './addDocumentIcon'
-import {AddIcon} from './addIcon'
-import {AddUserIcon} from './addUserIcon'
-import {ApiIcon} from './apiIcon'
-import {ArchiveIcon} from './archiveIcon'
-import {ArrowDownIcon} from './arrowDownIcon'
-import {ArrowLeftIcon} from './arrowLeftIcon'
-import {ArrowRightIcon} from './arrowRightIcon'
-import {ArrowTopRightIcon} from './arrowTopRightIcon'
-import {ArrowUpIcon} from './arrowUpIcon'
-import {AsteriskIcon} from './asteriskIcon'
-import {BarChartIcon} from './barChartIcon'
-import {BasketIcon} from './basketIcon'
-import {BellIcon} from './bellIcon'
-import {BillIcon} from './billIcon'
-import {BinaryDocumentIcon} from './binaryDocumentIcon'
-import {BlockContentIcon} from './blockContentIcon'
-import {BlockElementIcon} from './blockElementIcon'
-import {BlockquoteIcon} from './blockquoteIcon'
-import {BoldIcon} from './boldIcon'
-import {BoltIcon} from './boltIcon'
-import {BookIcon} from './bookIcon'
-import {BookmarkFilledIcon} from './bookmarkFilledIcon'
-import {BookmarkIcon} from './bookmarkIcon'
-import {BottleIcon} from './bottleIcon'
-import {BugIcon} from './bugIcon'
-import {BulbFilledIcon} from './bulbFilledIcon'
-import {BulbOutlineIcon} from './bulbOutlineIcon'
-import {CalendarIcon} from './calendarIcon'
-import {CaseIcon} from './caseIcon'
-import {ChartUpwardIcon} from './chartUpwardIcon'
-import {CheckmarkCircleIcon} from './checkmarkCircleIcon'
-import {CheckmarkIcon} from './checkmarkIcon'
-import {ChevronDownIcon} from './chevronDownIcon'
-import {ChevronLeftIcon} from './chevronLeftIcon'
-import {ChevronRightIcon} from './chevronRightIcon'
-import {ChevronUpIcon} from './chevronUpIcon'
-import {CircleIcon} from './circleIcon'
-import {ClipboardIcon} from './clipboardIcon'
-import {ClipboardImageIcon} from './clipboardImageIcon'
-import {ClockIcon} from './clockIcon'
-import {CloseCircleIcon} from './closeCircleIcon'
-import {CloseIcon} from './closeIcon'
-import {CodeBlockIcon} from './codeBlockIcon'
-import {CodeIcon} from './codeIcon'
-import {CogIcon} from './cogIcon'
-import {CollapseIcon} from './collapseIcon'
-import {ColorWheelIcon} from './colorWheelIcon'
-import {CommentIcon} from './commentIcon'
-import {ComponentIcon} from './componentIcon'
-import {ComposeIcon} from './composeIcon'
-import {ComposeSparklesIcon} from './composeSparklesIcon'
-import {ConfettiIcon} from './confettiIcon'
-import {ControlsIcon} from './controlsIcon'
-import {CopyIcon} from './copyIcon'
-import {CreditCardIcon} from './creditCardIcon'
-import {CropIcon} from './cropIcon'
-import {CubeIcon} from './cubeIcon'
-import {DashboardIcon} from './dashboardIcon'
-import {DatabaseIcon} from './databaseIcon'
-import {DesktopIcon} from './desktopIcon'
-import {DiamondIcon} from './diamondIcon'
-import {DocumentIcon} from './documentIcon'
-import {DocumentPdfIcon} from './documentPdfIcon'
-import {DocumentRemoveIcon} from './documentRemoveIcon'
-import {DocumentSheetIcon} from './documentSheetIcon'
-import {DocumentsIcon} from './documentsIcon'
-import {DocumentTextIcon} from './documentTextIcon'
-import {DocumentVideoIcon} from './documentVideoIcon'
-import {DocumentWordIcon} from './documentWordIcon'
-import {DocumentZipIcon} from './documentZipIcon'
-import {DotIcon} from './dotIcon'
-import {DoubleChevronDownIcon} from './doubleChevronDownIcon'
-import {DoubleChevronLeftIcon} from './doubleChevronLeftIcon'
-import {DoubleChevronRightIcon} from './doubleChevronRightIcon'
-import {DoubleChevronUpIcon} from './doubleChevronUpIcon'
-import {DoubleQuoteIcon} from './doubleQuoteIcon'
-import {DownloadIcon} from './downloadIcon'
-import {DragHandleIcon} from './dragHandleIcon'
-import {DropIcon} from './dropIcon'
-import {EarthAmericasIcon} from './earthAmericasIcon'
-import {EarthGlobeIcon} from './earthGlobeIcon'
-import {EditIcon} from './editIcon'
-import {EllipsisHorizontalIcon} from './ellipsisHorizontalIcon'
-import {EllipsisVerticalIcon} from './ellipsisVerticalIcon'
-import {EmptyIcon} from './emptyIcon'
-import {EnterIcon} from './enterIcon'
-import {EnterRightIcon} from './enterRightIcon'
-import {EnvelopeIcon} from './envelopeIcon'
-import {EqualIcon} from './equalIcon'
-import {ErrorFilledIcon} from './errorFilledIcon'
-import {ErrorOutlineIcon} from './errorOutlineIcon'
-import {ErrorScreenIcon} from './errorScreenIcon'
-import {ExpandIcon} from './expandIcon'
-import {EyeClosedIcon} from './eyeClosedIcon'
-import {EyeOpenIcon} from './eyeOpenIcon'
-import {FaceHappyIcon} from './faceHappyIcon'
-import {FaceIndifferentIcon} from './faceIndifferentIcon'
-import {FaceSadIcon} from './faceSadIcon'
-import {FeedbackIcon} from './feedbackIcon'
-import {FilterIcon} from './filterIcon'
-import {FolderIcon} from './folderIcon'
-import {GenerateIcon} from './generateIcon'
-import {GithubIcon} from './githubIcon'
-import {GroqIcon} from './groqIcon'
-import {HashIcon} from './hashIcon'
-import {HeartFilledIcon} from './heartFilledIcon'
-import {HeartIcon} from './heartIcon'
-import {HelpCircleIcon} from './helpCircleIcon'
-import {HighlightIcon} from './highlightIcon'
-import {HomeIcon} from './homeIcon'
-import {IceCreamIcon} from './iceCreamIcon'
-import {ImageIcon} from './imageIcon'
-import {ImageRemoveIcon} from './imageRemoveIcon'
-import {ImagesIcon} from './imagesIcon'
-import {InboxIcon} from './inboxIcon'
-import {InfoFilledIcon} from './infoFilledIcon'
-import {InfoOutlineIcon} from './infoOutlineIcon'
-import {InlineElementIcon} from './inlineElementIcon'
-import {InlineIcon} from './inlineIcon'
-import {InsertAboveIcon} from './insertAboveIcon'
-import {InsertBelowIcon} from './insertBelowIcon'
-import {ItalicIcon} from './italicIcon'
-import {JoystickIcon} from './joystickIcon'
-import {JsonIcon} from './jsonIcon'
-import {LaunchIcon} from './launchIcon'
-import {LeaveIcon} from './leaveIcon'
-import {LemonIcon} from './lemonIcon'
-import {LinkedinIcon} from './linkedinIcon'
-import {LinkIcon} from './linkIcon'
-import {LinkRemovedIcon} from './linkRemovedIcon'
-import {ListIcon} from './listIcon'
-import {LockIcon} from './lockIcon'
-import {LogoJsIcon} from './logoJsIcon'
-import {LogoTsIcon} from './logoTsIcon'
-import {MarkerIcon} from './markerIcon'
-import {MarkerRemovedIcon} from './markerRemovedIcon'
-import {MasterDetailIcon} from './masterDetailIcon'
-import {MenuIcon} from './menuIcon'
-import {MicrophoneIcon} from './microphoneIcon'
-import {MicrophoneSlashIcon} from './microphoneSlashIcon'
-import {MobileDeviceIcon} from './mobileDeviceIcon'
-import {MoonIcon} from './moonIcon'
-import {NumberIcon} from './numberIcon'
-import {OkHandIcon} from './okHandIcon'
-import {OlistIcon} from './olistIcon'
-import {OverageIcon} from './overageIcon'
-import {PackageIcon} from './packageIcon'
-import {PanelLeftIcon} from './panelLeftIcon'
-import {PanelRightIcon} from './panelRightIcon'
-import {PauseIcon} from './pauseIcon'
-import {PinFilledIcon} from './pinFilledIcon'
-import {PinIcon} from './pinIcon'
-import {PinRemovedIcon} from './pinRemovedIcon'
-import {PlayIcon} from './playIcon'
-import {PlugIcon} from './plugIcon'
-import {PresentationIcon} from './presentationIcon'
-import {Progress50Icon} from './progress50Icon'
-import {Progress75Icon} from './progress75Icon'
-import {ProjectsIcon} from './projectsIcon'
-import {PublishIcon} from './publishIcon'
-import {ReadOnlyIcon} from './readOnlyIcon'
-import {RedoIcon} from './redoIcon'
-import {RefreshIcon} from './refreshIcon'
-import {RemoveCircleIcon} from './removeCircleIcon'
-import {RemoveIcon} from './removeIcon'
-import {ResetIcon} from './resetIcon'
-import {RestoreIcon} from './restoreIcon'
-import {RetrieveIcon} from './retrieveIcon'
-import {RetryIcon} from './retryIcon'
-import {RevertIcon} from './revertIcon'
-import {RobotIcon} from './robotIcon'
-import {RocketIcon} from './rocketIcon'
-import {SchemaIcon} from './schemaIcon'
-import {SearchIcon} from './searchIcon'
-import {SelectIcon} from './selectIcon'
-import {ShareIcon} from './shareIcon'
-import {SortIcon} from './sortIcon'
-import {SparkleIcon} from './sparkleIcon'
-import {SparklesIcon} from './sparklesIcon'
-import {SpinnerIcon} from './spinnerIcon'
-import {SplitHorizontalIcon} from './splitHorizontalIcon'
-import {SplitVerticalIcon} from './splitVerticalIcon'
-import {SquareIcon} from './squareIcon'
-import {StackCompactIcon} from './stackCompactIcon'
-import {StackIcon} from './stackIcon'
-import {StarFilledIcon} from './starFilledIcon'
-import {StarIcon} from './starIcon'
-import {StopIcon} from './stopIcon'
-import {StrikethroughIcon} from './strikethroughIcon'
-import {StringIcon} from './stringIcon'
-import {SunIcon} from './sunIcon'
-import {SyncIcon} from './syncIcon'
-import {TabletDeviceIcon} from './tabletDeviceIcon'
-import {TagIcon} from './tagIcon'
-import {TagsIcon} from './tagsIcon'
-import {TargetIcon} from './targetIcon'
-import {TaskIcon} from './taskIcon'
-import {TerminalIcon} from './terminalIcon'
-import {TextIcon} from './textIcon'
-import {ThLargeIcon} from './thLargeIcon'
-import {ThListIcon} from './thListIcon'
-import {ThumbsDownIcon} from './thumbsDownIcon'
-import {ThumbsUpIcon} from './thumbsUpIcon'
-import {TiersIcon} from './tiersIcon'
-import {TimelineIcon} from './timelineIcon'
-import {ToggleArrowRightIcon} from './toggleArrowRightIcon'
-import {TokenIcon} from './tokenIcon'
-import {TransferIcon} from './transferIcon'
-import {TranslateIcon} from './translateIcon'
-import {TrashIcon} from './trashIcon'
-import {TrendUpwardIcon} from './trendUpwardIcon'
-import {TriangleOutlineIcon} from './triangleOutlineIcon'
-import {TrolleyIcon} from './trolleyIcon'
-import {TruncateIcon} from './truncateIcon'
-import {TwitterIcon} from './twitterIcon'
-import {UlistIcon} from './ulistIcon'
-import {UnarchiveIcon} from './unarchiveIcon'
-import {UnderlineIcon} from './underlineIcon'
-import {UndoIcon} from './undoIcon'
-import {UnknownIcon} from './unknownIcon'
-import {UnlinkIcon} from './unlinkIcon'
-import {UnlockIcon} from './unlockIcon'
-import {UnpublishIcon} from './unpublishIcon'
-import {UploadIcon} from './uploadIcon'
-import {UserIcon} from './userIcon'
-import {UsersIcon} from './usersIcon'
-import {VersionsIcon} from './versionsIcon'
-import {VideoIcon} from './videoIcon'
-import {WarningFilledIcon} from './warningFilledIcon'
-import {WarningOutlineIcon} from './warningOutlineIcon'
-import {WrenchIcon} from './wrenchIcon'
 
 /**
  * @public
@@ -478,245 +478,6 @@ export type IconSymbol =
   | 'warning-filled'
   | 'warning-outline'
   | 'wrench'
-
-export {
-  AccessDeniedIcon,
-  ActivityIcon,
-  AddCircleIcon,
-  AddCommentIcon,
-  AddDocumentIcon,
-  AddIcon,
-  AddUserIcon,
-  ApiIcon,
-  ArchiveIcon,
-  ArrowDownIcon,
-  ArrowLeftIcon,
-  ArrowRightIcon,
-  ArrowTopRightIcon,
-  ArrowUpIcon,
-  AsteriskIcon,
-  BarChartIcon,
-  BasketIcon,
-  BellIcon,
-  BillIcon,
-  BinaryDocumentIcon,
-  BlockContentIcon,
-  BlockElementIcon,
-  BlockquoteIcon,
-  BoldIcon,
-  BoltIcon,
-  BookIcon,
-  BookmarkFilledIcon,
-  BookmarkIcon,
-  BottleIcon,
-  BugIcon,
-  BulbFilledIcon,
-  BulbOutlineIcon,
-  CalendarIcon,
-  CaseIcon,
-  ChartUpwardIcon,
-  CheckmarkCircleIcon,
-  CheckmarkIcon,
-  ChevronDownIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  ChevronUpIcon,
-  CircleIcon,
-  ClipboardIcon,
-  ClipboardImageIcon,
-  ClockIcon,
-  CloseCircleIcon,
-  CloseIcon,
-  CodeBlockIcon,
-  CodeIcon,
-  CogIcon,
-  CollapseIcon,
-  ColorWheelIcon,
-  CommentIcon,
-  ComponentIcon,
-  ComposeIcon,
-  ComposeSparklesIcon,
-  ConfettiIcon,
-  ControlsIcon,
-  CopyIcon,
-  CreditCardIcon,
-  CropIcon,
-  CubeIcon,
-  DashboardIcon,
-  DatabaseIcon,
-  DesktopIcon,
-  DiamondIcon,
-  DocumentIcon,
-  DocumentPdfIcon,
-  DocumentRemoveIcon,
-  DocumentSheetIcon,
-  DocumentTextIcon,
-  DocumentVideoIcon,
-  DocumentWordIcon,
-  DocumentZipIcon,
-  DocumentsIcon,
-  DotIcon,
-  DoubleChevronDownIcon,
-  DoubleChevronLeftIcon,
-  DoubleChevronRightIcon,
-  DoubleChevronUpIcon,
-  DoubleQuoteIcon,
-  DownloadIcon,
-  DragHandleIcon,
-  DropIcon,
-  EarthAmericasIcon,
-  EarthGlobeIcon,
-  EditIcon,
-  EllipsisHorizontalIcon,
-  EllipsisVerticalIcon,
-  EmptyIcon,
-  EnterIcon,
-  EnterRightIcon,
-  EnvelopeIcon,
-  EqualIcon,
-  ErrorFilledIcon,
-  ErrorOutlineIcon,
-  ErrorScreenIcon,
-  ExpandIcon,
-  EyeClosedIcon,
-  EyeOpenIcon,
-  FaceHappyIcon,
-  FaceIndifferentIcon,
-  FaceSadIcon,
-  FeedbackIcon,
-  FilterIcon,
-  FolderIcon,
-  GenerateIcon,
-  GithubIcon,
-  GroqIcon,
-  HashIcon,
-  HeartFilledIcon,
-  HeartIcon,
-  HelpCircleIcon,
-  HighlightIcon,
-  HomeIcon,
-  IceCreamIcon,
-  ImageIcon,
-  ImageRemoveIcon,
-  ImagesIcon,
-  InboxIcon,
-  InfoFilledIcon,
-  InfoOutlineIcon,
-  InlineElementIcon,
-  InlineIcon,
-  InsertAboveIcon,
-  InsertBelowIcon,
-  ItalicIcon,
-  JoystickIcon,
-  JsonIcon,
-  LaunchIcon,
-  LeaveIcon,
-  LemonIcon,
-  LinkIcon,
-  LinkRemovedIcon,
-  LinkedinIcon,
-  ListIcon,
-  LockIcon,
-  LogoJsIcon,
-  LogoTsIcon,
-  MarkerIcon,
-  MarkerRemovedIcon,
-  MasterDetailIcon,
-  MenuIcon,
-  MicrophoneIcon,
-  MicrophoneSlashIcon,
-  MobileDeviceIcon,
-  MoonIcon,
-  NumberIcon,
-  OkHandIcon,
-  OlistIcon,
-  OverageIcon,
-  PackageIcon,
-  PanelLeftIcon,
-  PanelRightIcon,
-  PauseIcon,
-  PinFilledIcon,
-  PinIcon,
-  PinRemovedIcon,
-  PlayIcon,
-  PlugIcon,
-  PresentationIcon,
-  Progress50Icon,
-  Progress75Icon,
-  ProjectsIcon,
-  PublishIcon,
-  ReadOnlyIcon,
-  RedoIcon,
-  RefreshIcon,
-  RemoveCircleIcon,
-  RemoveIcon,
-  ResetIcon,
-  RestoreIcon,
-  RetrieveIcon,
-  RetryIcon,
-  RevertIcon,
-  RobotIcon,
-  RocketIcon,
-  SchemaIcon,
-  SearchIcon,
-  SelectIcon,
-  ShareIcon,
-  SortIcon,
-  SparkleIcon,
-  SparklesIcon,
-  SpinnerIcon,
-  SplitHorizontalIcon,
-  SplitVerticalIcon,
-  SquareIcon,
-  StackCompactIcon,
-  StackIcon,
-  StarFilledIcon,
-  StarIcon,
-  StopIcon,
-  StrikethroughIcon,
-  StringIcon,
-  SunIcon,
-  SyncIcon,
-  TabletDeviceIcon,
-  TagIcon,
-  TagsIcon,
-  TargetIcon,
-  TaskIcon,
-  TerminalIcon,
-  TextIcon,
-  ThLargeIcon,
-  ThListIcon,
-  ThumbsDownIcon,
-  ThumbsUpIcon,
-  TiersIcon,
-  TimelineIcon,
-  ToggleArrowRightIcon,
-  TokenIcon,
-  TransferIcon,
-  TranslateIcon,
-  TrashIcon,
-  TrendUpwardIcon,
-  TriangleOutlineIcon,
-  TrolleyIcon,
-  TruncateIcon,
-  TwitterIcon,
-  UlistIcon,
-  UnarchiveIcon,
-  UnderlineIcon,
-  UndoIcon,
-  UnknownIcon,
-  UnlinkIcon,
-  UnlockIcon,
-  UnpublishIcon,
-  UploadIcon,
-  UserIcon,
-  UsersIcon,
-  VersionsIcon,
-  VideoIcon,
-  WarningFilledIcon,
-  WarningOutlineIcon,
-  WrenchIcon,
-}
 
 /**
  * @public
