@@ -1,9 +1,48 @@
-<!-- markdownlint-disable --><!-- textlint-disable -->
+# @sanity/icons
 
-# 📓 Changelog
+## 4.0.0-rc.1
 
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+### Major Changes
+
+- [#201](https://github.com/sanity-io/icons/pull/201) [`01e3807`](https://github.com/sanity-io/icons/commit/01e38074b9be9c22ff27101873f27152e51a525e) Thanks [@stipsan](https://github.com/stipsan)! - Drop React 18 support — React 19 is now required.
+
+  Icon components no longer use `forwardRef`. Refs are now accepted as a regular prop (typed via `React.ComponentPropsWithRef`), following React 19's ref-as-prop model. The `react` peer dependency range is now `^19`, and the exported `IconComponent` type has changed accordingly.
+
+## 4.0.0-rc.0
+
+### Major Changes
+
+- [#200](https://github.com/sanity-io/icons/pull/200) [`26b9248`](https://github.com/sanity-io/icons/commit/26b9248026cab731d5506e238ac10a1d14a579ad) Thanks [@stipsan](https://github.com/stipsan)! - Drop CommonJS support and require Node.js `>=22.12`
+
+  `@sanity/icons` is now ESM-only. The `require` export condition and the CommonJS build output (`./dist/index.cjs`) have been removed, so the package must be consumed via ESM `import`. The minimum supported Node.js version has been raised to `>=22.12` to match `sanity`.
+
+## 3.8.0
+
+### Minor Changes
+
+- [`812c93b`](https://github.com/sanity-io/icons/commit/812c93b5f3b0657ec4ef7c9bf54923b0e7ebfdef) Thanks [@somerandomdude](https://github.com/somerandomdude)! - Add double quote icon
+
+### Patch Changes
+
+- [#192](https://github.com/sanity-io/icons/pull/192) [`57bb44a`](https://github.com/sanity-io/icons/commit/57bb44aef155b056fcc22976f1c5784ebd116e35) Thanks [@mitchuman](https://github.com/mitchuman)! - fix: connect diamond icon stroke corners
+
+## 3.7.7
+
+### Patch Changes
+
+- [#181](https://github.com/sanity-io/icons/pull/181) [`5b9d2cb`](https://github.com/sanity-io/icons/commit/5b9d2cb568239231ce28c72b39560230c90f3d12) Thanks [@stipsan](https://github.com/stipsan)! - Bumped `@testing-library/react`, `@types/node`, and `@types/react` devDependencies to their latest versions.
+
+## [3.7.6](https://github.com/sanity-io/icons/compare/v3.7.5...v3.7.6) (2026-07-01)
+
+### Bug Fixes
+
+- enable trusted publishing ([925545b](https://github.com/sanity-io/icons/commit/925545b569e87bc5e3e061334c1fc10c6e532f6a))
+
+## [3.7.5](https://github.com/sanity-io/icons/compare/v3.7.4...v3.7.5) (2026-07-01)
+
+### Bug Fixes
+
+- setup trusted publishing ([#183](https://github.com/sanity-io/icons/issues/183)) ([fe8c88a](https://github.com/sanity-io/icons/commit/fe8c88a40347ab7ab4ce853182e817ce42fde8e6))
 
 ## [3.7.4](https://github.com/sanity-io/icons/compare/v3.7.3...v3.7.4) (2025-06-20)
 

@@ -1,7 +1,6 @@
 /* THIS FILE IS AUTO-GENERATED – DO NOT EDIT */
 
 import type {IconComponent} from '../types'
-
 import {AccessDeniedIcon} from './accessDeniedIcon'
 import {ActivityIcon} from './activityIcon'
 import {AddCircleIcon} from './addCircleIcon'
@@ -72,16 +71,17 @@ import {DocumentIcon} from './documentIcon'
 import {DocumentPdfIcon} from './documentPdfIcon'
 import {DocumentRemoveIcon} from './documentRemoveIcon'
 import {DocumentSheetIcon} from './documentSheetIcon'
+import {DocumentsIcon} from './documentsIcon'
 import {DocumentTextIcon} from './documentTextIcon'
 import {DocumentVideoIcon} from './documentVideoIcon'
 import {DocumentWordIcon} from './documentWordIcon'
 import {DocumentZipIcon} from './documentZipIcon'
-import {DocumentsIcon} from './documentsIcon'
 import {DotIcon} from './dotIcon'
 import {DoubleChevronDownIcon} from './doubleChevronDownIcon'
 import {DoubleChevronLeftIcon} from './doubleChevronLeftIcon'
 import {DoubleChevronRightIcon} from './doubleChevronRightIcon'
 import {DoubleChevronUpIcon} from './doubleChevronUpIcon'
+import {DoubleQuoteIcon} from './doubleQuoteIcon'
 import {DownloadIcon} from './downloadIcon'
 import {DragHandleIcon} from './dragHandleIcon'
 import {DropIcon} from './dropIcon'
@@ -133,9 +133,9 @@ import {JsonIcon} from './jsonIcon'
 import {LaunchIcon} from './launchIcon'
 import {LeaveIcon} from './leaveIcon'
 import {LemonIcon} from './lemonIcon'
+import {LinkedinIcon} from './linkedinIcon'
 import {LinkIcon} from './linkIcon'
 import {LinkRemovedIcon} from './linkRemovedIcon'
-import {LinkedinIcon} from './linkedinIcon'
 import {ListIcon} from './listIcon'
 import {LockIcon} from './lockIcon'
 import {LogoJsIcon} from './logoJsIcon'
@@ -322,6 +322,7 @@ export type IconSymbol =
   | 'double-chevron-left'
   | 'double-chevron-right'
   | 'double-chevron-up'
+  | 'double-quote'
   | 'download'
   | 'drag-handle'
   | 'drop'
@@ -559,6 +560,7 @@ export {
   DoubleChevronLeftIcon,
   DoubleChevronRightIcon,
   DoubleChevronUpIcon,
+  DoubleQuoteIcon,
   DownloadIcon,
   DragHandleIcon,
   DropIcon,
@@ -800,6 +802,7 @@ export interface IconMap {
   'double-chevron-left': IconComponent
   'double-chevron-right': IconComponent
   'double-chevron-up': IconComponent
+  'double-quote': IconComponent
   'download': IconComponent
   'drag-handle': IconComponent
   'drop': IconComponent
@@ -1041,6 +1044,7 @@ export const icons: IconMap = {
   'double-chevron-left': DoubleChevronLeftIcon,
   'double-chevron-right': DoubleChevronRightIcon,
   'double-chevron-up': DoubleChevronUpIcon,
+  'double-quote': DoubleQuoteIcon,
   'download': DownloadIcon,
   'drag-handle': DragHandleIcon,
   'drop': DropIcon,
