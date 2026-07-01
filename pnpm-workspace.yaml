@@ -5,7 +5,7 @@ allowBuilds:
   unrs-resolver: true
 
 overrides:
-  conventional-changelog-conventionalcommits: '>= 8.0.0'
+  conventional-changelog-conventionalcommits: '>= 9.3.1'
 
 publicHoistPattern:
   - '*prettier*'
