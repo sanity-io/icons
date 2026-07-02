@@ -11,6 +11,7 @@ minimumReleaseAgeExclude:
   - '@sanity/*'
   - '@types/node'
   - '@oxlint/*'
+  - knip
   - 'oxlint'
   - 'oxlint-tsgolint'
   - sanity
