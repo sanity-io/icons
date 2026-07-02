@@ -118,36 +118,41 @@ interface IconMeta {
   name: string
 }
 
-// The barrel re-exports every icon from its dedicated `./exports/<ExportName>` module – the very
+// The barrel exposes every icon from its dedicated `./exports/<ExportName>` module – the very
 // same module that backs the individual `@sanity/icons/<ExportName>` subpath export – so the two
 // import styles stay interchangeable and the bundler can de-duplicate them into shared chunks.
 //
-// Each re-export carries an `@deprecated` TSDoc tag on its export specifier. This deprecates the
-// *barrel import* of the icon only – the same component imported from its own subpath (or via the
-// `icons` map and `<Icon>`) is not deprecated – nudging users towards per-icon imports, which
-// avoid barrel file performance issues.
+// Each icon is exported as a `const` alias of the subpath module's default export, carrying an
+// `@deprecated` TSDoc tag. This deprecates the *barrel import* of the icon only – the same
+// component imported from its own subpath (or via the `icons` map and `<Icon>`) is not
+// deprecated – nudging users towards per-icon imports, which avoid barrel file performance
+// issues. The explicit `typeof` annotation is required by isolated declarations and keeps the
+// barrel export's type identical to the subpath export's.
 async function writeRootIndex(files: IconMeta[]) {
-  const iconReExports = files
+  const iconImports = files
+    .map((f) => `import Original${f.componentName} from './exports/${f.exportName}'`)
+    .join('\n')
+
+  const iconExports = files
     .map(
       (f) =>
-        `export {
-  /**
-   * @deprecated Use \`import {${f.componentName}} from '@sanity/icons/${f.exportName}'\` instead, to avoid barrel file performance issues.
-   */
-  ${f.componentName},
-} from './exports/${f.exportName}'`,
+        `/**
+ * @deprecated Use \`import {${f.componentName}} from '@sanity/icons/${f.exportName}'\` instead, to avoid barrel file performance issues.
+ */
+export const ${f.componentName}: typeof Original${f.componentName} = Original${f.componentName}`,
     )
-    .join('\n')
+    .join('\n\n')
 
   const {code} = await format(
     SRC_INDEX_PATH,
     [
       GENERATED_BANNER,
+      iconImports,
       `export * from './icon'`,
       `export * from './types'`,
       `export {icons} from './icons'`,
       `export type {IconMap, IconSymbol} from './icons'`,
-      iconReExports,
+      iconExports,
     ].join('\n\n'),
     formatConfig as unknown as FormatConfig,
   )

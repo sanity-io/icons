@@ -1,4 +1,4 @@
-import {readFileSync} from 'node:fs'
+import {readdirSync, readFileSync} from 'node:fs'
 import path from 'node:path'
 import {fileURLToPath} from 'node:url'
 
@@ -99,17 +99,20 @@ describe('barrel import deprecation', () => {
     }
   })
 
-  test('every barrel re-export carries the subpath guidance in its @deprecated tag', () => {
+  test('every barrel icon export carries the subpath guidance in its @deprecated tag', () => {
     const barrelSource = readFileSync(path.join(SRC_PATH, 'index.ts'), 'utf8')
-    const exportStatements =
-      barrelSource.match(/export \{[\s\S]*?\n\} from '\.\/exports\/(\w+)'/g) ?? []
+    const exportNames = readdirSync(path.join(SRC_PATH, 'exports'))
+      .filter((file) => file.endsWith('.tsx'))
+      .map((file) => file.slice(0, -'.tsx'.length))
 
-    expect(exportStatements.length).toBeGreaterThan(0)
+    expect(exportNames.length).toBeGreaterThan(0)
 
-    for (const statement of exportStatements) {
-      const [, exportName] = statement.match(/from '\.\/exports\/(\w+)'$/) as RegExpMatchArray
-      expect(statement).toContain(
+    for (const exportName of exportNames) {
+      expect(barrelSource).toContain(
         `@deprecated Use \`import {${exportName}Icon} from '@sanity/icons/${exportName}'\` instead, to avoid barrel file performance issues.`,
+      )
+      expect(barrelSource).toContain(
+        `export const ${exportName}Icon: typeof Original${exportName}Icon`,
       )
     }
   })
