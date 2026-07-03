@@ -11,22 +11,22 @@ const COPY_FEEDBACK_DURATION = 1500
 
 const TILE_SIZE = '72px'
 
-// Fixed-size (not `minmax(..., 1fr)`) columns: growing tracks would require
-// `aspect-ratio` on the tile to keep it square, and WebKit fails to
-// recompute row heights for `aspect-ratio` grid children after the viewport
-// is resized (reproduced with Playwright: correct on fresh load, rows
-// collapse together after a live resize). Fixed columns need no
-// aspect-ratio, sidestepping the bug; any leftover space per row is simply
-// left blank, which is standard for icon-grid layouts.
-const GRID_STYLE = {
-  gridTemplateColumns: `repeat(auto-fill, ${TILE_SIZE})`,
-  justifyContent: 'space-between',
-}
+// Columns flex to fill the row (`1fr`), so tiles stretch to close any
+// leftover width instead of leaving a gap on the right edge, while `gap`
+// stays the single source of truth for spacing between both rows and
+// columns. The tile's *height* is a fixed px value rather than derived from
+// its (now variable) width via `aspect-ratio` — WebKit fails to recompute
+// an aspect-ratio-derived row height after the viewport is resized
+// (reproduced with Playwright: correct on fresh load, rows collapse
+// together after a live resize). Since height never depends on width here,
+// that recomputation never has to happen, sidestepping the bug. Tiles are
+// no longer perfectly square when a row stretches, but the icon inside
+// stays a fixed size and just gains more horizontal breathing room.
+const GRID_STYLE = {gridTemplateColumns: `repeat(auto-fill, minmax(${TILE_SIZE}, 1fr))`}
 
 // `Card`'s `border` prop has no effect when `as="button"` (its button-reset
 // CSS sets `border: 0`), so the border is drawn via inline style instead.
 const TILE_STYLE = {
-  width: TILE_SIZE,
   height: TILE_SIZE,
   border: '1px solid var(--card-border-color)',
   display: 'flex',
