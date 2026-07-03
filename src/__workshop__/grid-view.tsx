@@ -17,7 +17,7 @@ const TILE_STYLE = {aspectRatio: '1', border: '1px solid var(--card-border-color
 
 // `lineHeight: 0` collapses the icon's inline line box so its baseline
 // whitespace doesn't push it off-center within the flex-centered tile.
-const ICON_STYLE = {fontSize: '20px', lineHeight: 0}
+const ICON_STYLE = {fontSize: '26px', lineHeight: 0}
 
 type CopyState = 'idle' | 'copied' | 'error'
 
@@ -65,7 +65,7 @@ function GridIconTile({icon}: {icon: string}) {
         aria-label={`Copy import for ${icon}`}
         as="button"
         onClick={handleCopy}
-        padding={2}
+        padding={1}
         radius={2}
         style={TILE_STYLE}
         tone={tone}
