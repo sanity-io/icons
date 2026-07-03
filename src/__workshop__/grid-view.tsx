@@ -1,7 +1,7 @@
 import {Icon, type IconSymbol} from '@sanity/icons'
 import {CheckmarkIcon} from '@sanity/icons/Checkmark'
 import {ErrorOutlineIcon} from '@sanity/icons/ErrorOutline'
-import {Card, Flex, Grid, Text, Tooltip} from '@sanity/ui'
+import {Card, Grid, Text, Tooltip} from '@sanity/ui'
 import copy from 'copy-to-clipboard'
 import {useEffect, useState} from 'react'
 
@@ -9,15 +9,25 @@ import {getImportCode} from './icon-code'
 
 const COPY_FEEDBACK_DURATION = 1500
 
-const GRID_STYLE = {gridTemplateColumns: 'repeat(auto-fill, minmax(56px, 1fr))'}
+const GRID_STYLE = {gridTemplateColumns: 'repeat(auto-fill, minmax(72px, 1fr))'}
 
 // `Card`'s `border` prop has no effect when `as="button"` (its button-reset
 // CSS sets `border: 0`), so the border is drawn via inline style instead.
-const TILE_STYLE = {aspectRatio: '1', border: '1px solid var(--card-border-color)'}
+// Centering is done here (rather than a nested `<Flex height="fill">`)
+// because in WebKit a percentage-height flex child of an aspect-ratio box
+// resolves against the border box, overflowing past the bottom padding and
+// pushing its content down.
+const TILE_STYLE = {
+  aspectRatio: '1',
+  border: '1px solid var(--card-border-color)',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}
 
 // `lineHeight: 0` collapses the icon's inline line box so its baseline
-// whitespace doesn't push it off-center within the flex-centered tile.
-const ICON_STYLE = {fontSize: '26px', lineHeight: 0}
+// whitespace doesn't push it off-center. Sized to match the icon in list view.
+const ICON_STYLE = {fontSize: '33px', lineHeight: 0}
 
 type CopyState = 'idle' | 'copied' | 'error'
 
@@ -70,9 +80,7 @@ function GridIconTile({icon}: {icon: string}) {
         style={TILE_STYLE}
         tone={tone}
       >
-        <Flex align="center" height="fill" justify="center" style={ICON_STYLE}>
-          {iconElement}
-        </Flex>
+        <span style={ICON_STYLE}>{iconElement}</span>
       </Card>
     </Tooltip>
   )
