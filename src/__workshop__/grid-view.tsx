@@ -9,16 +9,22 @@ import {getImportCode} from './icon-code'
 
 const COPY_FEEDBACK_DURATION = 1500
 
-const GRID_STYLE = {gridTemplateColumns: 'repeat(auto-fill, minmax(72px, 1fr))'}
+const TILE_SIZE = '72px'
+
+// Fixed-size (not `minmax(..., 1fr)`) columns: growing tracks would require
+// `aspect-ratio` on the tile to keep it square, and WebKit fails to
+// recompute row heights for `aspect-ratio` grid children after the viewport
+// is resized (reproduced with Playwright: correct on fresh load, rows
+// collapse together after a live resize). Fixed columns need no
+// aspect-ratio, sidestepping the bug; any leftover space per row is simply
+// left blank, which is standard for icon-grid layouts.
+const GRID_STYLE = {gridTemplateColumns: `repeat(auto-fill, ${TILE_SIZE})`}
 
 // `Card`'s `border` prop has no effect when `as="button"` (its button-reset
 // CSS sets `border: 0`), so the border is drawn via inline style instead.
-// Centering is done here (rather than a nested `<Flex height="fill">`)
-// because in WebKit a percentage-height flex child of an aspect-ratio box
-// resolves against the border box, overflowing past the bottom padding and
-// pushing its content down.
 const TILE_STYLE = {
-  aspectRatio: '1',
+  width: TILE_SIZE,
+  height: TILE_SIZE,
   border: '1px solid var(--card-border-color)',
   display: 'flex',
   alignItems: 'center',
