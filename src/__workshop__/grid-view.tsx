@@ -18,7 +18,10 @@ const TILE_SIZE = '72px'
 // collapse together after a live resize). Fixed columns need no
 // aspect-ratio, sidestepping the bug; any leftover space per row is simply
 // left blank, which is standard for icon-grid layouts.
-const GRID_STYLE = {gridTemplateColumns: `repeat(auto-fill, ${TILE_SIZE})`}
+const GRID_STYLE = {
+  gridTemplateColumns: `repeat(auto-fill, ${TILE_SIZE})`,
+  justifyContent: 'space-between',
+}
 
 // `Card`'s `border` prop has no effect when `as="button"` (its button-reset
 // CSS sets `border: 0`), so the border is drawn via inline style instead.
