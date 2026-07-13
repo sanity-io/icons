@@ -1,7 +1,9 @@
 import {defineConfig} from '@sanity/tsdown-config'
 import type {UserConfig} from 'tsdown'
 
-const base = defineConfig({
+// `defineConfig` is async as of `@sanity/tsdown-config` 0.8, so the result is awaited
+// (top-level await) before the `exports` override below spreads it.
+const base = await defineConfig({
   tsconfig: './tsconfig.dist.json',
   // The root barrel plus one entry point per icon. The object-with-glob form maps
   // e.g. `src/exports/AccessDenied.tsx` → `@sanity/icons/AccessDenied`; the matched

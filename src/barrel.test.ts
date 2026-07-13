@@ -1,10 +1,13 @@
+import {readdirSync} from 'node:fs'
 import path from 'node:path'
 import {fileURLToPath} from 'node:url'
 
-import ts from 'typescript'
-import {describe, expect, test} from 'vitest'
+import type {FileSystem} from 'typescript/unstable/fs'
+import {API, DiagnosticCategory} from 'typescript/unstable/sync'
+import {afterAll, describe, expect, test} from 'vitest'
 
 const SRC_PATH = path.dirname(fileURLToPath(import.meta.url))
+const TSCONFIG_PATH = path.resolve(SRC_PATH, '../tsconfig.json')
 
 // In-memory consumer files probing the import styles against the source entry points
 // (the same modules the published `exports` map points to in development).
@@ -29,54 +32,55 @@ const probes: Record<string, string> = {
   ].join('\n'),
 }
 
-function createLanguageService() {
-  const fileNames = Object.keys(probes)
-  const options: ts.CompilerOptions = {
-    strict: true,
-    noEmit: true,
-    target: ts.ScriptTarget.ESNext,
-    module: ts.ModuleKind.ESNext,
-    moduleResolution: ts.ModuleResolutionKind.Bundler,
-    jsx: ts.JsxEmit.ReactJSX,
-    skipLibCheck: true,
-  }
-
-  const host: ts.LanguageServiceHost = {
-    getScriptFileNames: () => fileNames,
-    getScriptVersion: () => '1',
-    getScriptSnapshot: (fileName) => {
-      const contents = probes[fileName] ?? ts.sys.readFile(fileName)
-      return contents === undefined ? undefined : ts.ScriptSnapshot.fromString(contents)
+// TypeScript 7 replaces the in-process language service with an API client
+// driving the native compiler. The probes stay in-memory through a virtual
+// filesystem overlay: they exist only in the overlay, which also merges them
+// into the `src/` directory listing so the project's `include` picks them up,
+// and everything else falls through (`undefined`) to the real filesystem.
+function createProject() {
+  const fs: FileSystem = {
+    fileExists: (fileName) => (probes[fileName] === undefined ? undefined : true),
+    readFile: (fileName) => probes[fileName] ?? undefined,
+    getAccessibleEntries: (directoryName) => {
+      if (path.resolve(directoryName) !== SRC_PATH) return undefined
+      const entries = readdirSync(SRC_PATH, {withFileTypes: true})
+      return {
+        files: [
+          ...entries.filter((entry) => entry.isFile()).map((entry) => entry.name),
+          ...Object.keys(probes).map((probe) => path.basename(probe)),
+        ],
+        directories: entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name),
+      }
     },
-    getCurrentDirectory: () => SRC_PATH,
-    getCompilationSettings: () => options,
-    getDefaultLibFileName: (opts) => ts.getDefaultLibFilePath(opts),
-    fileExists: (fileName) => fileName in probes || ts.sys.fileExists(fileName),
-    readFile: (fileName) => probes[fileName] ?? ts.sys.readFile(fileName),
-    directoryExists: (directoryName) => ts.sys.directoryExists(directoryName),
-    getDirectories: (directoryName) => ts.sys.getDirectories(directoryName),
-    realpath: (filePath) => (ts.sys.realpath ? ts.sys.realpath(filePath) : filePath),
   }
 
-  return ts.createLanguageService(host, ts.createDocumentRegistry())
+  const api = new API({cwd: path.dirname(TSCONFIG_PATH), fs})
+  const snapshot = api.updateSnapshot({openProjects: [TSCONFIG_PATH]})
+  const project = snapshot.getProject(TSCONFIG_PATH)
+
+  if (!project) throw new Error(`Failed to load project for ${TSCONFIG_PATH}`)
+
+  return {project, close: () => api.close()}
 }
 
 describe('root entry surface', () => {
-  const languageService = createLanguageService()
+  const {project, close} = createProject()
   const [barrelProbe, removedIconProbe, subpathProbe] = Object.keys(probes) as [
     string,
     string,
     string,
   ]
 
+  afterAll(close)
+
   function getSemanticErrors(probe: string) {
-    return languageService
+    return project.program
       .getSemanticDiagnostics(probe)
-      .filter((diagnostic) => diagnostic.category === ts.DiagnosticCategory.Error)
+      .filter((diagnostic) => diagnostic.category === DiagnosticCategory.Error)
   }
 
   function getDeprecations(probe: string) {
-    return languageService
+    return project.program
       .getSuggestionDiagnostics(probe)
       .filter((diagnostic) => diagnostic.reportsDeprecated)
   }
@@ -90,9 +94,9 @@ describe('root entry surface', () => {
     const errors = getSemanticErrors(removedIconProbe)
 
     expect(errors.map((diagnostic) => diagnostic.code)).toContain(2305)
-    expect(
-      errors.map((diagnostic) => ts.flattenDiagnosticMessageText(diagnostic.messageText, ' ')),
-    ).toContain(`Module '"./index"' has no exported member 'AccessDeniedIcon'.`)
+    expect(errors.map((diagnostic) => diagnostic.text)).toContain(
+      `Module '"./index"' has no exported member 'AccessDeniedIcon'.`,
+    )
   })
 
   test('importing an icon from its subpath type-checks without deprecations', () => {
