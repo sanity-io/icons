@@ -6,24 +6,24 @@ import {fileURLToPath} from 'node:url'
 import {afterAll, beforeAll, describe, expect, test} from 'vitest'
 
 const SRC_PATH = path.dirname(fileURLToPath(import.meta.url))
-const PROBE_ID = `__probe_${process.pid}_${Date.now()}`
+const PROBE_FILE_PREFIX = `__probe_${process.pid}_${Date.now()}`
 
 // In-memory consumer files probing the import styles against the source entry points
 // (the same modules the published `exports` map points to in development).
 const probes: Record<string, string> = {
-  [path.join(SRC_PATH, `${PROBE_ID}_barrel__.ts`)]: [
+  [path.join(SRC_PATH, `${PROBE_FILE_PREFIX}_barrel__.ts`)]: [
     `import {Icon, icons, type IconComponent, type IconMap, type IconSymbol} from './index'`,
     `const rocket: IconComponent = icons['rocket' satisfies IconSymbol]`,
     `const map: IconMap = icons`,
     `console.log(Icon, rocket, map)`,
     ``,
   ].join('\n'),
-  [path.join(SRC_PATH, `${PROBE_ID}_removed_barrel_icon__.ts`)]: [
+  [path.join(SRC_PATH, `${PROBE_FILE_PREFIX}_removed_barrel_icon__.ts`)]: [
     `import {AccessDeniedIcon} from './index'`,
     `console.log(AccessDeniedIcon)`,
     ``,
   ].join('\n'),
-  [path.join(SRC_PATH, `${PROBE_ID}_subpath__.ts`)]: [
+  [path.join(SRC_PATH, `${PROBE_FILE_PREFIX}_subpath__.ts`)]: [
     `import {AccessDeniedIcon} from './exports/AccessDenied'`,
     `import LazyDefault from './exports/AccessDenied'`,
     `console.log(AccessDeniedIcon, LazyDefault)`,
