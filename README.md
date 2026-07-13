@@ -11,6 +11,13 @@ npm install react
 
 [![npm version](https://img.shields.io/npm/v/@sanity/icons.svg?style=flat-square)](https://www.npmjs.com/package/@sanity/icons)
 
+## Finding the right icon
+
+**[icons.sanity.dev](https://icons.sanity.dev)** is the searchable catalog of the full icon set:
+fuzzy-search by name or meaning, then copy the import snippet straight from the result.
+
+[![The searchable icon catalog at icons.sanity.dev](assets/icons-sanity-dev.png)](https://icons.sanity.dev)
+
 ## Usage
 
 Every icon is published on its own export path. The subpath is the icon's name **without** the
