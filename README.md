@@ -13,10 +13,15 @@ npm install react
 
 ## Finding the right icon
 
-**[icons.sanity.dev](https://icons.sanity.dev)** is the searchable catalog of the full icon set:
-fuzzy-search by name or meaning, then copy the import snippet straight from the result.
+**[icons.sanity.dev](https://icons.sanity.dev)** is the searchable catalog of the full icon set.
+Every icon is listed with its name and a copyable import snippet:
 
-[![The searchable icon catalog at icons.sanity.dev](assets/icons-sanity-dev.png)](https://icons.sanity.dev)
+[![The icon catalog at icons.sanity.dev](assets/icons-sanity-dev-list.png)](https://icons.sanity.dev)
+
+The search matches meaning, not just names, so you don't need to know what an icon is called or
+how it's spelled – searching “settings” surfaces `cog`, `wrench`, and `controls`:
+
+[![Searching “settings” in grid view surfaces cog, wrench, and controls](assets/icons-sanity-dev-search-settings.png)](https://icons.sanity.dev/?query=settings&view=grid)
 
 ## Usage
 
