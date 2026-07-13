@@ -11,10 +11,12 @@ import type {UserConfig} from 'tsdown'
 // imports them, so they are inlined into `dist/index.js` (the map's lazy per-icon
 // `import()` calls still resolve to the per-icon entry chunks).
 //
-// The explicit `UserConfig` annotation gives the default export a portable type
-// name (via the direct `tsdown` dependency); without it `declaration` emit fails
-// with TS2883 because `@sanity/tsdown-config` returns `tsdown`'s `UserConfig`.
-const config: UserConfig = await defineConfig({
+// No `await`: tsdown accepts a promise default export (`UserConfigExport` is
+// `Awaitable<…>`) and awaits it itself. The explicit `Promise<UserConfig>`
+// annotation gives the default export a portable type name (via the direct
+// `tsdown` dependency); without it `declaration` emit fails with TS2883
+// because `@sanity/tsdown-config` returns `tsdown`'s `UserConfig`.
+const config: Promise<UserConfig> = defineConfig({
   tsconfig: './tsconfig.dist.json',
   entry: [
     './src/index.ts',
