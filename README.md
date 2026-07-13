@@ -38,7 +38,10 @@ const RocketIcon = lazy(() => import('@sanity/icons/Rocket'))
 
 The root entry exposes the dynamic `<Icon>` component, the `icons` map, and their types – and
 nothing else. Individual icons are not re-exported from the root (these barrel exports were
-deprecated in v4 and removed in v5): import them from their subpath as shown above.
+deprecated in v4 and removed in v5): import them from their subpath as shown above. If you
+import an icon from the root anyway, the import still fails to resolve at runtime, but the
+types resolve to a `@deprecated` `never`-typed tombstone whose message points at the subpath
+the icon lives on – so a moved icon is not mistaken for a deleted one.
 
 Every entry in the `icons` map is a `React.lazy` component over the icon's subpath module, so
 importing the root entry pulls no icon code into your bundle – each icon is fetched as its own
