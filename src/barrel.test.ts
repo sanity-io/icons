@@ -1,8 +1,9 @@
 import path from 'node:path'
+import {spawnSync} from 'node:child_process'
+import {rmSync, writeFileSync} from 'node:fs'
 import {fileURLToPath} from 'node:url'
 
-import ts from 'typescript'
-import {describe, expect, test} from 'vitest'
+import {afterAll, beforeAll, describe, expect, test} from 'vitest'
 
 const SRC_PATH = path.dirname(fileURLToPath(import.meta.url))
 
@@ -29,74 +30,60 @@ const probes: Record<string, string> = {
   ].join('\n'),
 }
 
-function createLanguageService() {
-  const fileNames = Object.keys(probes)
-  const options: ts.CompilerOptions = {
-    strict: true,
-    noEmit: true,
-    target: ts.ScriptTarget.ESNext,
-    module: ts.ModuleKind.ESNext,
-    moduleResolution: ts.ModuleResolutionKind.Bundler,
-    jsx: ts.JsxEmit.ReactJSX,
-    skipLibCheck: true,
-  }
-
-  const host: ts.LanguageServiceHost = {
-    getScriptFileNames: () => fileNames,
-    getScriptVersion: () => '1',
-    getScriptSnapshot: (fileName) => {
-      const contents = probes[fileName] ?? ts.sys.readFile(fileName)
-      return contents === undefined ? undefined : ts.ScriptSnapshot.fromString(contents)
-    },
-    getCurrentDirectory: () => SRC_PATH,
-    getCompilationSettings: () => options,
-    getDefaultLibFileName: (opts) => ts.getDefaultLibFilePath(opts),
-    fileExists: (fileName) => fileName in probes || ts.sys.fileExists(fileName),
-    readFile: (fileName) => probes[fileName] ?? ts.sys.readFile(fileName),
-    directoryExists: (directoryName) => ts.sys.directoryExists(directoryName),
-    getDirectories: (directoryName) => ts.sys.getDirectories(directoryName),
-    realpath: (filePath) => (ts.sys.realpath ? ts.sys.realpath(filePath) : filePath),
-  }
-
-  return ts.createLanguageService(host, ts.createDocumentRegistry())
-}
+const tscArgs = [
+  '--ignoreConfig',
+  '--strict',
+  '--noEmit',
+  '--target',
+  'ESNext',
+  '--module',
+  'ESNext',
+  '--moduleResolution',
+  'bundler',
+  '--jsx',
+  'react-jsx',
+  '--skipLibCheck',
+]
 
 describe('root entry surface', () => {
-  const languageService = createLanguageService()
   const [barrelProbe, removedIconProbe, subpathProbe] = Object.keys(probes) as [
     string,
     string,
     string,
   ]
 
-  function getSemanticErrors(probe: string) {
-    return languageService
-      .getSemanticDiagnostics(probe)
-      .filter((diagnostic) => diagnostic.category === ts.DiagnosticCategory.Error)
+  beforeAll(() => {
+    for (const [filePath, source] of Object.entries(probes)) {
+      writeFileSync(filePath, source)
+    }
+  })
+
+  afterAll(() => {
+    for (const filePath of Object.keys(probes)) {
+      rmSync(filePath, {force: true})
+    }
+  })
+
+  function typecheck(probe: string) {
+    const result = spawnSync('tsc', [...tscArgs, probe], {cwd: SRC_PATH, encoding: 'utf8'})
+    const output = [result.stdout, result.stderr].filter(Boolean).join('\n')
+
+    return {exitCode: result.status ?? 0, output}
   }
 
-  function getDeprecations(probe: string) {
-    return languageService
-      .getSuggestionDiagnostics(probe)
-      .filter((diagnostic) => diagnostic.reportsDeprecated)
-  }
-
-  test('the dynamic barrel exports type-check without deprecations', () => {
-    expect(getSemanticErrors(barrelProbe)).toEqual([])
-    expect(getDeprecations(barrelProbe)).toEqual([])
+  test('the dynamic barrel exports type-check', () => {
+    expect(typecheck(barrelProbe)).toEqual({exitCode: 0, output: ''})
   })
 
   test('importing an icon from the barrel is a type error, the export is removed', () => {
-    const errors = getSemanticErrors(removedIconProbe)
+    const {exitCode, output} = typecheck(removedIconProbe)
 
-    expect(errors.map((diagnostic) => diagnostic.code)).toContain(2305)
-    expect(
-      errors.map((diagnostic) => ts.flattenDiagnosticMessageText(diagnostic.messageText, ' ')),
-    ).toContain(`Module '"./index"' has no exported member 'AccessDeniedIcon'.`)
+    expect(exitCode).not.toBe(0)
+    expect(output).toContain('error TS2305')
+    expect(output).toContain(`Module '"./index"' has no exported member 'AccessDeniedIcon'.`)
   })
 
-  test('importing an icon from its subpath type-checks without deprecations', () => {
-    expect(getSemanticErrors(subpathProbe)).toEqual([])
-    expect(getDeprecations(subpathProbe)).toEqual([])
+  test('importing an icon from its subpath type-checks', () => {
+    expect(typecheck(subpathProbe)).toEqual({exitCode: 0, output: ''})
   })
 })
