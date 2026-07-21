@@ -1,5 +1,10 @@
-import type {ComponentPropsWithRef, ReactElement} from 'react'
-import {Suspense} from 'react'
+import {
+  forwardRef,
+  type ForwardRefExoticComponent,
+  type RefAttributes,
+  Suspense,
+  type SVGProps,
+} from 'react'
 
 import {icons} from './icons'
 import type {IconSymbol} from './icons'
@@ -23,9 +28,14 @@ export interface IconProps {
  * styling from the first paint – the way an `<img>` with intrinsic dimensions behaves while
  * its `src` is still downloading.
  *
+ * The component is wrapped in `React.forwardRef` (instead of relying on React 19's
+ * ref-as-prop model) so refs attach on React 18 too.
+ *
  * @public
  */
-export function Icon(props: IconProps & ComponentPropsWithRef<'svg'>): ReactElement | null {
+export const Icon: ForwardRefExoticComponent<
+  IconProps & Omit<SVGProps<SVGSVGElement>, 'ref'> & RefAttributes<SVGSVGElement>
+> = /* @__PURE__ */ forwardRef(function Icon(props, ref) {
   const {symbol, ...restProps} = props
   const IconComponent = icons[symbol]
 
@@ -44,10 +54,11 @@ export function Icon(props: IconProps & ComponentPropsWithRef<'svg'>): ReactElem
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           {...restProps}
+          ref={ref}
         />
       }
     >
-      <IconComponent {...restProps} />
+      <IconComponent {...restProps} ref={ref} />
     </Suspense>
   )
-}
+})
