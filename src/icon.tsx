@@ -28,9 +28,6 @@ export interface IconProps {
  * styling from the first paint – the way an `<img>` with intrinsic dimensions behaves while
  * its `src` is still downloading.
  *
- * The component is wrapped in `React.forwardRef` (instead of relying on React 19's
- * ref-as-prop model) so refs attach on React 18 too.
- *
  * @public
  */
 export const Icon: ForwardRefExoticComponent<
