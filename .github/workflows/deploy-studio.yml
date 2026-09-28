@@ -4,9 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'sanity.config.ts'
-      - 'sanity.cli.ts'
-      - 'schemas/**'
+      - 'apps/studio/**'
   workflow_dispatch:
 
 concurrency:
@@ -21,9 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: pnpm/setup@v1
-        with:
-          cache: true
-      - run: pnpm studio:deploy
+      - uses: ./.github/actions/setup
+      # `run` is required: `pnpm deploy` is a built-in pnpm command
+      - run: pnpm --filter sanity-icons-studio run deploy --schema-required
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_TOKEN }}
