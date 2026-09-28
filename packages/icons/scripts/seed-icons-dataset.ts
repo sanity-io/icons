@@ -13,6 +13,7 @@ import {globby} from 'globby'
 const ROOT_PATH = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const IMPORT_PATH = path.resolve(ROOT_PATH, 'export')
 
+// The icons dataset that powers the icons.sanity.dev search (see apps/icons)
 const projectId = process.env['SANITY_API_PROJECT_ID'] || 'ppsg7ml5'
 const dataset = process.env['SANITY_API_DATASET'] || 'icons'
 // SANITY_AUTH_TOKEN is a special-cased fallback so the seed can also run in the
