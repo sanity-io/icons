@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: pnpm/setup@v1
+      - uses: pnpm/setup@v3
         with:
           cache: true
       - run: pnpm lint --format github
@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: pnpm/setup@v1
+      - uses: pnpm/setup@v3
         with:
           cache: true
       - run: pnpm knip --reporter github-actions
@@ -52,7 +52,7 @@ jobs:
             node-version: lts
     steps:
       - uses: actions/checkout@v7
-      - uses: pnpm/setup@v1
+      - uses: pnpm/setup@v3
         with:
           cache: true
           runtime: node@${{ matrix.node-version }}
