@@ -3,7 +3,7 @@ import {defineConfig} from 'sanity'
 import {media} from 'sanity-plugin-media'
 import {structureTool} from 'sanity/structure'
 
-import {schema} from './src/schema'
+import {schema} from './schemas'
 
 export default defineConfig({
   // The workspace name is part of the deployed schema id (`_.schemas.default`)
