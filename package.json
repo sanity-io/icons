@@ -1,0 +1,39 @@
+{
+  "name": "sanity-icons-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "author": "Sanity.io <hello@sanity.io>",
+  "scripts": {
+    "build": "pnpm --filter @sanity/icons build",
+    "changeset": "changeset",
+    "clean": "pnpm --recursive clean",
+    "dev": "pnpm --filter sanity-icons-storybook dev",
+    "dev:icons": "pnpm --filter sanity-icons-showcase dev",
+    "dev:studio": "pnpm --filter sanity-icons-studio dev",
+    "format": "oxfmt . --no-error-on-unmatched-pattern",
+    "knip": "knip --treat-config-hints-as-errors",
+    "lint": "pnpm run oxlint",
+    "lint:fix": "pnpm lint --fix --fix-suggestions",
+    "oxlint": "oxlint --disable-nested-config",
+    "release": "changeset publish",
+    "storybook:build": "pnpm --filter sanity-icons-storybook build",
+    "test": "pnpm --filter @sanity/icons test",
+    "test:browser": "pnpm --filter sanity-icons-storybook test"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^1.0.1",
+    "@changesets/cli": "^3.0.3",
+    "@types/node": "catalog:",
+    "eslint-plugin-storybook": "^10.6.0",
+    "knip": "^6.38.0",
+    "oxfmt": "^0.71.0",
+    "oxlint": "^1.86.0",
+    "oxlint-tsgolint": "^7.0.2003",
+    "typescript": "catalog:"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "packageManager": "pnpm@12.6.0"
+}

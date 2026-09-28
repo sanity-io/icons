@@ -1,36 +1,154 @@
+packages:
+  - 'apps/*'
+  - 'apps/blueprints/*'
+  - 'packages/*'
+
+linkWorkspacePackages: deep
+strictPeerDependencies: false
+autoDedupe: true
+
+# `pnpm add` writes `catalog:` when the requested version is covered by an
+# existing catalog entry, or when the dependency is not cataloged yet (the
+# entry is then added to `catalog` below). A version outside an existing
+# entry's range warns and is kept as a direct range (`strict` would error).
+catalogMode: prefer
+
+# Version ranges for dependencies used by more than one workspace package,
+# kept in step with sanity-io/ui's catalog. Referenced from package.json files
+# via the `catalog:` protocol. @sanity/ui is developed in sanity-io/ui and
+# comes from npm. (See packageExtensions for vitest peer wiring across packages
+# that share different vitest versions.)
+catalog:
+  '@sanity/blueprints': ^0.27.0
+  '@sanity/client': ^8.8.0
+  '@sanity/functions': ^1.8.0
+  '@sanity/tsdown-config': ^0.28.2
+  '@sanity/ui': ^4.2.7
+  '@types/node': ^24.19.0
+  '@types/react': ^19.3.0
+  '@types/react-dom': ^19.3.0
+  '@types/react-is': ^19.3.0
+  '@vitejs/plugin-react': ^6.1.1
+  oxc-transform-react: ^0.151.0
+  react: ^19.3.0
+  react-dom: ^19.3.0
+  react-is: ^19.3.0
+  react-refractor: ^4.0.0
+  refractor: ^5.0.0
+  rimraf: ^5.0.5
+  sanity: ^6.16.0
+  styled-components: ^6.5.3
+  tsdown: ^0.23.0
+  typescript: 7.0.2
+  unrun: ^0.3.1
+  vite: ^8.3.1
+  vitest: ^5.0.2
+
 allowBuilds:
+  # Like esbuild, @swc/core's postinstall is only a fallback downloader — the
+  # native binary arrives through platform-specific optionalDependencies
+  '@swc/core': false
   core-js: false
   esbuild: false
   fsevents: false
-  lefthook: true
-  unrs-resolver: false
+  sharp: true
+  unrs-resolver: true
 
-# Allow the freshly published vite 8 release through pnpm's minimum release age
-# supply-chain policy (a no-op when the policy is not enabled).
+# Sanity-owned build tooling releases frequently; don't gate it on the
+# default minimum release age (1 day). tsdown and its lightningcss / verkit /
+# @tsdown/* / publint transitive deps are included for the same reason when we
+# deliberately bump the catalog to `latest`.
+# Version-pinned entries approve one specific release we deliberately picked
+# before it aged out of the gate; the lockfile is re-verified against these on
+# every install, so they have to stay until the version is a day old.
 minimumReleaseAgeExclude:
+  - '@oxc-transform-react/*'
+  - '@portabletext/*'
   - '@sanity/*'
-  - '@types/node'
-  - '@oxlint/*'
-  - '@oxfmt/*'
-  - knip
-  - 'oxlint'
-  - 'oxlint-tsgolint'
-  - 'oxfmt'
+  - '@tsdown/*'
+  - lightningcss
+  - lightningcss-*
+  - oxc-transform-react
+  - publint
   - sanity
-  - sanity-plugin-media
-  - vite
-  - '@architect/hydrate@6.0.2'
-  # tsdown 0.22.7 and the yuku parser/codegen family it pulls in via
-  # rolldown-plugin-dts are freshly published alongside each other.
-  - '@yuku-codegen/*'
-  - '@yuku-toolchain/*'
-  - '@yuku-parser/*'
-  - rolldown-plugin-dts
   - tsdown
-  - yuku-codegen
-  - yuku-ast
-  - yuku-parser
+  - verkit
+  - use-effect-event@2.0.4
+  - '@types/react-dom@19.3.0'
+  - '@types/react-is@19.3.0'
+  - '@types/react@19.3.0'
+  - react-dom@19.3.0
+  - react-is@19.3.0
+  - react@19.3.0
+  - scheduler@0.28.0
+  - '@oxfmt/binding-android-arm-eabi@0.71.0'
+  - '@oxfmt/binding-android-arm64@0.71.0'
+  - '@oxfmt/binding-darwin-arm64@0.71.0'
+  - '@oxfmt/binding-darwin-x64@0.71.0'
+  - '@oxfmt/binding-freebsd-x64@0.71.0'
+  - '@oxfmt/binding-linux-arm-gnueabihf@0.71.0'
+  - '@oxfmt/binding-linux-arm-musleabihf@0.71.0'
+  - '@oxfmt/binding-linux-arm64-gnu@0.71.0'
+  - '@oxfmt/binding-linux-arm64-musl@0.71.0'
+  - '@oxfmt/binding-linux-ppc64-gnu@0.71.0'
+  - '@oxfmt/binding-linux-riscv64-gnu@0.71.0'
+  - '@oxfmt/binding-linux-riscv64-musl@0.71.0'
+  - '@oxfmt/binding-linux-s390x-gnu@0.71.0'
+  - '@oxfmt/binding-linux-x64-gnu@0.71.0'
+  - '@oxfmt/binding-linux-x64-musl@0.71.0'
+  - '@oxfmt/binding-openharmony-arm64@0.71.0'
+  - '@oxfmt/binding-win32-arm64-msvc@0.71.0'
+  - '@oxfmt/binding-win32-ia32-msvc@0.71.0'
+  - '@oxfmt/binding-win32-x64-msvc@0.71.0'
+  - oxfmt@0.71.0
+  - '@oxlint/binding-android-arm-eabi@1.86.0'
+  - '@oxlint/binding-android-arm64@1.86.0'
+  - '@oxlint/binding-darwin-arm64@1.86.0'
+  - '@oxlint/binding-darwin-x64@1.86.0'
+  - '@oxlint/binding-freebsd-x64@1.86.0'
+  - '@oxlint/binding-linux-arm-gnueabihf@1.86.0'
+  - '@oxlint/binding-linux-arm-musleabihf@1.86.0'
+  - '@oxlint/binding-linux-arm64-gnu@1.86.0'
+  - '@oxlint/binding-linux-arm64-musl@1.86.0'
+  - '@oxlint/binding-linux-ppc64-gnu@1.86.0'
+  - '@oxlint/binding-linux-riscv64-gnu@1.86.0'
+  - '@oxlint/binding-linux-riscv64-musl@1.86.0'
+  - '@oxlint/binding-linux-s390x-gnu@1.86.0'
+  - '@oxlint/binding-linux-x64-gnu@1.86.0'
+  - '@oxlint/binding-linux-x64-musl@1.86.0'
+  - '@oxlint/binding-openharmony-arm64@1.86.0'
+  - '@oxlint/binding-win32-arm64-msvc@1.86.0'
+  - '@oxlint/binding-win32-ia32-msvc@1.86.0'
+  - '@oxlint/binding-win32-x64-msvc@1.86.0'
+  - oxlint@1.86.0
+  - '@oxlint-tsgolint/darwin-arm64@7.0.2003'
+  - '@oxlint-tsgolint/darwin-x64@7.0.2003'
+  - '@oxlint-tsgolint/linux-arm64@7.0.2003'
+  - '@oxlint-tsgolint/linux-x64@7.0.2003'
+  - '@oxlint-tsgolint/win32-arm64@7.0.2003'
+  - '@oxlint-tsgolint/win32-x64@7.0.2003'
+  - oxlint-tsgolint@7.0.2003
+  - '@lezer/highlight@1.2.5'
 
-publicHoistPattern:
-  - 'react-refractor'
-  - 'refractor'
+minimumReleaseAgeExcludePrune: true
+
+# @testing-library/jest-dom/vitest imports `vitest` without declaring it, so it
+# can resolve a different copy than the package under test. That happens across
+# vitest versions (hoist) and across same-version isolates (pnpm splits vitest
+# per vite optional-peer set). The `/vitest` entry then rebinds snapshot
+# matchers onto an expect whose SnapshotClient was never set up. Declare the
+# peer so each consumer gets a vitest linked, and extend matchers from the
+# package's own `expect` (see packages/icons/test/setup.ts).
+packageExtensions:
+  '@testing-library/jest-dom':
+    peerDependencies:
+      vitest: '*'
+    peerDependenciesMeta:
+      vitest:
+        optional: true
+
+overrides:
+  '@types/react': 'catalog:'
+  '@types/react-dom': 'catalog:'
+  react: 'catalog:'
+  react-dom: 'catalog:'

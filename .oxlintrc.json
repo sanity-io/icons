@@ -10,7 +10,10 @@
     "jsx-a11y",
     "promise"
   ],
-  "ignorePatterns": ["**/dist/*", "**/.workshop/*"],
+  // ESLint plugins loaded through oxlint's JS plugins support. Rules from these
+  // plugins are enabled per-file-pattern in "overrides".
+  "jsPlugins": ["eslint-plugin-storybook"],
+  "ignorePatterns": ["**/.workshop/*", "**/dist/*", "**/etc/*", "**/storybook-static/*"],
   "options": {
     "denyWarnings": true,
     "reportUnusedDisableDirectives": "error",
@@ -23,19 +26,152 @@
     "perf": "error"
   },
   "rules": {
-    "eslint/no-console": "error",
-    "import/no-cycle": "error",
-    "jsx-no-jsx-as-prop": "off",
-    "jsx-no-new-array-as-prop": "off",
-    "jsx-no-new-function-as-prop": "off",
     "no-underscore-dangle": "off",
-    "no-unsafe-type-assertion": "off",
-    "react-in-jsx-scope": "off",
-    "react/exhaustive-deps": "error",
-    "react/react-compiler": "error",
-    "react/rules-of-hooks": "error",
+    "consistent-function-scoping": "off",
+    "eslint/no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "styled-components",
+            "importNames": ["default"],
+            "message": "Please use `import {styled} from \"styled-components\"` instead."
+          },
+          {
+            "name": "react",
+            "importNames": ["forwardRef"],
+            "message": "React 19 passes `ref` as a regular prop — write a plain function component that reads `props.ref` instead of wrapping it in `forwardRef`."
+          },
+          {
+            "name": "react",
+            "importNames": ["createRef"],
+            "message": "Use `useRef` instead of `createRef`."
+          },
+          {
+            "name": "react",
+            "importNames": ["createElement"],
+            "message": "Use JSX instead of `createElement`."
+          }
+        ]
+      }
+    ],
+
+    // Prefer function components; error boundaries (getDerivedStateFromError /
+    // componentDidCatch) remain allowed via allowErrorBoundary.
+    "react/prefer-function-component": ["error", {"allowErrorBoundary": true}],
+
+    // React Compiler: recommended rules live in `correctness`,
+    // recommended-latest `void-use-memo` in `correctness`, and the
+    // off-by-default compiler rules in `suspicious`/`perf` — all already
+    // enabled via `categories` above. `react/react-compiler` was removed
+    // in oxlint 1.79 in favor of these per-category rules.
+    // Restriction-category compiler rules are off unless listed here:
+    "react/unsupported-syntax": "error",
+    "react/invariant": "error",
+    "react/rule-suppression": "error",
+    "react/syntax": "error",
+    "react/todo": "error",
+
     "typescript/ban-ts-comment": "error",
     "typescript/no-deprecated": "error",
-    "typescript/prefer-ts-expect-error": "error"
-  }
+    "typescript/no-unnecessary-type-assertion": "error",
+    "typescript/no-unnecessary-type-arguments": "error",
+    "typescript/prefer-ts-expect-error": "error",
+    "import/no-commonjs": "error",
+    "import/no-unassigned-import": ["error", {"allow": ["**/*.css"]}],
+    // Ban `export *` barrel files that pull in large module graphs; import
+    // directly from the module that defines a symbol instead
+    "oxc/no-barrel-file": "error",
+    "no-restricted-globals": [
+      "error",
+      {"name": "__dirname", "message": "Use path.dirname(fileURLToPath(import.meta.url)) instead"},
+      {"name": "__filename", "message": "Use fileURLToPath(import.meta.url) instead"}
+    ],
+    "react/jsx-key": "error",
+    "unicorn/no-abusive-eslint-disable": "error",
+    // Not relevant as we use the modern jsx-runtime transform
+    "react-in-jsx-scope": "off",
+    // Not relevant due to React Compiler
+    "react_perf/jsx-no-new-array-as-prop": "off",
+    "react_perf/jsx-no-new-object-as-prop": "off",
+    "react_perf/jsx-no-new-function-as-prop": "off",
+    "react_perf/jsx-no-jsx-as-prop": "off",
+    // False negatives
+    "jsx_a11y/anchor-is-valid": "off",
+    "jsx_a11y/no-autofocus": "off",
+    // Keep the established Hooks rule, which checks effects, memos, callbacks,
+    // and configured custom hooks. The compiler rule only checks effects and
+    // duplicates this coverage.
+    "react/exhaustive-deps": "error",
+    "react/exhaustive-effect-dependencies": "off",
+    "react/rules-of-hooks": "error",
+    "eslint/no-console": ["error", {"allow": ["warn", "error"]}],
+    // Requires polyfills for older browsers
+    "no-array-reverse": "off",
+    "no-array-sort": "off",
+    // Too noisy, common in callbacks/closures
+    "no-shadow": "off"
+  },
+  "overrides": [
+    {
+      // `@sanity/icons` supports React 18 (a `react` peer of `^18 || ^19`),
+      // where refs only attach to function components wrapped in `forwardRef`
+      // — so `forwardRef` stays allowed there (along with the
+      // `createRef`/`createElement` used by the tests that pin that contract).
+      // Class components remain banned via the root `react/prefer-function-component`.
+      "files": ["packages/icons/**"],
+      "rules": {
+        "eslint/no-restricted-imports": [
+          "error",
+          {
+            "paths": [
+              {
+                "name": "styled-components",
+                "importNames": ["default"],
+                "message": "Please use `import {styled} from \"styled-components\"` instead."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      // apps/blueprints packages contain server-side Sanity Functions, where
+      // structured console logging (including `console.info`) is the norm
+      "files": ["apps/blueprints/**"],
+      "rules": {
+        "eslint/no-console": ["error", {"allow": ["info", "warn", "error"]}]
+      }
+    },
+    {
+      // The CSF rule set from eslint-plugin-storybook's flat/recommended config,
+      // scoped to the same story file patterns (warn-level rules bumped to error
+      // to match the rest of this config, which also runs with denyWarnings).
+      "files": ["**/*.stories.{js,jsx,mjs,cjs,ts,tsx}", "**/*.story.{js,jsx,mjs,cjs,ts,tsx}"],
+      "rules": {
+        "storybook/await-interactions": "error",
+        "storybook/context-in-play-function": "error",
+        "storybook/default-exports": "error",
+        "storybook/hierarchy-separator": "error",
+        "storybook/no-redundant-story-name": "error",
+        "storybook/no-renderer-packages": "error",
+        "storybook/prefer-pascal-case": "error",
+        "storybook/story-exports": "error",
+        "storybook/use-storybook-expect": "error",
+        "storybook/use-storybook-testing-library": "error"
+      }
+    },
+    {
+      // no-uninstalled-addons resolves its packageJsonLocation option relative to
+      // the working directory (the repo root when run via `pnpm lint`), so point
+      // it at the storybook app's manifest where the addons are installed.
+      "files": ["**/.storybook/main.{js,cjs,mjs,ts}"],
+      "rules": {
+        "storybook/no-uninstalled-addons": [
+          "error",
+          {"packageJsonLocation": "./apps/storybook/package.json"}
+        ]
+      }
+    }
+  ]
 }

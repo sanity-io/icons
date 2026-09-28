@@ -1,9 +1,9 @@
+import '@sanity/ui/styles.css'
 // The way to reach a single icon eagerly: importing from its dedicated subpath keeps
 // bundles small and treeshaking fast. The root entry only exposes the lazy `icons` map
 // and the `<Icon>` component.
 import {RocketIcon} from '@sanity/icons/Rocket'
 import {Card, ThemeProvider} from '@sanity/ui'
-import '@sanity/ui/styles.css'
 import {buildTheme} from '@sanity/ui/theme'
 import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
