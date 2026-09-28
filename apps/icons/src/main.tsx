@@ -3,6 +3,7 @@
 // and the `<Icon>` component.
 import {RocketIcon} from '@sanity/icons/Rocket'
 import {Card, ThemeProvider} from '@sanity/ui'
+import '@sanity/ui/styles.css'
 import {buildTheme} from '@sanity/ui/theme'
 import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'

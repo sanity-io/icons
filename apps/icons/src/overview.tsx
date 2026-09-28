@@ -7,19 +7,9 @@ import {SearchIcon} from '@sanity/icons/Search'
 import {SpinnerIcon} from '@sanity/icons/Spinner'
 import {ThLargeIcon} from '@sanity/icons/ThLarge'
 import {ThListIcon} from '@sanity/icons/ThList'
-import {
-  Box,
-  Button,
-  Card,
-  Code,
-  Container,
-  Flex,
-  Heading,
-  Popover,
-  Stack,
-  Text,
-  TextInput,
-} from '@sanity/ui'
+import {Box, Button, Card, Container, Flex, Heading, Stack, Text, TextInput} from '@sanity/ui'
+import {Code} from '@sanity/ui/code'
+import {Popover} from '@sanity/ui/popover'
 import copy from 'copy-to-clipboard'
 import {Activity, startTransition, useEffect, useState} from 'react'
 import {registerLanguage} from 'react-refractor'
@@ -43,6 +33,8 @@ const rotate = keyframes`
 
 const SpinningIcon = styled(SpinnerIcon)`
   animation: ${rotate} 500ms linear infinite;
+  height: round(1em, 2px);
+  width: round(1em, 2px);
 `
 
 const COPY_FEEDBACK_DURATION = 1500
@@ -198,14 +190,14 @@ export default function OverviewStory() {
   )
 }
 
-function CodeSnippet({icon}: {icon: string}) {
+function CodeSnippet({icon}: {icon: IconSymbol}) {
   const code = getImportCode(icon)
 
   return (
     <Card border overflow="hidden" radius={2}>
       <Flex align="center" gap={4} padding={4}>
         <Heading>
-          <Icon symbol={icon as IconSymbol} />
+          <Icon symbol={icon} />
         </Heading>
         <Text>{icon}</Text>
         <Box flex={1} />

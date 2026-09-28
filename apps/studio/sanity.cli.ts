@@ -12,4 +12,7 @@ export default defineCliConfig({
     appId: 'kzr7jgsqcbbjvtum223ykpir',
     autoUpdates: true,
   },
+  // `transform: 'oxc'` runs the React Compiler natively via `oxc-transform-react`
+  // (the Rust port) instead of `babel-plugin-react-compiler`
+  reactCompiler: {target: '19', transform: 'oxc'},
 })

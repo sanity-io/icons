@@ -1,0 +1,13 @@
+{
+  "name": "blueprints-docs",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Sanity Blueprint deploying serverless functions for the icons.sanity.dev icon search (project ppsg7ml5)",
+  "type": "module",
+  "devDependencies": {
+    "@sanity/blueprints": "catalog:",
+    "@sanity/client": "catalog:",
+    "@sanity/functions": "catalog:",
+    "@types/node": "catalog:"
+  }
+}

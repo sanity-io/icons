@@ -1,3 +1,7 @@
+import {SchemaPluginOptions} from 'sanity'
+
 import {iconType} from './icon'
 
-export const schemaTypes = [iconType]
+export const schema: SchemaPluginOptions = {
+  types: [iconType],
+}
