@@ -52,7 +52,9 @@ Standard scripts live in the root `package.json` (`lint`, `test`, `build`,
   via `@storybook/addon-vitest`, executing story `play` interactions. The
   Playwright-provided browser must be installed once via
   `pnpm --filter sanity-icons-storybook exec playwright install chromium`.
-  Stories opt out of being tested with the `!test` tag.
+  Stories opt out of being tested with the `!test` tag. `apps/storybook/vercel.json`
+  (sanity-io/ui's, unchanged) is the Vercel config for the hosted Storybook.
+  Each app keeps its `vercel.json` in its own folder; the repo root has none.
 - `pnpm dev:icons` starts the icons.sanity.dev showcase (`apps/icons`) on
   http://localhost:5173. It is a plain Vite app; its sources keep this repo's
   historical `src/__workshop__` folder name, which predates replacing
