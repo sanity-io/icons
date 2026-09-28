@@ -54,7 +54,9 @@ Standard scripts live in the root `package.json` (`lint`, `test`, `build`,
   `pnpm --filter sanity-icons-storybook exec playwright install chromium`.
   Stories opt out of being tested with the `!test` tag.
 - `pnpm dev:icons` starts the icons.sanity.dev showcase (`apps/icons`) on
-  http://localhost:5173. Its icon search queries the public `icon` documents in
+  http://localhost:5173. It is a plain Vite app; its sources keep this repo's
+  historical `src/__workshop__` folder name, which predates replacing
+  `@sanity/ui-workshop` with Vite. Its icon search queries the public `icon` documents in
   Sanity project `ppsg7ml5`, dataset `icons` (override with
   `VITE_SANITY_API_PROJECT_ID`/`VITE_SANITY_API_DATASET`), with semantic search
   through the dataset's embeddings index, and falls back to local substring
