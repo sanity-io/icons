@@ -1,8 +1,25 @@
 {
-  "$schema": "./node_modules/knip/schema-jsonc.json",
-  "entry": [
-    // Sanity Functions entry points, consumed by the Sanity runtime rather than
-    // through an import graph knip can follow.
-    "functions/*/index.ts",
-  ],
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "workspaces": {
+    ".": {},
+    "apps/blueprints/docs": {
+      // The Blueprint config and function handlers are runtime entry points
+      // deployed via @sanity/runtime-cli, not imported by application code
+      "entry": ["sanity.blueprint.ts", "functions/*/index.ts"],
+    },
+    "apps/icons": {},
+    "apps/studio": {
+      "ignoreDependencies": [
+        // Never imported: `reactCompiler: {transform: 'oxc'}` in sanity.cli.ts
+        // makes the sanity CLI load it as an optional peer of @sanity/cli,
+        // which knip cannot trace through the `sanity` package
+        "oxc-transform-react",
+      ],
+    },
+    "packages/icons": {
+      // The generate/seed package.json scripts run these through unrun, which
+      // knip does not recognize as a script runner
+      "entry": ["scripts/*.ts"],
+    },
+  },
 }

@@ -1,0 +1,28 @@
+{
+  "name": "sanity-icons-studio",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "dev": "sanity dev",
+    "embeddings:enable": "sanity datasets embeddings enable icons --projection '{ filename, namedExport, tags, description }' --wait",
+    "schema:deploy": "sanity schema deploy"
+  },
+  "dependencies": {
+    "@sanity/vision": "^6.16.0",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "sanity": "catalog:",
+    "sanity-plugin-media": "^6.3.1",
+    "styled-components": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "oxc-transform-react": "catalog:",
+    "typescript": "catalog:"
+  }
+}

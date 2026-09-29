@@ -7,11 +7,11 @@
   "quoteProps": "consistent",
   "sortImports": true,
   "sortPackageJson": {"sortScripts": true},
-  "ignorePatterns": ["dist/**", "pnpm-lock.yaml"],
-  "overrides": [
-    {
-      "files": [".changeset/*.md"],
-      "options": {"singleQuote": false}
-    }
+  "ignorePatterns": [
+    "dist/**",
+    "storybook-static/**",
+    "pnpm-lock.yaml",
+    "CHANGELOG.md",
+    "**/sanity.types.ts"
   ]
 }
