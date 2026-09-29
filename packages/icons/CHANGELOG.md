@@ -1,5 +1,11 @@
 # @sanity/icons
 
+## 5.2.3
+
+### Patch Changes
+
+- [#240](https://github.com/sanity-io/icons/pull/240) [`09cb682`](https://github.com/sanity-io/icons/commit/09cb6824a96a0f4f68de2ca09ee807ea91be0a8c) Thanks [@stipsan](https://github.com/stipsan)! - `@sanity/icons` is developed in the [sanity-io/icons](https://github.com/sanity-io/icons) repository again (`packages/icons`), moving out of the [sanity-io/ui](https://github.com/sanity-io/ui) monorepo. No runtime changes.
+
 ## 5.2.2
 
 ### Patch Changes
