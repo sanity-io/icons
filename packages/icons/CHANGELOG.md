@@ -1,5 +1,11 @@
 # @sanity/icons
 
+## 5.2.4
+
+### Patch Changes
+
+- [#254](https://github.com/sanity-io/icons/pull/254) [`1203568`](https://github.com/sanity-io/icons/commit/1203568a27a4ac6296a95330528824e9fb7b2a20) Thanks [@squiggler-app](https://github.com/apps/squiggler-app)! - fix(deps): update dependency tsdown to ^0.23.1
+
 ## 5.2.3
 
 ### Patch Changes
