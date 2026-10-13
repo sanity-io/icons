@@ -129,6 +129,10 @@ minimumReleaseAgeExclude:
   - '@oxlint-tsgolint/win32-x64@7.0.2003'
   - oxlint-tsgolint@7.0.2003
   - '@lezer/highlight@1.2.5'
+  - framer-motion@14.2.0
+  - motion-dom@14.2.0
+  - motion-utils@14.1.1
+  - motion@14.2.0
 
 minimumReleaseAgeExcludePrune: true
 
