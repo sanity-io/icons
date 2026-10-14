@@ -58,6 +58,8 @@ allowBuilds:
 # default minimum release age (1 day). tsdown and its lightningcss / verkit /
 # @tsdown/* / publint transitive deps are included for the same reason when we
 # deliberately bump the catalog to `latest`.
+# The motion family is exempt by package name (framer-motion, motion,
+# motion-dom, motion-utils): those releases keep tripping the age gate.
 # Version-pinned entries approve one specific release we deliberately picked
 # before it aged out of the gate; the lockfile is re-verified against these on
 # every install, so they have to stay until the version is a day old.
@@ -66,8 +68,12 @@ minimumReleaseAgeExclude:
   - '@portabletext/*'
   - '@sanity/*'
   - '@tsdown/*'
+  - framer-motion
   - lightningcss
   - lightningcss-*
+  - motion
+  - motion-dom
+  - motion-utils
   - oxc-transform-react
   - publint
   - sanity
