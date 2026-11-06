@@ -1,5 +1,11 @@
 # @sanity/icons
 
+## 5.3.0
+
+### Minor Changes
+
+- [#279](https://github.com/sanity-io/icons/pull/279) [`8937f58`](https://github.com/sanity-io/icons/commit/8937f58f4bdea7c8bedf84247a043d44b616b918) Thanks [@somerandomdude](https://github.com/somerandomdude)! - Added variant icons to the package
+
 ## 5.2.3
 
 ### Patch Changes
