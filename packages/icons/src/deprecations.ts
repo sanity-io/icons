@@ -876,6 +876,21 @@ export declare const RetryIcon: never
 export declare const RevertIcon: never
 
 /**
+ * @deprecated `RhombusAddIcon` is no longer exported from the `@sanity/icons` root entry (removed in v5) – the icon itself still exists. Import it from its own subpath instead: `import {RhombusAddIcon} from '@sanity/icons/RhombusAdd'`
+ */
+export declare const RhombusAddIcon: never
+
+/**
+ * @deprecated `RhombusFilledIcon` is no longer exported from the `@sanity/icons` root entry (removed in v5) – the icon itself still exists. Import it from its own subpath instead: `import {RhombusFilledIcon} from '@sanity/icons/RhombusFilled'`
+ */
+export declare const RhombusFilledIcon: never
+
+/**
+ * @deprecated `RhombusOutlineIcon` is no longer exported from the `@sanity/icons` root entry (removed in v5) – the icon itself still exists. Import it from its own subpath instead: `import {RhombusOutlineIcon} from '@sanity/icons/RhombusOutline'`
+ */
+export declare const RhombusOutlineIcon: never
+
+/**
  * @deprecated `RobotIcon` is no longer exported from the `@sanity/icons` root entry (removed in v5) – the icon itself still exists. Import it from its own subpath instead: `import {RobotIcon} from '@sanity/icons/Robot'`
  */
 export declare const RobotIcon: never

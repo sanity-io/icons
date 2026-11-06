@@ -183,6 +183,9 @@ export type IconSymbol =
   | 'retrieve'
   | 'retry'
   | 'revert'
+  | 'rhombus-add'
+  | 'rhombus-filled'
+  | 'rhombus-outline'
   | 'robot'
   | 'rocket'
   | 'schema'
@@ -424,6 +427,9 @@ export interface IconMap {
   'retrieve': IconComponent
   'retry': IconComponent
   'revert': IconComponent
+  'rhombus-add': IconComponent
+  'rhombus-filled': IconComponent
+  'rhombus-outline': IconComponent
   'robot': IconComponent
   'rocket': IconComponent
   'schema': IconComponent
@@ -666,6 +672,9 @@ export const icons: IconMap = {
   'retrieve': lazy(() => import('./exports/Retrieve')),
   'retry': lazy(() => import('./exports/Retry')),
   'revert': lazy(() => import('./exports/Revert')),
+  'rhombus-add': lazy(() => import('./exports/RhombusAdd')),
+  'rhombus-filled': lazy(() => import('./exports/RhombusFilled')),
+  'rhombus-outline': lazy(() => import('./exports/RhombusOutline')),
   'robot': lazy(() => import('./exports/Robot')),
   'rocket': lazy(() => import('./exports/Rocket')),
   'schema': lazy(() => import('./exports/Schema')),
