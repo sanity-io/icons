@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "mkdir -p /tmp/pnpm-bin && corepack enable pnpm --install-directory /tmp/pnpm-bin && PATH=/tmp/pnpm-bin:$PATH pnpm install --frozen-lockfile",
-  "buildCommand": "mkdir -p /tmp/pnpm-bin && corepack enable pnpm --install-directory /tmp/pnpm-bin && PATH=/tmp/pnpm-bin:$PATH pnpm build",
+  "installCommand": "npm install --global --prefix /tmp/pnpm-bin corepack && PATH=/tmp/pnpm-bin/bin:$PATH pnpm install --frozen-lockfile",
+  "buildCommand": "npm install --global --prefix /tmp/pnpm-bin corepack && PATH=/tmp/pnpm-bin/bin:$PATH pnpm build",
   "outputDirectory": "storybook-static"
 }
