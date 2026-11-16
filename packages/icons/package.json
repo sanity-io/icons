@@ -539,7 +539,7 @@
     "globby": "^16.2.1",
     "jsdom": "^31.0.1",
     "mkdirp": "^3.0.1",
-    "oxfmt": "^0.71.0",
+    "oxfmt": "^0.79.0",
     "react": "catalog:",
     "react-dom": "catalog:",
     "react-is": "catalog:",
