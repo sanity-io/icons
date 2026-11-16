@@ -29,7 +29,7 @@
     "knip": "^6.38.0",
     "oxfmt": "^0.71.0",
     "oxlint": "^1.88.0",
-    "oxlint-tsgolint": "^7.0.2003",
+    "oxlint-tsgolint": "^7.0.2007",
     "typescript": "catalog:"
   },
   "engines": {
