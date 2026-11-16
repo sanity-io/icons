@@ -1,5 +1,11 @@
 # @sanity/icons
 
+## 5.4.0
+
+### Minor Changes
+
+- [#282](https://github.com/sanity-io/icons/pull/282) [`808ffb6`](https://github.com/sanity-io/icons/commit/808ffb68e14b9542d2b13ba70fa198796eca07ca) Thanks [@stipsan](https://github.com/stipsan)! - Export `iconImports`, a map from each icon symbol to the function that loads that icon. `icons` is built from the same functions. Await `iconImports[symbol]()` before rendering `<Icon symbol="…" />` and the icon paints on the first pass, instead of the empty loading svg.
+
 ## 5.3.0
 
 ### Minor Changes
