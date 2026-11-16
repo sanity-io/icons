@@ -49,8 +49,8 @@ const RocketIcon = lazy(() => import('@sanity/icons/Rocket'))
 
 ### Dynamic icons
 
-The root entry exposes the dynamic `<Icon>` component, the `icons` map, and their types – and
-nothing else. Individual icons are not re-exported from the root (these barrel exports were
+The root entry exposes the dynamic `<Icon>` component, the `icons` map, the `iconImports` map,
+and their types. Individual icons are not re-exported from the root (these barrel exports were
 deprecated in v4 and removed in v5): import them from their subpath as shown above. If you
 import an icon from the root anyway, the import still fails to resolve at runtime, but the
 types resolve to a `@deprecated` `never`-typed tombstone whose message points at the subpath
@@ -89,6 +89,29 @@ function App(props) {
   )
 }
 ```
+
+### Preload icons you are about to render
+
+`<Icon>` paints an empty svg while its chunk loads, so icons whose names arrive in a response
+pop in one by one. `iconImports` maps each symbol to the function that loads that icon.
+Await the symbols you are about to show, then render. The icons paint together.
+
+```jsx
+import {Icon, iconImports, type IconSymbol} from '@sanity/icons'
+
+const symbols: IconSymbol[] = ['rocket', 'bell', 'heart']
+
+await Promise.allSettled(symbols.map((symbol) => iconImports[symbol]()))
+
+function IconList() {
+  return symbols.map((symbol) => <Icon key={symbol} symbol={symbol} />)
+}
+```
+
+`iconImports[symbol]()` fulfills with the icon module, and `module.default` is the component.
+`icons` reads the same cache, so a preloaded `icons[symbol]` also skips its loading
+fallback. Keep a `<Suspense>` boundary around `icons[symbol]` for a symbol you did not
+preload.
 
 ## License
 

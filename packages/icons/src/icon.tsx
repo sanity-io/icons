@@ -28,6 +28,9 @@ export interface IconProps {
  * styling from the first paint – the way an `<img>` with intrinsic dimensions behaves while
  * its `src` is still downloading.
  *
+ * Await `iconImports[symbol]()` before rendering a set of symbols you already know.
+ * Those icons then paint on the first pass, instead of the empty fallback.
+ *
  * @public
  */
 export const Icon: ForwardRefExoticComponent<

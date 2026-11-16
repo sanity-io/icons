@@ -33,7 +33,7 @@ const GENERATED_BANNER = `/* THIS FILE IS AUTO-GENERATED – DO NOT EDIT */`
 // (see `tsdown.config.ts`). Each is exposed both as a named export – the documented import
 // style, `import {AccessDeniedIcon} from '@sanity/icons/AccessDenied'` – and as the default
 // export, so `React.lazy(() => import('@sanity/icons/AccessDenied'))` works out of the box.
-// The generated `icons` map relies on that default export for its own lazy entries.
+// The default export is what `iconImports` resolves and what the lazy `icons` entries render.
 //
 // Icons are wrapped in `React.forwardRef` (instead of relying on React 19's ref-as-prop
 // model) so refs attach on React 18 too – the `react` peer dependency range spans both.
@@ -130,15 +130,12 @@ interface IconMeta {
   name: string
 }
 
-// The `icons` map (and its `IconSymbol`/`IconMap` types) power the dynamic `<Icon symbol=… />`
-// component. Every entry is a `React.lazy` component over its `./exports/<ExportName>` module's
-// default export, so importing the map (or the root barrel) pulls in no icon code up front –
-// each icon is fetched as its own chunk the first time it renders, like an `<img>` loading its
-// `src`. The `<Icon>` wrapper supplies the `<Suspense>` boundary with a matching svg fallback.
+// Each entry's `import()` specifier is a string literal so the bundle emits one chunk per icon.
+// `icons` reads the same cache through `lazyIcon`, whose resolved `then` runs synchronously.
 async function writeIconsMap(files: IconMeta[]) {
-  const importReact = `import {lazy} from 'react'`
+  const importRuntime = `import {lazy} from 'react'\n\nimport {cachedIconImport, lazyIcon} from './cachedIconImport'`
 
-  const importTypes = `import type {IconComponent} from './types'`
+  const importTypes = `import type {IconComponent, IconImporter} from './types'`
 
   const typesExports = `/**\n * @public\n */\nexport type IconSymbol = \n${files
     .map((f) => `| '${f.name}'`)
@@ -148,15 +145,28 @@ async function writeIconsMap(files: IconMeta[]) {
     .map((f) => `'${f.name}': IconComponent`)
     .join(',')}}`
 
-  const iconsExport = `/**\n * @public\n */\nexport const icons: IconMap = {${files
-    .map((f) => `'${f.name}': lazy(() => import('./exports/${f.exportName}'))`)
+  const iconImportsType = `/**\n * @public\n */\nexport type IconImports = Record<IconSymbol, IconImporter>`
+
+  const iconImportsExport = `/**\n * Loads each icon's module. Await \`iconImports[symbol]()\` before rendering \`<Icon symbol>\`\n * or \`icons[symbol]\` and the graphic paints without the empty loading svg.\n *\n * @public\n */\nexport const iconImports: IconImports = {${files
+    .map((f) => `'${f.name}': cachedIconImport(() => import('./exports/${f.exportName}'))`)
+    .join(',')}}`
+
+  const iconsExport = `/**\n * Lazy icon components built from \`iconImports\`.\n *\n * @public\n */\nexport const icons: IconMap = {${files
+    .map((f) => `'${f.name}': lazy(lazyIcon(iconImports['${f.name}']))`)
     .join(',')}}`
 
   const {code} = await format(
     SRC_ICONS_PATH,
-    [GENERATED_BANNER, importReact, importTypes, typesExports, iconMapInterface, iconsExport].join(
-      '\n\n',
-    ),
+    [
+      GENERATED_BANNER,
+      importRuntime,
+      importTypes,
+      typesExports,
+      iconMapInterface,
+      iconImportsType,
+      iconImportsExport,
+      iconsExport,
+    ].join('\n\n'),
     formatConfig,
   )
 
