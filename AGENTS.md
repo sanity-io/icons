@@ -53,8 +53,13 @@ Standard scripts live in the root `package.json` (`lint`, `test`, `build`,
   Playwright-provided browser must be installed once via
   `pnpm --filter sanity-icons-storybook exec playwright install chromium`.
   Stories opt out of being tested with the `!test` tag. `apps/storybook/vercel.json`
-  (sanity-io/ui's, unchanged) is the Vercel config for the hosted Storybook.
+  is the Vercel config for the hosted Storybook.
   Each app keeps its `vercel.json` in its own folder; the repo root has none.
+  Their install and build commands put corepack's pnpm (the `packageManager`
+  pin) first on `PATH` via `/tmp/pnpm-bin`, because Vercel picks pnpm from
+  `lockfileVersion` and does not recognize the v13 lockfile format
+  (`lockfile.format` in `pnpm-workspace.yaml`). This only works while the
+  Vercel projects do not enable corepack mode (`ENABLE_EXPERIMENTAL_COREPACK`).
 - `pnpm dev:icons` starts the icons.sanity.dev showcase (`apps/icons`) on
   http://localhost:5173. It is a plain Vite app; its sources keep this repo's
   historical `src/__workshop__` folder name, which predates replacing
