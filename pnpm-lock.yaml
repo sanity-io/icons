@@ -186,7 +186,7 @@ catalogs:
       specifier: ^19.3.0
       version: 19.3.0
     '@vitejs/plugin-react':
-      specifier: ^6.1.2
+      specifier: ^6.3.0
       version: 6.3.0
     oxc-transform-react:
       specifier: ^0.154.0
