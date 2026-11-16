@@ -1,5 +1,0 @@
----
-"@sanity/icons": patch
----
-
-fix(deps): update react monorepo to ^19.3.1
