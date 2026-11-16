@@ -65,7 +65,7 @@ describe('per-icon subpath exports', () => {
 
 describe('root entry', () => {
   test('exposes only the dynamic entry points, no per-icon exports', () => {
-    expect(Object.keys(barrelExports).toSorted()).toEqual(['Icon', 'icons'])
+    expect(Object.keys(barrelExports).toSorted()).toEqual(['Icon', 'iconImports', 'icons'])
   })
 
   test('every entry in the `icons` map is a `React.lazy` component', () => {

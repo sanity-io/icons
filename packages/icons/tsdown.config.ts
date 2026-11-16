@@ -6,8 +6,8 @@ import {defineConfig} from '@sanity/tsdown-config'
 // `package.json` `exports` subpaths. Keeping these as separate entries lets
 // consumers import a single icon (or `React.lazy()` it) without pulling in the set.
 //
-// The `Icon` component and the `icons` map are not entries: only the root barrel
-// imports them, so they are inlined into `dist/index.js` (the map's lazy per-icon
+// The `Icon` component, `iconImports`, and the `icons` map are not entries: only the
+// root barrel imports them, so they are inlined into `dist/index.js` (the per-icon
 // `import()` calls still resolve to the per-icon entry chunks).
 export default defineConfig({
   tsconfig: './tsconfig.dist.json',

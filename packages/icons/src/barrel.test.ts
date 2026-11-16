@@ -17,7 +17,17 @@ const iconExportNames = readdirSync(path.join(SRC_PATH, 'exports'))
 
 // The root entry's real (runtime-backed) exports. Everything else on the barrel must be a
 // generated `@deprecated` tombstone for a per-icon barrel export that was removed in v5.
-const dynamicExportNames = ['Icon', 'IconComponent', 'IconMap', 'IconProps', 'IconSymbol', 'icons']
+const dynamicExportNames = [
+  'Icon',
+  'IconComponent',
+  'IconImporter',
+  'IconImports',
+  'IconMap',
+  'IconProps',
+  'IconSymbol',
+  'iconImports',
+  'icons',
+]
 
 const barrelProbe = path.join(SRC_PATH, '__probe_barrel__.ts')
 const movedIconProbe = path.join(SRC_PATH, '__probe_moved_barrel_icon__.ts')
@@ -28,10 +38,12 @@ const subpathProbe = path.join(SRC_PATH, '__probe_subpath__.ts')
 // (the same modules the published `exports` map points to in development).
 const probes: Record<string, string> = {
   [barrelProbe]: [
-    `import {Icon, icons, type IconComponent, type IconMap, type IconSymbol} from './index'`,
+    `import {Icon, iconImports, icons, type IconComponent, type IconImporter, type IconImports, type IconMap, type IconSymbol} from './index'`,
     `const rocket: IconComponent = icons['rocket' satisfies IconSymbol]`,
+    `const loadRocket: IconImporter = iconImports['rocket' satisfies IconSymbol]`,
+    `const imports: IconImports = iconImports`,
     `const map: IconMap = icons`,
-    `console.log(Icon, rocket, map)`,
+    `console.log(Icon, rocket, loadRocket, imports, map)`,
     ``,
   ].join('\n'),
   [movedIconProbe]: [

@@ -10,3 +10,10 @@ import type {ComponentPropsWithRef, ComponentType} from 'react'
  * @public
  */
 export type IconComponent = ComponentType<ComponentPropsWithRef<'svg'>>
+
+/**
+ * Loads one icon module. The module's `default` export is the icon component.
+ *
+ * @public
+ */
+export type IconImporter = () => Promise<{default: IconComponent}>
