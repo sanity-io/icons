@@ -28,7 +28,7 @@
     "@vitejs/plugin-react": "catalog:",
     "@vitest/browser-playwright": "^5.0.2",
     "oxc-transform-react": "catalog:",
-    "playwright": "^1.63.0",
+    "playwright": "^1.65.1",
     "react": "catalog:",
     "react-dom": "catalog:",
     "rimraf": "catalog:",
