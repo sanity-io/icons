@@ -210,7 +210,7 @@ catalogs:
       specifier: ^6.6.0
       version: 6.6.0
     tsdown:
-      specifier: ^0.23.1
+      specifier: ^0.23.7
       version: 0.23.7
     typescript:
       specifier: 7.0.2
