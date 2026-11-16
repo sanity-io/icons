@@ -485,7 +485,7 @@ importers:
         specifier: ^16.2.1
         version: 16.2.4
       jsdom:
-        specifier: ^30.1.1
+        specifier: ^30.1.3
         version: 30.1.3(@noble/hashes@2.4.0)
       mkdirp:
         specifier: ^3.0.1
