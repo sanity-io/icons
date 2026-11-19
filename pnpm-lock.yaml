@@ -180,8 +180,8 @@ catalogs:
       specifier: ^8.16.0
       version: 8.16.0
     '@sanity/functions':
-      specifier: ^1.11.0
-      version: 1.11.0
+      specifier: ^1.11.1
+      version: 1.11.1
     '@sanity/tsdown-config':
       specifier: ^0.31.4
       version: 0.31.4
@@ -284,7 +284,7 @@ importers:
         version: 8.16.0(@vitest/browser-playwright@5.1.0)(@vitest/ui@5.1.0)(jsdom@31.0.1(@noble/hashes@2.4.0))(vitest@5.1.0)
       '@sanity/functions':
         specifier: 'catalog:'
-        version: 1.11.0(@aws-lite/client@0.24.1)(@aws-lite/dynamodb@0.3.9)(@aws-lite/lambda@0.1.5)(@aws-lite/sns@0.0.8)(@aws-lite/sqs@0.2.4)
+        version: 1.11.1(@aws-lite/client@0.24.1)(@aws-lite/dynamodb@0.3.9)(@aws-lite/lambda@0.1.5)(@aws-lite/sns@0.0.8)(@aws-lite/sqs@0.2.4)
       '@types/node':
         specifier: 'catalog:'
         version: 26.6.6
@@ -3908,8 +3908,8 @@ packages:
     engines: {node: '>=22.12'}
     hasBin: true
 
-  '@sanity/functions@1.11.0':
-    resolution: {integrity: sha512-LZ1r4SGKP65yLC7/pCFXFAzFvUUKC3iUEktPlgrPLnxFYairylwuhP/pHWjZbArEfFtT/RUdxdYiXjvi5ENo1A==}
+  '@sanity/functions@1.11.1':
+    resolution: {integrity: sha512-hqoAzq+yH9ZJeFSx0NvpVZhCDjmwfDafcEvZvQ8vcIHWWzbKQ8o/LjjKWznTcD4zSHHBQldqPZGmJZT5ycUazA==}
     engines: {node: '>=22'}
     peerDependencies:
       '@aws-lite/client': ^0.24.1
@@ -11788,7 +11788,7 @@ snapshots:
       - jsdom
       - vitest
 
-  '@sanity/functions@1.11.0(@aws-lite/client@0.24.1)(@aws-lite/dynamodb@0.3.9)(@aws-lite/lambda@0.1.5)(@aws-lite/sns@0.0.8)(@aws-lite/sqs@0.2.4)':
+  '@sanity/functions@1.11.1(@aws-lite/client@0.24.1)(@aws-lite/dynamodb@0.3.9)(@aws-lite/lambda@0.1.5)(@aws-lite/sns@0.0.8)(@aws-lite/sqs@0.2.4)':
     dependencies:
       '@aws-lite/client': 0.24.1
       '@aws-lite/dynamodb': 0.3.9
