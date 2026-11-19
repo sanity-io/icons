@@ -20,7 +20,7 @@ catalogMode: prefer
 # that share different vitest versions.)
 catalog:
   '@sanity/blueprints': ^0.34.1
-  '@sanity/client': ^8.16.0
+  '@sanity/client': ^8.17.0
   '@sanity/functions': ^1.11.0
   '@sanity/tsdown-config': ^0.31.4
   '@sanity/ui': ^4.4.12
