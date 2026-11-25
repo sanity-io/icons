@@ -174,8 +174,8 @@ settings:
 catalogs:
   default:
     '@sanity/blueprints':
-      specifier: ^0.34.1
-      version: 0.34.1
+      specifier: ^0.35.0
+      version: 0.35.0
     '@sanity/client':
       specifier: ^8.16.0
       version: 8.16.0
@@ -278,7 +278,7 @@ importers:
     devDependencies:
       '@sanity/blueprints':
         specifier: 'catalog:'
-        version: 0.34.1(@sanity/cli-build@7.2.0(32fd194eca3febbfe4a18c9d9a85205f))(jiti@2.7.0)(vite@8.3.8(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1))
+        version: 0.35.0(@sanity/cli-build@7.2.0(32fd194eca3febbfe4a18c9d9a85205f))(jiti@2.7.0)(vite@8.3.8(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1))
       '@sanity/client':
         specifier: 'catalog:'
         version: 8.16.0(@vitest/browser-playwright@5.1.0)(@vitest/ui@5.1.0)(jsdom@31.0.1(@noble/hashes@2.4.0))(vitest@5.1.0)
@@ -3801,8 +3801,8 @@ packages:
       vite:
         optional: true
 
-  '@sanity/blueprints@0.34.1':
-    resolution: {integrity: sha512-WsCsOYgDFBVfejYsUsJPPbce6FqXy0lB96Qr0IprN28UL0I/8OY4ar0UjrQjnjJRoTRrE7OvixnfxsJPJB6F7A==}
+  '@sanity/blueprints@0.35.0':
+    resolution: {integrity: sha512-ODoVbdvAAyYt6E+nrsvCCbDEStYCAgrozAqj1wmi4x0pKtzysAbQIXV70o40z8y9MAZkC2dhtPrkLYYoureJBg==}
     engines: {node: '>=22'}
     peerDependencies:
       '@sanity/cli-build': '>= 6'
@@ -8331,10 +8331,12 @@ packages:
   yuku-core@0.19.0:
     resolution: {integrity: sha512-kYK9e1XdfirNhkipzW0wmMcSWcVF/CWnuugodfVYRCUwvoBefweL9HzB96OiKEhsx78V5WbUxbJqlizMX869Qg==}
     engines: {node: '>=14.18.0'}
+    deprecated: 'Yuku is now one package with one core. Use "yuku" instead: https://yuku.fyi/javascript/. Existing installs keep working but get no more fixes.'
 
   yuku-parser@0.19.0:
     resolution: {integrity: sha512-XrBh9ZiQK5mJVRxZBAvD6LwRyAYrK3MFtH3+onyuxFL5hFD44EC3QOmIC1FjTj6H2MMwq46/NAI+NZxLZPZgxg==}
     engines: {node: '>=14.18.0'}
+    deprecated: 'Yuku is now one package with one core. Use "yuku" instead: https://yuku.fyi/javascript/. Existing installs keep working but get no more fixes.'
 
   yuku@0.28.1:
     resolution: {integrity: sha512-l899L8rSywcq9OLHf8JNQKpgyrBUL7UNJ7JqefoSVy0oYaFpdf3HoF72EVQFNWYr9HqMw0nGw1r1DefNujOnLQ==}
@@ -11263,7 +11265,7 @@ snapshots:
       jiti: 2.7.0
       vite: 8.3.8(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1)
 
-  '@sanity/blueprints@0.34.1(@sanity/cli-build@7.2.0(32fd194eca3febbfe4a18c9d9a85205f))(jiti@2.7.0)(vite@8.3.8(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1))':
+  '@sanity/blueprints@0.35.0(@sanity/cli-build@7.2.0(32fd194eca3febbfe4a18c9d9a85205f))(jiti@2.7.0)(vite@8.3.8(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1))':
     dependencies:
       parse-duration: 2.1.11
     optionalDependencies:
