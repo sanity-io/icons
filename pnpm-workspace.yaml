@@ -23,7 +23,7 @@ catalog:
   '@sanity/client': ^8.16.0
   '@sanity/functions': ^1.11.0
   '@sanity/tsdown-config': ^0.31.4
-  '@sanity/ui': ^4.4.12
+  '@sanity/ui': ^4.4.14
   '@types/node': ^26.6.6
   '@types/react': ^19.3.0
   '@types/react-dom': ^19.3.0
